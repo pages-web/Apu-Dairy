@@ -1,0 +1,150 @@
+"use client";
+
+import React, { useState } from "react";
+import LongLine from "./longline";
+
+const faqData = [
+  {
+    question: "Нийт бүтээгдэхүүнүүдэд хадгалалтын нэмэлт бодис ордог уу?",
+    answer:
+      "Pipe makes cuntomer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms.",
+  },
+  {
+    question: "Бүтээгдэхүүнүүдийг хаанаас худалдаж авах боломжтой вэ?",
+    answer:
+      "Pipe makes cuntomer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms.",
+  },
+  {
+    question: "Хүүхдэд зориулсан бүтээгдэхүүнд ямар орц хэрэглэдэг вэ?",
+    answer:
+      "Pipe makes cuntomer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms.",
+  },
+  {
+    question: "Сүүн бүтээгдэхүүний түүхий сүү хаанаас нийлүүлдэг вэ?",
+    answer:
+      "Pipe makes cuntomer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms.",
+  },
+];
+
+const FAQ = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const toggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <>
+      <div className="mb-28">
+        <div className="text-start md:mb-10 mt-10 mb-5">
+          <h1 className="inline-block bg-[#FFEFF0] text-[#ED3237] font-sf-pro-rounded text-[13px] font-medium leading-[100%] px-4 py-1 rounded-full">
+            Гол найрлага
+          </h1>
+        </div>
+        <h2
+          style={{
+            color: "#000",
+            fontSize: "32px",
+            fontStyle: "normal",
+            fontWeight: 600,
+            lineHeight: "normal",
+          }}
+          className="md:mb-10 lg:mb-10 text-xl sm:text-xl md:text-2xl font-sf-pro-rounded"
+        >
+          Түгээмэл асуулт хариултууд
+        </h2>
+        {faqData.map((item, idx) => {
+          const isOpen = openIndex === idx;
+
+          return (
+            <div
+              key={idx}
+              style={{ marginBottom: 10, borderBottom: "1px solid gray" }}
+            >
+              <button
+                onClick={() => toggle(idx)}
+                style={{
+                  display: "flex",
+                  padding: "12px 0",
+                  justifyContent: "space-between",
+                  alignSelf: "stretch",
+                  width: "100%",
+                  border: "none",
+                  background: "#fff",
+                  cursor: "pointer",
+                }}
+              >
+                {item.question}
+
+                {isOpen ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    style={{ marginRight: 8 }}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M18 12H6"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    style={{ marginRight: 8 }}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M12 6v12M6 12h12"
+                    />
+                  </svg>
+                )}
+              </button>
+              <>
+                <div
+                  className="faq-answer"
+                  style={{
+                    maxHeight: isOpen ? "500px" : "0px",
+                    padding: isOpen ? "10px" : "0 10px",
+                    maxWidth: isOpen ? "900px" : "0px",
+                  }}
+                >
+                  {isOpen && <p>{item.answer}</p>}
+                </div>
+
+                <style jsx>{`
+                  .faq-answer {
+                    width: 800px;
+                    background: #fafafa;
+                    overflow: hidden;
+                    transition: max-height 0.5s ease, padding 0.3s ease;
+                  }
+                  @media (max-width: 640px) {
+                    .faq-answer {
+                      width: 300px;
+                    }
+                  }
+                `}</style>
+              </>
+            </div>
+          );
+        })}
+      </div>
+      <LongLine />
+    </>
+  );
+};
+
+export default FAQ;

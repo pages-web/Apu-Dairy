@@ -1,0 +1,114 @@
+"use client";
+
+import Image from "next/image";
+import { ICmsPost } from "@/src/graphql/types/cms.types";
+import Zamnal from "@/src/components/History/page";
+import Alham from "@/src/components/Security/alham";
+import Secure from "@/src/components/Security/page";
+import Avatar from "@/src/components/Zahiral Avatar/page";
+
+const About = ({ post }: { post: ICmsPost }) => {
+  return (
+    <div className="py flex flex-col items-center gap-8">
+      <div>
+        <p className="text-[#444546] text-center font-sf-pro-rounded text-[42px] font-semibold capitalize">
+          {post.title.split(" ").map((word, index) =>
+            word === "Up" ? (
+              <span key={index} className="text-red-500">
+                {word}
+              </span>
+            ) : (
+              <span key={index}>{word} </span>
+            )
+          )}
+        </p>
+      </div>
+
+      <div
+        className="max-w-5xl text-[#000000] text-center text-base leading-[160%] font-sf-pro-rounded font-normal"
+        data-aos="fade-up"
+        dangerouslySetInnerHTML={{ __html: post.content }}
+      />
+      <div className="bg-[rgb(237,50,55)] rounded-3xl p-8 w-full max-w-[1400px] mx-auto">
+        {post.thumbnail?.url && (
+          <div className="flex flex-col items-center w-full gap-8">
+            <div className="rounded-xl overflow-hidden w-full hidden md:block lg:block">
+              <Image
+                src={`https://apudairy.api.erxes.io/api/read-file?key=${post.thumbnail.url}`}
+                alt={post.title}
+                width={800}
+                height={600}
+                quality={100}
+                className="object-cover w-full h-auto rounded-xl"
+              />
+            </div>
+
+            <div className="text-white font-semibold max-w-full w-full text-center">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                  <p className="text-[#EEE] font-sf-pro-rounded text-[28px] md:text-[32px] font-medium leading-normal">
+                    21M
+                  </p>
+                  <p className="text-xs md:text-sm text-[#EEE] font-sf-pro-rounded">
+                    Global Reach of Users
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[#EEE] font-sf-pro-rounded text-[28px] md:text-[32px] font-medium leading-normal">
+                    12+
+                  </p>
+                  <p className="text-xs md:text-sm text-[#EEE] font-sf-pro-rounded">
+                    Years of Expertise
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[#EEE] font-sf-pro-rounded text-[28px] md:text-[32px] font-medium leading-normal">
+                    654
+                  </p>
+                  <p className="text-xs md:text-sm text-[#EEE] font-sf-pro-rounded">
+                    Projects Completed
+                  </p>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
+                <div>
+                  <p className="text-[#EEE] font-sf-pro-rounded text-[28px] md:text-[32px] font-medium leading-normal">
+                    113K
+                  </p>
+                  <p className="text-xs md:text-sm text-[#EEE] font-sf-pro-rounded">
+                    Monthly Active Users
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[#EEE] font-sf-pro-rounded text-[28px] md:text-[32px] font-medium leading-normal">
+                    461K
+                  </p>
+                  <p className="text-xs md:text-sm text-[#EEE] font-sf-pro-rounded">
+                    Registered Customers
+                  </p>
+                </div>
+                <div>
+                  <p className="text-[#EEE] font-sf-pro-rounded text-[28px] md:text-[32px] font-medium leading-normal">
+                    10K+
+                  </p>
+                  <p className="text-xs md:text-sm text-[#EEE] font-sf-pro-rounded">
+                    Daily Users
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+      <Zamnal />
+      <h2 className="text-sm font-medium leading-normal text-[#ED3237] bg-[rgb(250,203,205)] rounded-full font-sf-pro-rounded w-32 h-7 flex items-center justify-center">
+        Аюулгүй байдал
+      </h2>
+      <Secure />
+      <Alham />
+      <Avatar />
+    </div>
+  );
+};
+
+export default About;
