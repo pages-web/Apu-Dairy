@@ -5,7 +5,7 @@ import NewsCard from "./cms-card";
 
 const NewsCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <Carousel className="relative">
         <CarouselContent>
           {posts.map((post, index) => (

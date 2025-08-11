@@ -44,20 +44,20 @@ const Brand = ({ post }: { post: ICmsPost }) => {
           <div
             key={index}
             className="relative flex items-center justify-center 
-            h-[150px] sm:h-[350px] md:h-[450px] lg:h-[500px] w-full px-4"
+  h-[150px] sm:h-[350px] md:h-[450px] lg:h-[500px] w-full px-4 group"
           >
             <span
               className="relative block w-full px-4 py-6 
-              h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] 
-              text-[10vw] sm:text-[8vw] md:text-[6vw] xl:text-[5vw] 
-              tracking-wide group whitespace-nowrap overflow-hidden 
-              text-[#131313] text-center font-bold leading-none"
+    h-[250px] sm:h-[350px] md:h-[450px] lg:h-[500px] 
+    text-[10vw] sm:text-[8vw] md:text-[6vw] xl:text-[5vw] 
+    tracking-wide whitespace-nowrap overflow-hidden 
+    text-[#131313] text-center font-bold leading-none"
             >
               {item.name}
               <span
                 className="absolute left-0 top-0 w-full opacity-0 
-                group-hover:opacity-100 transition-opacity duration-500 
-                bg-center bg-contain bg-no-repeat -z-10"
+      group-hover:opacity-100 transition-opacity duration-500 
+      bg-center bg-contain bg-no-repeat -z-10"
                 style={{
                   backgroundImage: `url(${item.image})`,
                   height: "100%",
@@ -72,10 +72,3 @@ const Brand = ({ post }: { post: ICmsPost }) => {
 };
 
 export default Brand;
-
-//                 <span
-//   className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-center bg-cover bg-no-repeat rounded-xl -z-10"
-//   style={{
-//     backgroundImage: `url(${item.image})`,
-//   }}
-// />

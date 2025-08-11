@@ -1,6 +1,5 @@
 "use client";
 
-import Heading from "./cmsHead/heading";
 import NewsCarousel from "./cmsCarusel";
 import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 

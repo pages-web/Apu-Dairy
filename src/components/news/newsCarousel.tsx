@@ -1,23 +1,12 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
-import {
-  CarouselContent,
-  Carousel,
-  CarouselItem,
-  CarouselApi,
-} from "@/src/components/heading/carousel";
+import { Carousel, CarouselItem } from "@/src/components/heading/carousel";
 import { Button } from "@/src/components/ui/Button/Button";
 import Link from "next/link";
 import News from "./news";
 
 const NewsCarousel = ({ posts }: { posts: ICmsPost[] }) => {
-  const [api, setApi] = React.useState<CarouselApi>();
-
-  useEffect(() => {
-    if (!api) return;
-  }, [api]);
-
   return (
     <div className="w-full max-w-[1400px] mx-auto px-4 flex flex-col items-start">
       <div className="flex flex-col items-start gap-4 mt-12">
@@ -37,14 +26,14 @@ const NewsCarousel = ({ posts }: { posts: ICmsPost[] }) => {
         </Link>
       </div>
 
-      <Carousel className="w-full mt-8" setApi={setApi} data-aos="fade-up">
-        <CarouselContent className="flex flex-col md:flex-row">
+      <Carousel className="w-full mt-8" data-aos="fade-up">
+        <div className="flex flex-col md:flex-row">
           {posts.map((post, index) => (
             <CarouselItem key={index} className="w-full md:basis-1/3 shrink-0">
               <News post={post} />
             </CarouselItem>
           ))}
-        </CarouselContent>
+        </div>
       </Carousel>
     </div>
   );

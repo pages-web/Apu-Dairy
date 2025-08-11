@@ -1,33 +1,26 @@
 "use client";
 import React from "react";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
-import {
-  CarouselContent,
-  Carousel,
-  CarouselItem,
-} from "@/src/components/heading/carousel";
 import AlhamMain from "./alhamMain";
 
 const AlhamCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
     <div className="w-full flex mb-20">
-      <div className="ml-[150px] w-full max-w-screen-xl flex flex-col items-start">
-        <Carousel className="w-full" data-aos="fade-up">
-          <CarouselContent
-            className="flex flex-col overflow-visible"
-            containerClassname="overflow-visible"
-          >
+      <div className="ml-[150px] w-full max-w-screen-xl flex flex-col items-start max-[1024px]:ml-4">
+        <div className="w-full" data-aos="fade-up">
+          {/* Том дэлгэц дээр wrap, жижиг дэлгэц дээр horizontal scroll */}
+          <div className="flex lg:flex-wrap lg:overflow-visible overflow-x-auto gap-4 scrollbar-hide">
             {posts?.length > 0 &&
               posts.map((post, index) => (
-                <CarouselItem
+                <div
                   key={index}
-                  className="min-w-[250px] max-w-[320px] px-2"
+                  className="min-w-[250px] max-w-[320px] flex-shrink-0 lg:flex-shrink"
                 >
                   <AlhamMain post={post} />
-                </CarouselItem>
+                </div>
               ))}
-          </CarouselContent>
-        </Carousel>
+          </div>
+        </div>
       </div>
     </div>
   );

@@ -66,10 +66,6 @@ const Content = ({ posts, activeIndex, onSelect }: Props) => {
           </div>
         ))}
       </div>
-      <div className="mt-12">
-        <Hogjil />
-      </div>
-      <div></div>
     </div>
   );
 };

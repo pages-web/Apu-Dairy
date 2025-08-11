@@ -6,6 +6,7 @@ import Zamnal from "@/src/components/History/page";
 import Alham from "@/src/components/Security/alham";
 import Secure from "@/src/components/Security/page";
 import Avatar from "@/src/components/Zahiral Avatar/page";
+import Hogjil from "../Hogjil/page";
 
 const About = ({ post }: { post: ICmsPost }) => {
   return (
@@ -101,6 +102,7 @@ const About = ({ post }: { post: ICmsPost }) => {
         )}
       </div>
       <Zamnal />
+      <Hogjil />
       <h2 className="text-sm font-medium leading-normal text-[#ED3237] bg-[rgb(250,203,205)] rounded-full font-sf-pro-rounded w-32 h-7 flex items-center justify-center">
         Аюулгүй байдал
       </h2>

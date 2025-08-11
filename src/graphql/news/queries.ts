@@ -6,6 +6,7 @@ const newsDetail = gql`
       _id
       title
       content
+      excerpt
       thumbnail {
         url
       }

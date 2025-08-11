@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
 import {
   CarouselContent,
@@ -11,15 +11,15 @@ import About from "./content";
 const HeaderCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
     <div className="w-full flex flex-col items-center py-32">
-      <Carousel className="w-full max-w-full pb-10" data-aos="fade-up">
-        <CarouselContent>
+      <div className="w-full max-w-full pb-10" data-aos="fade-up">
+        <div>
           {posts.map((post, index) => (
-            <CarouselItem className="w-full" key={index}>
+            <div className="w-full" key={index}>
               <About post={post} />
-            </CarouselItem>
+            </div>
           ))}
-        </CarouselContent>
-      </Carousel>
+        </div>
+      </div>
     </div>
   );
 };

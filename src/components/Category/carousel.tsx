@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
 import {
   CarouselContent,
