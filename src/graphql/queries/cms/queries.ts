@@ -5,7 +5,7 @@ const cmsPosts = gql`
     $clientPortalId: String!
     $type: String
     $featured: Boolean
-    $categoryId: String
+    $categoryIds: [String]
     $searchValue: String
     $status: PostStatus
     $page: Int
@@ -19,7 +19,7 @@ const cmsPosts = gql`
       clientPortalId: $clientPortalId
       type: $type
       featured: $featured
-      categoryId: $categoryId
+      categoryIds: $categoryIds
       searchValue: $searchValue
       status: $status
       page: $page
@@ -175,7 +175,6 @@ const cmsPostDetail = gql`
         ... on User {
           _id
           username
-          email
           details {
             fullName
             shortName
@@ -190,7 +189,6 @@ const cmsPostDetail = gql`
           fullName
           firstName
           lastName
-          email
           username
           customer {
             avatar

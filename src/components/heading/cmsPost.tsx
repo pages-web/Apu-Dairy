@@ -5,7 +5,7 @@ import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 
 const MainBanner = () => {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

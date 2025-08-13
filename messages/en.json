@@ -1,0 +1,16 @@
+{
+  "Home": {
+    "welcome": "Welcome to our website!"
+  },
+  "Footer": {
+    "Introduction": "Introduction",
+    "Aboutus": "About us",
+    "Product": "Product",
+    "Sustainabledevelopment": "Sustainable development",
+    "Milk": "Milk preparation",
+    "News": "News",
+    "Human": "Human Resources",
+    "Information": "Information",
+    "Contactus": "Contact us"
+  }
+}

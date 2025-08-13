@@ -4,7 +4,7 @@ import BrandCarousel from "./brandCarousel";
 
 export default async function Brand() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

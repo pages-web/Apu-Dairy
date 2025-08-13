@@ -4,7 +4,7 @@ import NewsCarousel from "./newsCarousel";
 
 export default async function News() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

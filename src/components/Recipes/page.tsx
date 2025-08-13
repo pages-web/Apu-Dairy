@@ -7,7 +7,7 @@ import Joruud from "./jor";
 
 export default function JorPage() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

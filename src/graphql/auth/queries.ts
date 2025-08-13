@@ -28,7 +28,6 @@ const branchDetail = gql`
       title
       address
       phoneNumber
-      email
       links
       coordinate {
         longitude

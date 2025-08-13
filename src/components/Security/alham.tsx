@@ -5,7 +5,7 @@ import ALhamItem from "./alhamItem";
 
 export default async function Alham() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

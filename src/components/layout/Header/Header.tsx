@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { getConfig } from "@/src/graphql/queries/auth";
 import Link from "next/link";
+import { LanguageSwitcher } from "./languageSwitch";
 
 export function NavbarTop() {
   const [logo, setLogo] = useState<string>("");
@@ -47,9 +48,7 @@ export function NavbarTop() {
           ))}
         </nav>
         <div className="sm:hidden max-sm:hidden lg:flex items-center gap-3">
-          <button className="w-10 h-10 rounded-full bg-white text-[#D64545] flex items-center justify-center text-xl font-bold shadow-sm">
-            🌐
-          </button>
+          <LanguageSwitcher />
           <button className=" flex items-center gap-2 bg-white text-[#D64545] font-medium px-4 py-2 rounded-full hover:bg-gray-100 transition shadow-sm">
             💬 Санал хүсэлт
           </button>

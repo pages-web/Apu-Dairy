@@ -6,11 +6,11 @@ import AboutCarousel from "./aboutCarousel";
 
 export default function About() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 
-  const currentLang = localeMap["mn"] || "mn";
+  const currentLang = localeMap["mn"] || "en";
 
   const { cmsTags } = useCmsTags({});
   const aboutTagId = cmsTags.find((tag) => tag.name === "About us")?._id;

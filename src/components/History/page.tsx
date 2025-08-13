@@ -6,7 +6,7 @@ import ZamnalCarousel from "./zamnalCarousel";
 
 export default function Zamnal() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

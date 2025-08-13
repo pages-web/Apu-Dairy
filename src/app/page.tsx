@@ -8,8 +8,8 @@ import FoodCategory from "../components/Food Category/foodCategory";
 import AboutUs from "./about/page";
 import Secure from "../components/Security/page";
 import Alham from "../components/Security/alham";
-import Togtwortoi from "../components/Togtwortoi Hogjil";
 import News from "../components/news/page";
+import Togtwortoi from "../components/TogtwortoiHogjil";
 
 const Home = () => {
   return (

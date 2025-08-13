@@ -5,7 +5,7 @@ import FoodItem from "./foodItem";
 
 export default async function Food() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

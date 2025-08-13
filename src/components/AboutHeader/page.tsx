@@ -6,7 +6,7 @@ import HeaderCarousel from "./headerCarousel";
 
 export default function AboutHeader() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

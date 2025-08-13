@@ -4,7 +4,7 @@ import JorCarousel from "./jorCarousel";
 
 export default async function Joruud() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

@@ -4,7 +4,7 @@ import SecureCarousel from "./secureCarousel";
 
 export default async function Secure() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

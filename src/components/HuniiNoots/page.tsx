@@ -9,7 +9,7 @@ import Item from "@/src/app/cart/item";
 
 export default function Human() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

@@ -4,7 +4,7 @@ import ALhamItemCarousel from "./alhamimageCarousel";
 
 export default async function ALhamItem() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

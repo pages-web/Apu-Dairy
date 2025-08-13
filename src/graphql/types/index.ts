@@ -13,7 +13,6 @@ export type IAttachment = { url?: string; name: string } | null;
 export type ICreatedUser = {
   _id: string;
   username: string;
-  email: string;
   details: { avatar: string; fullName: string };
 };
 

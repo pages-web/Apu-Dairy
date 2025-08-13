@@ -1,5 +1,10 @@
 import { getBranchDetail } from "@/src/graphql/queries/auth";
 import React from "react";
+import { Button } from "../ui/Button/Button";
+import Link, { LinkProps } from "next/link";
+import { icons } from "../layout/Footer/icons";
+import { cn } from "@/src/lib/utils/utils";
+import { MapPinIcon } from "lucide-react";
 
 const Info = async () => {
   const { branchDetail } = await getBranchDetail();
@@ -36,13 +41,37 @@ const Info = async () => {
           <p className="mt-2 text-gray-600">
             Visit our office Mon - Fri, 09:00 AM - 05:00 PM
           </p>
-          <p className="mt-4 text-gray-600">
-            {coordinate ||
-              "Khan-Uul district, 3 khoroo, Uildver street, Ulaanbaatar, Mongolia"}
-          </p>
+          <FooterLink
+            href={`https://www.google.com/maps/@${coordinate?.longitude},${coordinate?.latitude}`}
+            target="_blank"
+            className={cn(
+              "items-start -mt-1 h-auto whitespace-normal",
+              (address || "").length < 20 && "items-center"
+            )}
+          >
+            <MapPinIcon className="flex-none h-5 w-5 mt-1" />
+            <span className="ml-2 text-wrap">{address || ""}</span>
+          </FooterLink>
         </div>
       </div>
     </div>
   );
 };
+
+const FooterLink = (
+  props: React.PropsWithChildren &
+    LinkProps & { className?: string; target?: string }
+) => (
+  <Button
+    asChild
+    className={cn(
+      "px-0 h-8 flex justify-start text-neutral-600 hover:text-primary",
+      props.className
+    )}
+    variant="link"
+  >
+    <Link {...props} />
+  </Button>
+);
+
 export default Info;

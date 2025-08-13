@@ -4,7 +4,7 @@ import FoodItemCarousel from "./footItemCarousel";
 
 export default async function FoodItem() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

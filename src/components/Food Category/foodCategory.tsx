@@ -4,7 +4,7 @@ import FoodCategoryCarousel from "./foodCategoryCarousel";
 
 export default async function FoodCategory() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 

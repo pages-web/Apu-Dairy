@@ -4,7 +4,7 @@ import ImageCarousel from "./secureCarousel";
 
 export default async function Image() {
   const localeMap: Record<string, string> = {
-    "en-us": "en",
+    en: "en",
     mn: "mn",
   };
 
