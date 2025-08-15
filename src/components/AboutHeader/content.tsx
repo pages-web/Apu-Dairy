@@ -41,6 +41,7 @@ const About = ({ post }: { post: ICmsPost }) => {
                 height={600}
                 quality={100}
                 className="object-cover w-full h-auto rounded-xl"
+                loading="lazy"
               />
             </div>
 

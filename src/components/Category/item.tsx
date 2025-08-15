@@ -15,8 +15,9 @@ const Itemcategory = ({ post }: { post: ICmsPost }) => {
             alt={post.title}
             fill
             sizes="100vw"
-            quality={100}
+            quality={75}
             className="object-cover"
+            loading="lazy"
           />
         </div>
       )}

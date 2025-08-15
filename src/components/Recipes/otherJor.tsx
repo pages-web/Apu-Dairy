@@ -17,6 +17,7 @@ const Other = ({ post }: { post: ICmsPost }) => {
               sizes="(max-width: 768px) 100vw, 500px"
               quality={100}
               className="rounded-3xl object-cover"
+              loading="lazy"
             />
           </Link>
           <span className="absolute top-3 left-3 bg-white text-red-500 text-xs font-semibold px-2 py-0.5 rounded-full z-10">

@@ -12,5 +12,98 @@
     "Human": "Human Resources",
     "Information": "Information",
     "Contactus": "Contact us"
+  },
+  "AboutUs": {
+    "headline": "Signed a total $40 million agreement with Asian Development Bank (ADB) and European Bank for Reconstruction and Development (EBRD)",
+    "miniTitle": "RESILIENT LEGACY",
+    "Investment": "Investment",
+    "TrainingProgram": "Training Program",
+    "TrainingEvents": [
+      "Successfully implemented the 'Farmer Training and Workshop'",
+      "Successfully implemented the 'Healthy Herdsman Program'",
+      "Successfully implemented the 'Customer Farmers Experience Exchange Program'"
+    ],
+    "Product": "Product",
+    "ProductCertification": "All four products of the MONT-YAK brand received international organic food certification issued by the Certified Authority of Mongolia."
+  },
+  "News": {
+    "News": "News",
+    "LatestNews": "Latest News",
+    "MinsRead": "mins read"
+  },
+  "AboutMain": {
+    "ReducedCO2": "Reduced CO2 emissions",
+    "LowWaterUsage": "Low water usage",
+    "RecycledPackaging": "Recycled packaging"
+  },
+  "Brand": {
+    "Products": [
+      { "name": "Frutta" },
+      { "name": "Bulgar Yogurt" },
+      { "name": "Iili" },
+      { "name": "Healthy Milk" },
+      { "name": "Sain" },
+      { "name": "Sample" },
+      { "name": "Pure Milk" },
+      { "name": "Sheep Milk" },
+      { "name": "Pro+" }
+    ]
+  },
+  "Product": {
+    "Badges": ["Immune Support", "Organic", "Vegan", "Weight Loss", "Vitamin"],
+    "Ingredients": [
+      {
+        "name": "Vitamin C",
+        "description": "Vitamin C is an essential vitamin used by your gums and natural microbes. It demonstrates a strong defense against bacteria associated with dental decay and gingivitis.",
+        "image": "/images/vitaC.png"
+      },
+      {
+        "name": "Vitamin D",
+        "description": "Vitamin D is an essential vitamin used by your gums and natural microbes. It demonstrates a strong defense against bacteria associated with dental decay and gingivitis.",
+        "image": "/images/vitaD.png"
+      },
+      {
+        "name": "Cranberry Seed",
+        "description": "Cranberry Seed is an essential ingredient for your gums and natural microbes. It demonstrates a strong defense against bacteria associated with dental decay and gingivitis.",
+        "image": "/images/carenbery.png"
+      },
+      {
+        "name": "Quillaja Saponaria",
+        "description": "Quillaja Saponaria is an essential ingredient for your gums and natural microbes. It demonstrates a strong defense against bacteria associated with dental decay and gingivitis.",
+        "image": "/images/quillaja.png"
+      }
+    ],
+    "RecipeIntro": "Our first formula has been validated by 15 years of clinical research. What does it include?"
+  },
+  "FAQTitle": "Frequently Asked Questions",
+  "FAQ": [
+    {
+      "question": "Do all products contain preservatives?",
+      "answer": "No, all our products are free from artificial preservatives."
+    },
+    {
+      "question": "Where can I buy the products?",
+      "answer": "Our products are available at selected retail stores and online."
+    }
+  ],
+  "RecommendProduct": {
+    "RecommendedProducts": "Recommended Products"
+  },
+  "Newsa": {
+    "RecommendedArticles": "Articles you may like"
+  },
+  "Category": {
+    "Төрөл": "Type",
+    "Сүү": "Milk",
+    "Тараг": "Yogurt",
+    "Бусад": "Other"
+  },
+  "ProductCategory": {
+    "GrowthTimeMessage": "Turn free time into growth time with engaging activities that spark curiosity and confidence.",
+    "ProductFeatures": [
+      "Made from 100% Mongolian milk",
+      "HACCP, ISO 22000:2018",
+      "Eco-friendly packaging"
+    ]
   }
 }

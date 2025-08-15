@@ -11,6 +11,8 @@ import Alham from "../components/Security/alham";
 import News from "../components/news/page";
 import Togtwortoi from "../components/TogtwortoiHogjil";
 
+export const revalidate = 60;
+
 const Home = () => {
   return (
     <div>

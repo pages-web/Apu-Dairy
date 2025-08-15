@@ -33,7 +33,7 @@ const About = ({ post }: { post: ICmsPost }) => {
                 style={{ backgroundColor: "rgba(136, 189, 74, 1)" }}
               />
               <p className="mt-2 text-center text-gray-700">
-                CO2 ялгаруулалтыг бууруулсан
+                Усны хэрэглээ бага
               </p>
             </div>
           </div>
@@ -45,6 +45,7 @@ const About = ({ post }: { post: ICmsPost }) => {
               height={600}
               quality={100}
               className="object-cover w-full h-auto rounded-xl"
+              loading="lazy"
             />
           </div>
           <div className="flex flex-col gap-8 items-center">
@@ -55,9 +56,7 @@ const About = ({ post }: { post: ICmsPost }) => {
                 className="w-32 h-32 object-contain rounded-full"
                 style={{ backgroundColor: "rgba(136, 189, 74, 1)" }}
               />
-              <p className="mt-2 text-center text-gray-700">
-                CO2 ялгаруулалтыг бууруулсан
-              </p>
+              <p className="mt-2 text-center text-gray-700">Амьтанд ээлтэй</p>
             </div>
             <div className="flex flex-col items-center w-32">
               <img
@@ -67,7 +66,7 @@ const About = ({ post }: { post: ICmsPost }) => {
                 style={{ backgroundColor: "rgba(136, 189, 74, 1)" }}
               />
               <p className="mt-2 text-center text-gray-700">
-                CO2 ялгаруулалтыг бууруулсан
+                Дахин боловсруулсан сав боодол
               </p>
             </div>
           </div>

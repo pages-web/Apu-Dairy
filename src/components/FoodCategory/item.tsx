@@ -16,6 +16,7 @@ const Item = ({ post }: { post: ICmsPost }) => {
             sizes="(max-width: 768px) 100vw, 400px"
             quality={100}
             className="rounded-4xl object-cover"
+            loading="lazy"
           />
         </div>
       )}

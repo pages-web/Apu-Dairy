@@ -26,6 +26,15 @@ const newsDetail = gql`
         name
         slug
       }
+      pdfAttachment {
+        pages {
+          url
+          name
+          type
+          size
+          duration
+        }
+      }
       tags {
         _id
         name

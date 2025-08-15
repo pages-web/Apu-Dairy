@@ -1,6 +1,6 @@
 "use client";
 
-import NewsCarousel from "./cmsCarusel";
+import MainBannerCarousel from "./cmsCarusel";
 import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 
 const MainBanner = () => {
@@ -21,7 +21,7 @@ const MainBanner = () => {
   });
   return (
     <div>
-      <NewsCarousel posts={cmsPosts} />
+      <MainBannerCarousel posts={cmsPosts} />
     </div>
   );
 };

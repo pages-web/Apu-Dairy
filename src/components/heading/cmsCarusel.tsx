@@ -1,9 +1,9 @@
 import React from "react";
 import { Carousel, CarouselContent, CarouselItem } from "./carousel";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
-import NewsCard from "./cms-card";
+import BannerCard from "./cms-card";
 
-const NewsCarousel = ({ posts }: { posts: ICmsPost[] }) => {
+const MainBannerCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
     <div className="relative w-full">
       <Carousel className="relative">
@@ -14,7 +14,7 @@ const NewsCarousel = ({ posts }: { posts: ICmsPost[] }) => {
               className="w-full sm:w-full md:w-full lg:w-1/2 xl:w-1/3 h-[60vh] sm:h-[70vh] md:h-[90vh] lg:h-[100vh]"
             >
               <div className="w-full h-full">
-                <NewsCard post={post} />
+                <BannerCard post={post} />
               </div>
             </CarouselItem>
           ))}
@@ -24,4 +24,4 @@ const NewsCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   );
 };
 
-export default NewsCarousel;
+export default MainBannerCarousel;

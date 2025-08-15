@@ -19,6 +19,7 @@ const Item = ({ post }: { post: ICmsPost }) => {
             fill
             quality={100}
             className="object-cover rounded-3xl"
+            loading="lazy"
           />
         </div>
       )}

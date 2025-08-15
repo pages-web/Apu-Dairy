@@ -54,6 +54,7 @@ const Gallery = ({ attachments = [] }: { attachments: IAttachment[] }) => {
                 quality={100}
                 alt="Product Image"
                 className="absolute inset-0 h-full w-full rounded-2xl object-fill transform transition-transform duration-100 ease-in-out hover:scale-105 hover:translate-y-[-5px]"
+                loading="lazy"
               />
             </CarouselItem>
           ))}
@@ -87,6 +88,7 @@ const Gallery = ({ attachments = [] }: { attachments: IAttachment[] }) => {
                 width={164}
                 alt=""
                 className="object-contain h-full w-full rounded-2xl"
+                loading="lazy"
               />
             </CarouselItem>
           ))}

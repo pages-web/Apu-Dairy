@@ -14,6 +14,7 @@ const SecureMain = ({ post }: { post: ICmsPost }) => {
           sizes="100vw"
           quality={100}
           className="object-cover"
+          loading="lazy"
         />
       )}
 

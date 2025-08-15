@@ -58,6 +58,7 @@ const ProductCard = ({
             fill
             className="object-contain rounded-2xl transition-all duration-200 scale-125 group-hover:scale-175 group-hover:translate-x-2"
             sizes="(max-width: 768px) 100vw, 280px"
+            loading="lazy"
           />
         </div>
       </Link>

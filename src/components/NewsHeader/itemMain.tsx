@@ -2,6 +2,7 @@
 
 import { ICmsPost } from "@/src/graphql/types/cms.types";
 import Image from "../ui/image";
+import { TimerIcon } from "lucide-react";
 
 const Item = ({ post }: { post: ICmsPost }) => {
   return (
@@ -15,9 +16,12 @@ const Item = ({ post }: { post: ICmsPost }) => {
             height={600}
             quality={100}
             className="object-cover rounded-3xl"
+            loading="lazy"
           />
-          <div className="absolute bottom-4 left-4 text-white">
-            <div className="flex justify-between w-full text-[14px] font-normal opacity-90">
+
+          {/* Overlay for bottom left */}
+          <div className="absolute bottom-4 left-4 text-white w-[calc(100%-2rem)]">
+            <div className="flex gap-20 text-[14px] font-normal opacity-90 mb-1">
               <div className="flex items-center gap-1">
                 <img
                   src="/images/calendar.png"
@@ -26,10 +30,15 @@ const Item = ({ post }: { post: ICmsPost }) => {
                 />
                 <span>6 сарын 18</span>
               </div>
-              <span>5 mins read</span>
+
+              {/* Timer icon + text */}
+              <div className="flex items-center gap-1">
+                <TimerIcon className="w-4 h-4" />
+                <span>5 mins read</span>
+              </div>
             </div>
 
-            <div className="text-white font-sf-pro-rounded text-[18px] sm:text-[20px] font-normal leading-normal uppercase mt-1 mb-2 break-words hidden md:block lg:block">
+            <div className="font-sf-pro-rounded text-[18px] sm:text-[20px] font-normal leading-normal uppercase break-words p-2 rounded">
               {post.title}
             </div>
           </div>

@@ -28,6 +28,7 @@ const Footer = async () => {
             alt="footer plant"
             width={60}
             height={60}
+            loading="lazy"
           />
         </div>
 

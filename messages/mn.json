@@ -1,5 +1,116 @@
 {
   "Home": {
     "welcome": "Манай сайтад тавтай морил!"
+  },
+  "Footer": {
+    "Introduction": "Танилцуулга",
+    "Aboutus": "Бидний тухай",
+    "Product": "Бүтээгдэхүүн",
+    "Sustainabledevelopment": "Тогтвортой хөгжил",
+    "Milk": "Сүүн бүтээгдэхүүн",
+    "News": "Мэдээ",
+    "Human": "Хүний нөөц",
+    "Information": "Мэдээлэл",
+    "Contactus": "Холбоо барих"
+  },
+  "AboutUs": {
+    "headline": "Нийт 40 сая долларын гэрээг Азийн Хөгжлийн Банк (АХБ) болон Европын Сэргээн Босголт Хөгжлийн банк (ЕСБХБ)-тай байгуулав",
+    "miniTitle": "Тэсвэртэй өв",
+    "Investment": " Хөрөнгө оруулалт",
+    "TrainingProgram": "Сургалт хөтөлбөр",
+    "TrainingEvents": [
+      "“Фермерийн сургалт, өдөрлөг”-ийг амжилттай хэрэгжүүллээ",
+      "“Эрүүл малчин хөтөлбөр”-ийг амжилттай хэрэгжүүллээ",
+      "“Харилцагч фермерүүдийн туршлага солилцох хөтөлбөр”-ийг амжилттай хэрэгжүүллээ"
+    ],
+    "Product": "Бүтээгдэхүүн",
+    "ProductCertification": "MONT-YAK брэндийн нийт дөрвөн бүтээгдэхүүн нь Монгол Улсын Итгэмжлэгдсэн байгууллагаас олгодог органик хүнсний олон улсын гэрчилгээг авав"
+  },
+  "News": {
+    "News": "Мэдээ мэдээлэл",
+    "LatestNews": "Сүүлийн үеийн мэдээ",
+    "MinsRead": "минут унших"
+  },
+  "AboutMain": {
+    "ReducedCO2": "CO2 ялгаруулалтыг бууруулсан",
+    "LowWaterUsage": "Усны хэрэглээ бага",
+    "RecycledPackaging": "Дахин боловсруулсан сав боодол"
+  },
+  "Brand": {
+    "Products": [
+      { "name": "Фрутта" },
+      { "name": "Булгар Йогурт" },
+      { "name": "Ийли" },
+      { "name": "Эрүүл сүү" },
+      { "name": "Сайн" },
+      { "name": "Дээж" },
+      { "name": "Цэвэр сүү" },
+      { "name": "Хонин нуга" },
+      { "name": "Про+" }
+    ]
+  },
+  "Product": {
+    "Badges": ["Дархлаа дэмжинэ", "Органик", "Веган", "Жин хасах", "Витамин"],
+    "Ingredients": [
+      {
+        "name": "Vitamin C",
+        "description": "Vitamin C нь таны буйл болон байгалийн микробуудад хэрэгтэй амин дэм юм. Энэ нь шүдний цоорол болон буйлны үрэвсэлтэй холбоотой бактериудын эсрэг хүчтэй хамгаалалт үзүүлдэг.",
+        "image": "/images/vitaC.png"
+      },
+      {
+        "name": "Vitamin D",
+        "description": "Vitamin D нь таны буйл болон байгалийн микробуудад хэрэгтэй амин дэм юм. Энэ нь шүдний цоорол болон буйлны үрэвсэлтэй холбоотой бактериудын эсрэг хүчтэй хамгаалалт үзүүлдэг.",
+        "image": "/images/vitaD.png"
+      },
+      {
+        "name": "Cranberry Seed",
+        "description": "Cranberry Seed нь таны буйл болон байгалийн микробуудад хэрэгтэй амин дэм юм. Энэ нь шүдний цоорол болон буйлны үрэвсэлтэй холбоотой бактериудын эсрэг хүчтэй хамгаалалт үзүүлдэг.",
+        "image": "/images/carenbery.png"
+      },
+      {
+        "name": "Quillaja Saponaria",
+        "description": "Quillaja Saponaria нь таны буйл болон байгалийн микробуудад хэрэгтэй амин дэм юм. Энэ нь шүдний цоорол болон буйлны үрэвсэлтэй холбоотой бактериудын эсрэг хүчтэй хамгаалалт үзүүлдэг.",
+        "image": "/images/quillaja.png"
+      }
+    ],
+    "RecipeIntro": "Манай анхны жор нь 15 жилийн клиник судалгаагаар батлагдсан. Үүнд юу багтдаг вэ:"
+  },
+  "FAQ": [
+    {
+      "question": "Нийт бүтээгдэхүүнүүдэд хадгалалтын нэмэлт бодис ордог уу?",
+      "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
+    },
+    {
+      "question": "Бүтээгдэхүүнүүдийг хаанаас худалдаж авах боломжтой вэ?",
+      "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
+    },
+    {
+      "question": "Хүүхдэд зориулсан бүтээгдэхүүнд ямар орц хэрэглэдэг вэ?",
+      "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
+    },
+    {
+      "question": "Сүүн бүтээгдэхүүний түүхий сүү хаанаас нийлүүлдэг вэ?",
+      "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
+    }
+  ],
+  "RecommendProduct": {
+    "RecommendedProducts": "Санал болгох бүтээгдэхүүнүүд"
+  },
+  "Newsa": {
+    "RecommendedArticles": "Танд таалагдах нийтлэлүүд"
+  },
+  "Category": {
+    "Төрөл": "Төрөл",
+    "Сүү": "Сүү",
+    "Тараг": "Тараг",
+    "Бусад": "Бусад"
+  },
+  "ProductCategory": {
+    "GrowthTimeMessage": "Чөлөөт цагийг сонирхол татсан үйл ажиллагаагаар ашиглан сонирхол болон итгэлцлийг хөгжүүлээрэй.",
+    "ProductFeatures": [
+      "100% Монгол сүүгээр үйлдвэрлэсэн",
+      "HACCP, ISO 22000:2018",
+      "Байгальд ээлтэй савлагаа"
+    ]
   }
 }

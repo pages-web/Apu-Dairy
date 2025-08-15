@@ -14,6 +14,7 @@ const News = ({ post }: { post: ICmsPost }) => {
             width={400}
             height={250}
             className="object-cover w-[100%] h-[200px] rounded-xl"
+            loading="lazy"
           />
         </div>
       )}

@@ -56,6 +56,7 @@ const Content = ({ posts, activeIndex, onSelect }: Props) => {
                   fill
                   quality={100}
                   className="object-cover"
+                  loading="lazy"
                 />
               )}
             </div>

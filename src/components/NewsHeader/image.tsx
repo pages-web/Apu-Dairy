@@ -14,6 +14,7 @@ const Images = ({ post }: { post: ICmsPost }) => {
             alt={post.title}
             fill
             className="object-cover rounded-xl"
+            loading="lazy"
           />
         </div>
 

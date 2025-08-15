@@ -2,54 +2,43 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 const images = [
-  {
-    text: "Нийт 40 сая долларын гэрээ...",
-    imageUrl: "/images/Marketing Campaign 1 1.png",
-  },
+  { text: "Нийт 40 сая долларын гэрээ...", imageUrl: "/images/green1.png" },
   {
     text: "Фермерийн сургалт, эрдэмлэг...",
-    imageUrl: "/images/2016.png",
+    imageUrl: "/images/Marketing Campaign 1 1.png",
   },
-  {
-    text: "Монгол улсын итгэмжлэгдсэн...",
-    imageUrl: "/images/2017.png",
-  },
-  {
-    imageUrl: "/images/2018.png",
-  },
-  {
-    imageUrl: "/images/sain.png",
-  },
+  { text: "Монгол улсын итгэмжлэгдсэн...", imageUrl: "/images/yellow1.png" },
+  { imageUrl: "/images/orange1.png" },
+  { imageUrl: "/images/red1.png" },
 ];
 
 const bgColors = [
-  "bg-red-600",
-  "bg-orange-500",
-  "bg-yellow-400",
-  "bg-blue-600",
-  "bg-green-800",
+  "bg-[rgb(52,128,64)]", // red
+  "bg-[rgb(48,122,188)]", // orange
+  "bg-[rgb(233,177,50)]", // yellow
+  "bg-[rgb(220,109,37)]", // blue
+  "bg-[rgb(238,50,57)]", // green
 ];
 
 const StrategySlider = () => {
   const [index, setIndex] = useState(0);
   const [rotation, setRotation] = useState(0);
-  const [colorIndex, setColorIndex] = useState(bgColors.length - 1); // эхлээд ногоон дээр
 
   const handlePrev = () => {
     setIndex((prev) => (prev - 1 + images.length) % images.length);
     setRotation((prev) => prev - 75);
-    setColorIndex((prev) => (prev + 1 + bgColors.length) % bgColors.length);
   };
 
   const handleNext = () => {
     setIndex((prev) => (prev + 1) % images.length);
     setRotation((prev) => prev + 75);
-    setColorIndex((prev) => (prev - 1) % bgColors.length);
   };
 
   return (
     <div
-      className={`flex flex-col lg:flex-row items-center justify-between gap-16 p-10 rounded-3xl max-w-screen w-full mx-auto h-[350px] ${bgColors[colorIndex]}`}
+      className={`flex flex-col lg:flex-row items-center justify-between gap-16 p-10 rounded-3xl max-w-screen w-full mx-auto h-[350px] ${
+        bgColors[index % bgColors.length]
+      }`}
     >
       <div className="relative w-60 h-60 flex-shrink-0">
         <div className="relative w-full h-full">
@@ -65,6 +54,7 @@ const StrategySlider = () => {
               alt="Wheel"
               width={540}
               height={240}
+              loading="lazy"
               className="rounded-full w-[600px] h-[240px]"
             />
           </div>
@@ -76,7 +66,6 @@ const StrategySlider = () => {
             />
           </div>
         </div>
-
         <div className="absolute left-1/2 -translate-x-1/2 flex gap-4">
           <button
             onClick={handlePrev}
@@ -92,7 +81,6 @@ const StrategySlider = () => {
           </button>
         </div>
       </div>
-
       <div className="w-full text-white">
         <h1 className="text-lg md:text-xs font-normald flex justify-start">
           RESILIENT LEGACY
@@ -101,7 +89,6 @@ const StrategySlider = () => {
         <div className="flex items-start gap-4 mt-2">
           <div className="bg-white rounded-2xl shadow-lg p-6 w-24 h-20 flex flex-col justify-center items-center text-center">
             <img src="/images/tea.svg" alt="" />
-
             <p className="text-[12px] leading-[13.2px] font-semibold text-[#307ABD] text-center font-sf-pro-rounded">
               Хөрөнгө оруулалт
             </p>
@@ -140,13 +127,13 @@ const StrategySlider = () => {
           </p>
         </div>
       </div>
-
       <div className="max-w-xs w-full hidden md:block lg:block items-center justify-end space-x-4 px-4">
         <Image
           src={images[index].imageUrl}
           alt="Right Side"
           width={200}
           height={200}
+          loading="lazy"
         />
       </div>
     </div>

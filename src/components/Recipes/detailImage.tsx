@@ -48,7 +48,7 @@ const ImageCarousel: React.FC<Props> = ({
           className="object-cover bg-white"
           quality={100}
           sizes="(max-width: 768px) 100vw, (max-width: 1024px) 80vw, 50vw"
-          priority
+          loading="lazy"
         />
         <button
           onClick={prevImage}
