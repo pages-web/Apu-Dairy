@@ -29,8 +29,8 @@ const AllProductsPage = () => {
       router.push("/proplus");
     }
 
-    if (selectedBrand === "Deej") {
-      router.push("/deej");
+    if (selectedBrand === "Sheep") {
+      router.push("/sheep");
     }
   };
   return (
@@ -48,7 +48,7 @@ const AllProductsPage = () => {
             <option value="">Бренд</option>
             <option value="Pro+">Про+</option>
             <option value="Sain">Сайн</option>
-            <option value="Deej">Хонин нуга</option>
+            <option value="Sheep">Хонин нуга</option>
           </select>
           <div className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2">
             <svg

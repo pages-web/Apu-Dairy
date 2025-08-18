@@ -4,6 +4,7 @@ import React from "react";
 import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 import Carousels from "./carousel";
 import Joruud from "./jor";
+import Skeleton from "../Skeleton/page";
 
 export default function JorPage() {
   const localeMap: Record<string, string> = {
@@ -15,10 +16,13 @@ export default function JorPage() {
 
   const { cmsTags } = useCmsTags({});
 
-  const { cmsPosts } = useCmsPosts({
+  const { cmsPosts, loading } = useCmsPosts({
     tagIds: [cmsTags.find((tag: { name: string }) => tag.name === "Jor")?._id],
     language: "mn",
   });
+  if (loading) {
+    return <Skeleton />;
+  }
 
   return (
     <div className="px-3">

@@ -8,7 +8,7 @@ const Item = ({ post }: { post: ICmsPost }) => {
   return (
     <div className="flex flex-col items-center gap-4 px-4 sm:px-6">
       {post.thumbnail?.url && (
-        <div className="relative max-w-[900px] w-[650px] h-[480px] overflow-hidden rounded-3xl">
+        <div className="relative sm:h-80 md:h-[480px] overflow-hidden rounded-3xl max-w-[900px] md:w-[650px] w-[320px] h-[200px]">
           <span className="absolute top-3 left-3 bg-white text-red-500 text-xs font-semibold px-2 py-0.5 rounded-full z-10">
             Веган
           </span>

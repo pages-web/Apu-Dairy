@@ -3,6 +3,7 @@
 import React from "react";
 import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 import HeaderCarousel from "./headerCarousel";
+import Skeleton from "../Skeleton/page";
 
 export default function AboutHeader() {
   const localeMap: Record<string, string> = {
@@ -17,10 +18,13 @@ export default function AboutHeader() {
     (tag: { name: string }) => tag.name === "About Header"
   )?._id;
 
-  const { cmsPosts } = useCmsPosts({
+  const { cmsPosts, loading } = useCmsPosts({
     tagIds: [tagId],
     language: "mn",
   });
+  if (loading) {
+    return <Skeleton />;
+  }
 
   return (
     <div>

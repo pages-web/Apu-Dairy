@@ -6,32 +6,49 @@ import Link from "next/link";
 
 const Togtwortoi = () => {
   return (
-    <div className="w-full max-w-[1400px] mx-auto items-center h-[480px] relative overflow-hidden px-6 py-12 rounded-2xl bg-green-800 max-sm:ml-5">
-      <div className="absolute top-6 left-6 w-48 h-auto z-10">
+    <div className="w-full max-w-[1400px] mx-auto relative overflow-hidden px-4 py-8 rounded-2xl bg-green-800 flex flex-col items-start md:h-[480px]">
+      {/* Logo */}
+      <div className="w-32 h-auto z-10 mb-4 md:absolute md:top-6 md:left-6">
         <img src="/images/togtwor.svg" alt="logo" />
       </div>
-      <div className="absolute top-[230px] left-6 z-20">
-        <p
-          className="
-        text-white
-        text-[32px]
-        font-extrabold
-        leading-[100%]
-        tracking-[-0.32px]
-      "
-        >
-          Тогтвортой хөгжил
-        </p>
-      </div>
-      <div className="absolute top-[280px] left-6 z-20 w-full max-w-[300px] md:w-80">
-        <p className="text-white text-[12px] font-medium">
-          АПУ Дэйри нь байгаль орчинд ээлтэй, нийгэмд тустай, эдийн засгийн
-          хувьд үр ашигтай үйл ажиллагааг явуулахыг эрмэлздэг. Бид малчдын
-          амьжиргааг дэмжиж, байгалийн баялгийг хамгаалахын зэрэгцээ ирээдүй
-          хойч үедээ өвлүүлэх зорилготой ажилладаг.
-        </p>
+
+      {/* Title */}
+      <div className="text-white text-2xl md:text-4xl font-extrabold leading-snug tracking-tight mb-4 md:absolute md:top-[230px] md:left-6">
+        Тогтвортой хөгжил
       </div>
 
+      {/* Description */}
+      <div className="text-white text-xs md:text-sm max-w-full md:max-w-[300px] mb-4 md:absolute md:top-[280px] md:left-6">
+        АПУ Дэйри нь байгаль орчинд ээлтэй, нийгэмд тустай, эдийн засгийн хувьд
+        үр ашигтай үйл ажиллагааг явуулахыг эрмэлздэг. Бид малчдын амьжиргааг
+        дэмжиж, байгалийн баялгийг хамгаалахын зэрэгцээ ирээдүй хойч үедээ
+        өвлүүлэх зорилготой ажилладаг.
+      </div>
+
+      {/* Button */}
+      <div className="mt-4 md:absolute md:top-[400px] md:left-6">
+        <Link href="/contact">
+          <Button className="flex items-center gap-2 px-4 py-2 text-[#3B834D] bg-white rounded-full transition">
+            Дэлгэрэнгүй
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M5.22001 15.2927C5.36064 15.4331 5.55126 15.512 5.75001 15.512C5.94876 15.512 6.13939 15.4331 6.28001 15.2927L13.5 8.0727V13.7627C13.5 13.9616 13.579 14.1524 13.7197 14.293C13.8603 14.4337 14.0511 14.5127 14.25 14.5127C14.4489 14.5127 14.6397 14.4337 14.7803 14.293C14.921 14.1524 15 13.9616 15 13.7627V6.2627C15 6.06378 14.921 5.87302 14.7803 5.73237C14.6397 5.59171 14.4489 5.5127 14.25 5.5127H6.75001C6.5511 5.5127 6.36033 5.59171 6.21968 5.73237C6.07903 5.87302 6.00001 6.06378 6.00001 6.2627C6.00001 6.46161 6.07903 6.65237 6.21968 6.79303C6.36033 6.93368 6.5511 7.0127 6.75001 7.0127H12.44L5.22001 14.2327C5.07956 14.3733 5.00067 14.5639 5.00067 14.7627C5.00067 14.9614 5.07956 15.1521 5.22001 15.2927Z"
+                fill="#3B834D"
+              />
+            </svg>
+          </Button>
+        </Link>
+      </div>
+
+      {/* Background images */}
       <div className="absolute bottom-48 left-190 w-14 h-10 z-10 hidden md:block">
         <Image
           src="/images/mod1.svg"
@@ -64,7 +81,7 @@ const Togtwortoi = () => {
           className="object-contain"
         />
       </div>
-      <div className="absolute bottom-40 right-25 w-50 h-36 z-10 hidden md:block">
+      <div className="absolute bottom-40 right-35 w-50 h-36 z-10 hidden md:block">
         <Image
           src="/images/cow1.svg"
           alt="Cow1"
@@ -124,27 +141,6 @@ const Togtwortoi = () => {
             fill="#5BA534"
           />
         </svg>
-      </div>
-      <div className="absolute top-[400px] left-6 z-20 w-80 hidden md:block">
-        <Link href="/contact">
-          <Button className="flex items-center gap-2 px-4 py-2 text-[#3B834D] bg-white rounded-full d-50 transition">
-            Дэлгэрэнгүй
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="21"
-              viewBox="0 0 20 21"
-              fill="none"
-            >
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M5.22001 15.2927C5.36064 15.4331 5.55126 15.512 5.75001 15.512C5.94876 15.512 6.13939 15.4331 6.28001 15.2927L13.5 8.0727V13.7627C13.5 13.9616 13.579 14.1524 13.7197 14.293C13.8603 14.4337 14.0511 14.5127 14.25 14.5127C14.4489 14.5127 14.6397 14.4337 14.7803 14.293C14.921 14.1524 15 13.9616 15 13.7627V6.2627C15 6.06378 14.921 5.87302 14.7803 5.73237C14.6397 5.59171 14.4489 5.5127 14.25 5.5127H6.75001C6.5511 5.5127 6.36033 5.59171 6.21968 5.73237C6.07903 5.87302 6.00001 6.06378 6.00001 6.2627C6.00001 6.46161 6.07903 6.65237 6.21968 6.79303C6.36033 6.93368 6.5511 7.0127 6.75001 7.0127H12.44L5.22001 14.2327C5.07956 14.3733 5.00067 14.5639 5.00067 14.7627C5.00067 14.9614 5.07956 15.1521 5.22001 15.2927Z"
-                fill="#3B834D"
-              />
-            </svg>
-          </Button>
-        </Link>
       </div>
     </div>
   );

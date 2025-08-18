@@ -4,16 +4,17 @@ import { useEffect, useState } from "react";
 import { getConfig } from "@/src/graphql/queries/auth";
 import Link from "next/link";
 import { LanguageSwitcher } from "./languageSwitch";
+import { Menu, X } from "lucide-react"; // icon library
 
 export function NavbarTop() {
   const [logo, setLogo] = useState<string>("");
+  const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const fetchConfig = async () => {
       const { config } = await getConfig();
       setLogo(config?.uiOptions?.logo || "");
     };
-
     fetchConfig();
   }, []);
 
@@ -27,7 +28,7 @@ export function NavbarTop() {
   ];
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 bg-white/50 bg-opacity-95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+    <header className="absolute top-0 left-0 right-0 z-50 bg-white/50 backdrop-blur-md border-b border-gray-200 shadow-sm">
       <div className="max-w-screen-xl mx-auto flex items-center justify-between py-4 px-6">
         <Link href="/">
           <img
@@ -36,7 +37,9 @@ export function NavbarTop() {
             className="w-24 h-auto"
           />
         </Link>
-        <nav className="sm:hidden max-sm:hidden lg:flex items-center bg-gray-100 px-4 py-2 rounded-full text-sm font-semibold text-[#232323]">
+
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center bg-gray-100 px-4 py-2 rounded-full text-sm font-semibold text-[#232323]">
           {navItems.map((item) => (
             <Link
               key={item.label}
@@ -47,14 +50,42 @@ export function NavbarTop() {
             </Link>
           ))}
         </nav>
-        <div className="sm:hidden max-sm:hidden lg:flex items-center gap-3">
+
+        {/* Desktop Right Buttons */}
+        <div className="hidden lg:flex items-center gap-3">
           <LanguageSwitcher />
-          <button className=" flex items-center gap-2 bg-white text-[#D64545] font-medium px-4 py-2 rounded-full hover:bg-gray-100 transition shadow-sm">
+          <button className="flex items-center gap-2 bg-white text-[#D64545] font-medium px-4 py-2 rounded-full hover:bg-gray-100 transition shadow-sm">
             💬 Санал хүсэлт
           </button>
         </div>
-        <div className="lg:hidden" />
+
+        {/* Mobile Hamburger */}
+        <div className="lg:hidden flex items-center">
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="p-2 rounded-md border border-gray-300"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
+
+      {mobileOpen && (
+        <div className="lg:hidden bg-white w-full border-t border-gray-200 shadow-md">
+          <nav className="flex flex-col px-6 py-4 space-y-2">
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="cursor-pointer px-3 py-2 rounded-full hover:bg-gray-100 hover:text-[#D64545] transition"
+                onClick={() => setMobileOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+        </div>
+      )}
     </header>
   );
 }

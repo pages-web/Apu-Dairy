@@ -1,4 +1,5 @@
 "use client";
+import { useCmsPosts } from "@/src/graphql/queries/kb";
 import React from "react";
 
 const cards = [
@@ -8,12 +9,7 @@ const cards = [
     translateX: "-translate-x-100",
     translateY: "-translate-y-16",
     img: "/images/Vector@2x.png",
-    title: "Empowered to Improve",
     textColor: "text-gray-800",
-    texts: [
-      "Every team member is encouraged to bring new ideas, challenge the status quo, and contribute to making our products better for the people of tomorrow.",
-      "You're not just doing a job; you're shaping the future.",
-    ],
   },
   {
     bg: "bg-red-500",
@@ -21,12 +17,7 @@ const cards = [
     translateX: "-translate-x-70",
     translateY: "",
     img: "/images/red.svg",
-    title: "A Place to Grow",
     textColor: "text-white",
-    texts: [
-      "We invest in our people, providing continuous learning opportunities, training, and access to knowledge for career development.",
-      "Whether you're just starting out or seeking a leadership role, we offer clear career paths and personalized development plans.",
-    ],
   },
   {
     bg: "bg-blue-600",
@@ -34,12 +25,7 @@ const cards = [
     translateX: "-translate-x-5",
     translateY: "",
     img: "/images/blue.png",
-    title: "Culture of Collaboration",
     textColor: "text-white",
-    texts: [
-      "Our teams work in a supportive, inclusive atmosphere that values diversity, respect, and teamwork.",
-      "Cross-functional collaboration is at the heart of how we operate – we learn from each other every day.",
-    ],
     zIndex: "z-10",
   },
   {
@@ -48,12 +34,7 @@ const cards = [
     translateX: "translate-x-70",
     translateY: "",
     img: "/images/red.svg",
-    title: "Modern & Safe",
     textColor: "text-white",
-    texts: [
-      "From our production floors to our office spaces, we provide a clean, organized, and modern environment that fosters productivity.",
-      "Our operations follow stringent safety and quality standards to ensure a best-in-class working environment.",
-    ],
   },
   {
     bg: "bg-green-500",
@@ -61,49 +42,70 @@ const cards = [
     translateX: "translate-x-100",
     translateY: "-translate-y-10",
     img: "/images/green.png",
-    title: "Culture of Collaboration",
     textColor: "text-white",
-    texts: [
-      "Our teams work in a supportive, inclusive atmosphere that values diversity, respect, and teamwork.",
-      "Cross-functional collaboration is at the heart of how we operate – we learn from each other every day.",
-    ],
     zIndex: "z-20",
   },
 ];
 
 const Item = () => {
+  const tagIds = [
+    "s6DBTN9aBYvuTPvfCTMRd", // red card
+    "wqlbGxAHIBH0WFq5PJsF9", // blue card
+    "04D5cBojsYfI3UCMl21Jn", // yellow card
+    "Ki3h0j7LGclf27wudzRQK", // red 2 card
+    "69iXgS7Fagi0rmjMmJTuF", // green card
+  ];
+
+  const { cmsPosts, loading } = useCmsPosts({
+    tagIds,
+    language: "mn",
+  });
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center min-h-[20rem]">
+        Түр хүлээнэ үү...
+      </div>
+    );
+  }
+
   return (
     <div className="relative w-full h-full flex items-center justify-center overflow-visible min-h-[30rem] p-32">
-      {cards.map((card, idx) => (
-        <div
-          key={idx}
-          className={`
-            absolute w-64 h-96 rounded-2xl shadow-lg p-6
-            ${card.bg} ${card.textColor}
-            transform
-            ${card.rotate} ${card.translateX} ${card.translateY}
-            transition-transform duration-300 ease-in-out
-            hover:scale-105 hover:shadow-2xl hover:z-30 w-80
-            overflow-visible
-            ${card.zIndex ? card.zIndex : ""}
-          `}
-        >
-          <div className="relative h-32 flex justify-center mb-4">
-            <img
-              src={card.img}
-              alt={`${card.title} card`}
-              className="w-32 h-32 object-contain"
-              draggable={false}
-            />
+      {cards.map((card, idx) => {
+        const post = cmsPosts?.[idx];
+
+        return (
+          <div
+            key={idx}
+            className={`
+              absolute w-64 h-96 rounded-2xl shadow-lg p-6
+              ${card.bg} ${card.textColor}
+              transform
+              ${card.rotate} ${card.translateX} ${card.translateY}
+              transition-transform duration-300 ease-in-out
+              hover:scale-105 hover:shadow-2xl hover:z-30 w-80
+              overflow-visible
+              ${card.zIndex ? card.zIndex : ""}
+              flex flex-col justify-end
+            `}
+          >
+            <div className="absolute top-6 left-0 right-0 flex justify-center">
+              <img
+                src={card.img}
+                alt={post?.title || "card"}
+                className="w-32 h-32 object-contain"
+                draggable={false}
+              />
+            </div>
+            <div className="mt-auto text-center">
+              <div
+                className="text-sm space-y-3"
+                dangerouslySetInnerHTML={{ __html: post?.content || "" }}
+              />
+            </div>
           </div>
-          <h2 className="text-xl font-bold mb-4">{card.title}</h2>
-          <ul className="text-sm space-y-3">
-            {card.texts.map((line, i) => (
-              <li key={i}>{line}</li>
-            ))}
-          </ul>
-        </div>
-      ))}
+        );
+      })}
     </div>
   );
 };

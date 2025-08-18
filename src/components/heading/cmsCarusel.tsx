@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Carousel, CarouselContent, CarouselItem } from "./carousel";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
@@ -11,11 +13,9 @@ const MainBannerCarousel = ({ posts }: { posts: ICmsPost[] }) => {
           {posts.map((post, index) => (
             <CarouselItem
               key={index}
-              className="w-full sm:w-full md:w-full lg:w-1/2 xl:w-1/3 h-[60vh] sm:h-[70vh] md:h-[90vh] lg:h-[100vh]"
+              className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] xl:h-[100vh]"
             >
-              <div className="w-full h-full">
-                <BannerCard post={post} />
-              </div>
+              <BannerCard post={post} />
             </CarouselItem>
           ))}
         </CarouselContent>
