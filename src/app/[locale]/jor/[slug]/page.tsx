@@ -1,4 +1,3 @@
-"use client";
 import Detail from "@/src/components/Recipes/detail";
 import React from "react";
 

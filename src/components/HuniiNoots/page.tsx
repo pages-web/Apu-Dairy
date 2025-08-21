@@ -5,24 +5,21 @@ import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 import AjliinBair from "@/src/components/Ajliin Bair/page";
 import Songon from "@/src/components/Shalgaruulalt/page";
 import HumanCarousel from "./humanCarousel";
-import Item from "@/src/app/cart/item";
+import Item from "@/src/app/[locale]/cart/item";
+import { useLocale } from "next-intl";
 
 export default function Human() {
-  const localeMap: Record<string, string> = {
-    en: "en",
-    mn: "mn",
-  };
-
-  const currentLang = localeMap["mn"];
+  const locale = useLocale();
 
   const { cmsTags } = useCmsTags({});
-  const tagId = cmsTags.find(
+
+  const tagId = cmsTags?.find(
     (tag: { name: string }) => tag.name === "Hunii noots"
   )?._id;
 
   const { cmsPosts } = useCmsPosts({
-    tagIds: [tagId],
-    language: "mn",
+    tagIds: tagId ? [tagId] : [],
+    language: locale,
   });
 
   return (

@@ -1,23 +1,21 @@
+"use client";
+
 import React from "react";
 import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 import AlhamCarousel from "./alhamCarousel";
 import ALhamItem from "./alhamItem";
+import { useLocale } from "next-intl";
 
-export default async function Alham() {
-  const localeMap: Record<string, string> = {
-    en: "en",
-    mn: "mn",
-  };
+export default function Alham() {
+  const locale = useLocale();
 
-  const currentLang = localeMap || "mn";
+  const { cmsTags, loading: tagsLoading } = useCmsTags({});
+  const alhamTagId =
+    cmsTags?.find((tag: { name: string }) => tag.name === "Alham")?._id || "";
 
-  const { cmsTags } = useCmsTags({});
-
-  const { cmsPosts } = useCmsPosts({
-    tagIds: [
-      cmsTags.find((tag: { name: string }) => tag.name === "Alham")?._id,
-    ],
-    language: "mn",
+  const { cmsPosts, loading: postsLoading } = useCmsPosts({
+    tagIds: alhamTagId ? [alhamTagId] : [],
+    language: locale,
   });
 
   return (

@@ -1,22 +1,19 @@
+"use client";
+
 import React from "react";
 import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 import BrandCarousel from "./brandCarousel";
+import { useLocale } from "next-intl";
 
-export default async function Brand() {
-  const localeMap: Record<string, string> = {
-    en: "en",
-    mn: "mn",
-  };
+export default function Brand() {
+  const locale = useLocale();
 
-  const currentLang = localeMap || "mn";
-
-  const { cmsTags } = useCmsTags({});
-
-  const { cmsPosts } = useCmsPosts({
-    tagIds: [
-      cmsTags.find((tag: { name: string }) => tag.name === "Brand")?._id,
-    ],
-    language: "mn",
+  const { cmsTags, loading: tagsLoading } = useCmsTags({});
+  const brandTagId =
+    cmsTags?.find((tag: { name: string }) => tag.name === "Brand")?._id || "";
+  const { cmsPosts, loading: postsLoading } = useCmsPosts({
+    tagIds: [brandTagId],
+    language: locale,
   });
   return (
     <div>

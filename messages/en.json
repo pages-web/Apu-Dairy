@@ -75,17 +75,27 @@
     ],
     "RecipeIntro": "Our first formula has been validated by 15 years of clinical research. What does it include?"
   },
-  "FAQTitle": "Frequently Asked Questions",
-  "FAQ": [
-    {
-      "question": "Do all products contain preservatives?",
-      "answer": "No, all our products are free from artificial preservatives."
-    },
-    {
-      "question": "Where can I buy the products?",
-      "answer": "Our products are available at selected retail stores and online."
-    }
-  ],
+  "FAQ": {
+    "FAQTitle": "Frequently Asked Questions",
+    "faqs": [
+      {
+        "question": "Do all products contain preservatives?",
+        "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing businesses inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
+      },
+      {
+        "question": "Where can I buy the products?",
+        "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing businesses inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
+      },
+      {
+        "question": "What ingredients are used in children’s products?",
+        "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing businesses inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
+      },
+      {
+        "question": "Where is the raw milk for dairy products sourced from?",
+        "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing businesses inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
+      }
+    ]
+  },
   "RecommendProduct": {
     "RecommendedProducts": "Recommended Products"
   },
@@ -104,6 +114,114 @@
       "Made from 100% Mongolian milk",
       "HACCP, ISO 22000:2018",
       "Eco-friendly packaging"
+    ],
+    "ProductExtraMessage": "Turn free time into growth time with engaging activities that spark curiosity and confidence. Turn free time into growth time with engaging activities that spark curiosity and confidence.",
+    "ProductExtraFeatures": [
+      "Turn free time into growth time with engaging activities that spark curiosity and confidence.",
+      "Turn free time into growth time with engaging activities that spark curiosity and confidence."
     ]
+  },
+
+  "Sustainable": {
+    "title": "Sustainable Development",
+    "description": "APU Dairy strives to operate in an environmentally friendly, socially responsible, and economically efficient manner. We support the livelihoods of herders, protect natural resources, and work to pass on a sustainable future to coming generations.",
+    "button": "Learn More"
+  },
+  "NewsMain": {
+    "category": "News & Updates",
+    "title": "Latest News",
+    "viewMore": "View More"
+  },
+  "AllProductsPage": {
+    "FilterTitle": "Filter",
+    "BrandPlaceholder": "Brand",
+    "BrandOptions": {
+      "Pro+": "Pro+",
+      "Sain": "Good",
+      "Sheep": "Honin Nuga"
+    },
+    "TypePlaceholder": "Type",
+    "TypeOptions": {
+      "Milk": "Milk",
+      "Yogurt": "Yogurt",
+      "Other": "Other"
+    },
+    "SizePlaceholder": "Size",
+    "SizeOptions": {
+      "900g": "900 гр",
+      "760g": "760 гр",
+      "420g": "420 гр"
+    }
+  },
+  "FAQProduct": [
+    {
+      "question": "Do all products contain preservatives?",
+      "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
+    },
+    {
+      "question": "Where can I buy the products?",
+      "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
+    },
+    {
+      "question": "What ingredients are used in children’s products?",
+      "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
+    },
+    {
+      "question": "Where is the raw milk for dairy products sourced from?",
+      "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
+    }
+  ],
+  "Recipe": {
+    "Title": "Food Recipes",
+    "Dropdown1": [
+      "Type",
+      "Food",
+      "Vegan",
+      "Appetizer",
+      "Breakfast",
+      "Smoothie",
+      "Coffee"
+    ],
+    "Dropdown2": [
+      "Brand",
+      "Pro+",
+      "Sain",
+      "Sheep",
+      "Pure Milk",
+      "Bulgar Yogurt"
+    ]
+  },
+  "stats": {
+    "globalReach": "Global Reach of Users",
+    "yearsExpertise": "Years of Expertise",
+    "projectsCompleted": "Projects Completed",
+    "monthlyActiveUsers": "Monthly Active Users",
+    "registeredCustomers": "Registered Customers",
+    "dailyUsers": "Daily Users"
+  },
+  "security": "Security",
+  "jobs": {
+    "openLabel": "Open Roles",
+    "title": "Our Open Roles",
+    "anket": "Application Form",
+    "filters": {
+      "all": "All Roles (6)",
+      "finance": "Finance & Accounting (2)",
+      "drivers": "Drivers (1)",
+      "it": "IT & Systems (3)",
+      "other": "Other Roles (0)"
+    }
+  },
+  "songon": {
+    "title": "Selection Process"
+  },
+  "navbar": {
+    "products": "Products",
+    "recipes": "Recipes",
+    "about": "About Us",
+    "human": "Human Resources",
+    "news": "News",
+    "contact": "Contact",
+    "feedback": "Feedback"
   }
 }

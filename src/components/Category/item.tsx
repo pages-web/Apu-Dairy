@@ -4,8 +4,12 @@ import { ICmsPost } from "@/src/graphql/types/cms.types";
 import Image from "next/image";
 import { FaFacebookF, FaYoutube, FaInstagram } from "react-icons/fa";
 import AllProductsPage from "./product";
+import { useTranslations } from "next-intl";
 
 const Itemcategory = ({ post }: { post: ICmsPost }) => {
+  const t = useTranslations("ProductCategory");
+  const features: string[] = t.raw("ProductFeatures");
+  const extraFeatures: string[] = t.raw("ProductExtraFeatures");
   return (
     <div className="bg-white text-gray-800">
       {post.thumbnail?.url && (
@@ -40,14 +44,11 @@ const Itemcategory = ({ post }: { post: ICmsPost }) => {
       <div className="max-w-screen-xl py-5 mx-4 sm:mx-32 grid grid-cols-12 gap-6">
         <div className="col-span-12 md:col-span-4 justify-start">
           <h2 className="text-xl font-semibold mb-3">APU Dairy</h2>
-          <p className="text-sm mb-4">
-            Turn free time into growth time with engaging activities that spark
-            curiosity and confidence.
-          </p>
+          <p className="text-sm mb-4">{t("GrowthTimeMessage")}</p>
           <ul className="text-sm list-disc list-inside space-y-1 mb-4">
-            <li>100% Монгол сүүгээр үйлдвэрлэсэн</li>
-            <li>HACCP, ISO 22000:2018</li>
-            <li>Байгальд ээлтэй савлагаа</li>
+            {features.map((feature, idx) => (
+              <li key={idx}>{feature}</li>
+            ))}
           </ul>
           <div className="flex space-x-3">
             <button className="w-10 h-10 flex justify-center items-center border border-red-500 rounded-full text-red-500 hover:bg-red-100">
@@ -66,20 +67,12 @@ const Itemcategory = ({ post }: { post: ICmsPost }) => {
         </div>
         <div className="col-span-12 md:col-span-7 justify-start">
           <p className="text-sm mb-3 font-normal font-sf-pro-rounded">
-            Turn free time into growth time with engaging activities that spark
-            curiosity and confidence. Turn free time into growth time with
-            engaging activities that spark curiosity and confidence.
+            {t("Extra")}
           </p>
-
           <ul className="text-sm list-disc list-inside space-y-1 mb-4">
-            <li>
-              Turn free time into growth time with engaging activities that
-              spark curiosity and confidence.
-            </li>
-            <li>
-              Turn free time into growth time with engaging activities that
-              spark curiosity and confidence.
-            </li>
+            {extraFeatures.map((feature, idx) => (
+              <li key={idx}>{feature}</li>
+            ))}
           </ul>
 
           <div className="flex flex-wrap gap-3 justify-between">

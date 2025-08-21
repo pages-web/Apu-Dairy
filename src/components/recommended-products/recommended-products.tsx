@@ -1,8 +1,10 @@
 import { cn } from "@/src/lib/utils/utils";
 import { IProduct } from "@/src/types/product.type";
 import { Carousel, CarouselContent, CarouselItem } from "../heading/carousel";
-import ProductCard from "@/src/app/category/product-card";
+import ProductCard from "@/src/app/[locale]/category/product-card";
 import { getProducts } from "@/src/graphql/queries/product";
+import { useTranslations } from "next-intl";
+import { getTranslations } from "next-intl/server";
 
 const RecommendedProducts = async ({
   categoryId,
@@ -25,11 +27,13 @@ const RecommendedProducts = async ({
 
   if (!exceptCurrent.length) return null;
 
+  const t = await getTranslations("RecommendProduct");
+
   return (
     <div className="mt-5">
       <div>
         <h2 className="text-black font-medium text-[32px] font-sans leading-normal mb-10">
-          Санал болгох бүтээгдэхүүнүүд
+          {t("RecommendedProducts")}
         </h2>
       </div>
 

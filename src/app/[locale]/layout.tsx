@@ -1,11 +1,20 @@
-import { NextIntlClientProvider } from "next-intl";
+import { Inter } from "next/font/google";
+import "./globals.css";
 import { notFound } from "next/navigation";
+import { hasLocale, NextIntlClientProvider } from "next-intl";
+import { Providers } from "@/src/components/providers/Providers";
+import MilkDropCursor from "@/src/components/sections/CTA/cursor";
+import Footer from "@/src/components/layout/Footer/footer";
+import { routing } from "@/src/i18n/routing";
 
-export async function generateStaticParams() {
-  return [{ locale: "en" }, { locale: "mn" }];
-}
+import en from "@/messages/en.json";
+import mn from "@/messages/mn.json";
+import { NavbarTop } from "@/src/components/layout/Header/Header";
 
-export default async function LocaleLayout({
+const inter = Inter({ subsets: ["latin"] });
+export const metadata = { title: "APU", description: "Company description" };
+
+export default function RootLayout({
   children,
   params,
 }: {
@@ -14,17 +23,21 @@ export default async function LocaleLayout({
 }) {
   const { locale } = params;
 
-  if (!["en", "mn"].includes(locale)) {
-    notFound();
-  }
+  if (!hasLocale(routing.locales, locale)) notFound();
 
-  const messages = (await import(`../../../messages/${locale}.json`)).default;
+  const messages = { en, mn }[locale];
+  if (!messages) notFound();
 
   return (
     <html lang={locale}>
-      <body>
+      <body className={`${inter.className} min-h-screen flex flex-col`}>
         <NextIntlClientProvider locale={locale} messages={messages}>
-          {children}
+          <NavbarTop />
+          <main className="flex-grow">
+            <Providers>{children}</Providers>
+          </main>
+          <MilkDropCursor />
+          <Footer />
         </NextIntlClientProvider>
       </body>
     </html>

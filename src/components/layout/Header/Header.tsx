@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { getConfig } from "@/src/graphql/queries/auth";
 import Link from "next/link";
 import { LanguageSwitcher } from "./languageSwitch";
-import { Menu, X } from "lucide-react"; // icon library
+import { Menu, X } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 export function NavbarTop() {
   const [logo, setLogo] = useState<string>("");
   const [mobileOpen, setMobileOpen] = useState(false);
+  const t = useTranslations("navbar");
 
   useEffect(() => {
     const fetchConfig = async () => {
@@ -19,12 +21,12 @@ export function NavbarTop() {
   }, []);
 
   const navItems = [
-    { label: "Бүтээгдэхүүн", href: "/category" },
-    { label: "Жорууд", href: "/recipes" },
-    { label: "Бидний тухай", href: "/aboutheader" },
-    { label: "Хүний нөөц", href: "/human" },
-    { label: "Мэдээлэл", href: "/news" },
-    { label: "Холбогдох", href: "/contact" },
+    { label: t("products"), href: "/category" },
+    { label: t("recipes"), href: "/recipes" },
+    { label: t("about"), href: "/aboutheader" },
+    { label: t("human"), href: "/human" },
+    { label: t("news"), href: "/news" },
+    { label: t("contact"), href: "/contact" },
   ];
 
   return (
@@ -39,10 +41,10 @@ export function NavbarTop() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center bg-gray-100 px-4 py-2 rounded-full text-sm font-semibold text-[#232323]">
+        <nav className="max-sm:hidden lg:flex items-center bg-gray-100 px-4 py-2 rounded-full text-sm font-semibold text-[#232323]">
           {navItems.map((item) => (
             <Link
-              key={item.label}
+              key={item.href}
               href={item.href}
               className="cursor-pointer px-3 py-1 rounded-full hover:bg-white hover:text-[#D64545] transition duration-300"
             >
@@ -52,10 +54,10 @@ export function NavbarTop() {
         </nav>
 
         {/* Desktop Right Buttons */}
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="max-sm:hidden lg:flex items-center gap-3">
           <LanguageSwitcher />
           <button className="flex items-center gap-2 bg-white text-[#D64545] font-medium px-4 py-2 rounded-full hover:bg-gray-100 transition shadow-sm">
-            💬 Санал хүсэлт
+            💬 {t("feedback")}
           </button>
         </div>
 
@@ -70,12 +72,13 @@ export function NavbarTop() {
         </div>
       </div>
 
+      {/* Mobile Nav */}
       {mobileOpen && (
         <div className="lg:hidden bg-white w-full border-t border-gray-200 shadow-md">
           <nav className="flex flex-col px-6 py-4 space-y-2">
             {navItems.map((item) => (
               <Link
-                key={item.label}
+                key={item.href}
                 href={item.href}
                 className="cursor-pointer px-3 py-2 rounded-full hover:bg-gray-100 hover:text-[#D64545] transition"
                 onClick={() => setMobileOpen(false)}

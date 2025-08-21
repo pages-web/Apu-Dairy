@@ -3,21 +3,19 @@
 import React from "react";
 import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 import AboutCarousel from "./aboutCarousel";
+import { useLocale } from "next-intl";
 
 export default function About() {
-  const localeMap: Record<string, string> = {
-    en: "en",
-    mn: "mn",
-  };
+  const locale = useLocale();
 
-  const currentLang = localeMap["mn"] || "en";
+  const { cmsTags, loading: tagsLoading } = useCmsTags({});
+  const aboutTagId =
+    cmsTags?.find((tag: { name: string }) => tag.name === "About us")?._id ||
+    "";
 
-  const { cmsTags } = useCmsTags({});
-  const aboutTagId = cmsTags.find((tag) => tag.name === "About us")?._id;
-
-  const { cmsPosts } = useCmsPosts({
+  const { cmsPosts, loading: postsLoading } = useCmsPosts({
     tagIds: aboutTagId ? [aboutTagId] : [],
-    language: currentLang,
+    language: locale,
   });
 
   return (

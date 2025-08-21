@@ -6,8 +6,10 @@ import queries from "@/src/graphql/queries/queries.product";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import ProductCard from "./product-card";
+import { useTranslations } from "next-intl";
 
 const AllProductsPage = () => {
+  const t = useTranslations("AllProductsPage");
   const { data } = useQuery(queries.products, {
     variables: { categoryId: "-wOEhgQ_XpfnROF2idODh", page: 1, perPage: 12 },
   });
@@ -36,7 +38,7 @@ const AllProductsPage = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-[18px] font-normal text-black font-sf-pro-rounded mb-10">
-        Шүүлтүүр
+        {t("FilterTitle")}
       </h1>
       <div className="flex flex-row sm:flex-row gap-4 sm:gap-10 mb-10">
         <div className="relative w-32">
@@ -45,10 +47,10 @@ const AllProductsPage = () => {
             value={brand}
             onChange={handleChange}
           >
-            <option value="">Бренд</option>
-            <option value="Pro+">Про+</option>
-            <option value="Sain">Сайн</option>
-            <option value="Sheep">Хонин нуга</option>
+            <option value="">{t("BrandPlaceholder")}</option>
+            <option value="Pro+">{t("BrandOptions.Pro+")}</option>
+            <option value="Sain">{t("BrandOptions.Sain")}</option>
+            <option value="Sheep">{t("BrandOptions.Sheep")}</option>
           </select>
           <div className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2">
             <svg
@@ -69,10 +71,10 @@ const AllProductsPage = () => {
         </div>
         <div className="relative w-32">
           <select className="appearance-none w-full border rounded-2xl p-2 text-sm pr-8">
-            <option>Төрөл</option>
-            <option>Сүү</option>
-            <option>Тараг</option>
-            <option>Бусад</option>
+            <option>{t("TypePlaceholder")}</option>
+            <option>{t("TypeOptions.Milk")}</option>
+            <option>{t("TypeOptions.Yogurt")}</option>
+            <option>{t("TypeOptions.Other")}</option>
           </select>
           <div className="pointer-events-none absolute right-2 top-1/2 transform -translate-y-1/2">
             <svg
@@ -93,7 +95,7 @@ const AllProductsPage = () => {
         </div>
         <div className="relative w-32">
           <select className="appearance-none w-full border rounded-2xl p-2 text-sm pr-8">
-            <option>Хэмжээ</option>
+            <option>{t("SizePlaceholder")}</option>
             <option>900 гр</option>
             <option>760 гр</option>
             <option>420 гр</option>

@@ -4,25 +4,21 @@ import React from "react";
 import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 import Carousels from "./carousel";
 import Joruud from "./jor";
-import Skeleton from "../Skeleton/page";
+import { useLocale } from "next-intl";
 
 export default function JorPage() {
-  const localeMap: Record<string, string> = {
-    en: "en",
-    mn: "mn",
-  };
+  const locale = useLocale();
 
-  const currentLang = localeMap || "mn";
+  const { cmsTags, loading: tagsLoading } = useCmsTags({});
 
-  const { cmsTags } = useCmsTags({});
+  const jorTagId = cmsTags.find(
+    (tag: { name: string }) => tag.name === "Jor"
+  )?._id;
 
   const { cmsPosts, loading } = useCmsPosts({
-    tagIds: [cmsTags.find((tag: { name: string }) => tag.name === "Jor")?._id],
-    language: "mn",
+    tagIds: [jorTagId],
+    language: locale,
   });
-  if (loading) {
-    return <Skeleton />;
-  }
 
   return (
     <div className="px-3">

@@ -1,34 +1,14 @@
+"use client";
+
 import React from "react";
 import FAQ from "./faq";
-
-const ingredients = [
-  {
-    name: "Vitamin C",
-    description:
-      "Vitamin C is an essential vitamin used by your gums and natural microbes. It demonstrates a strong defense against bacteria associated with dental decay and gingivitis.",
-    image: "/images/vitaC.png",
-  },
-  {
-    name: "Vitamin D",
-    description:
-      "Vitamin C is an essential vitamin used by your gums and natural microbes. It demonstrates a strong defense against bacteria associated with dental decay and gingivitis.",
-    image: "/images/vitaD.png",
-  },
-  {
-    name: "Cranberry Seed",
-    description:
-      "Vitamin C is an essential vitamin used by your gums and natural microbes. It demonstrates a strong defense against bacteria associated with dental decay and gingivitis.",
-    image: "/images/carenbery.png",
-  },
-  {
-    name: "Quillaja Saponaria",
-    description:
-      "Vitamin C is an essential vitamin used by your gums and natural microbes. It demonstrates a strong defense against bacteria associated with dental decay and gingivitis.",
-    image: "/images/quillaja.png",
-  },
-];
+import { useTranslations } from "next-intl";
 
 const Nairlaga = () => {
+  const t = useTranslations("Product");
+  const ingredients = t.raw("Ingredients");
+  const intro = t("RecipeIntro");
+
   return (
     <div className="w-full mx-auto px-4 py-1">
       <div className="text-center mb-4">
@@ -37,12 +17,11 @@ const Nairlaga = () => {
         </h1>
       </div>
       <h2 className="text-[#232323] text-center font-sf-pro-rounded text-[28px] sm:text-[32px] font-medium leading-normal max-w-3xl mx-auto mb-10 px-2">
-        Манай анхны жор нь 15 жилийн клиник судалгаагаар батлагдсан. Үүнд юу
-        багтдаг вэ:
+        {intro}
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {ingredients.map((item) => (
+        {ingredients.map((item: any) => (
           <div
             key={item.name}
             className="flex flex-col sm:flex-row items-center justify-between bg-white rounded-xl shadow px-4 py-4 sm:h-40 border border-gray-200"

@@ -10,7 +10,8 @@ export const useCmsPosts = (variables?: OperationVariables) => {
       perPage: 200,
       ...variables,
     },
-    fetchPolicy: "no-cache",
+    notifyOnNetworkStatusChange: true, // chuhal (orchuulga hiihed)
+    fetchPolicy: "no-cache", // chuhal (orchuulga hiihed)
   });
 
   const cmsPosts: ICmsPost[] = cmsPostsData?.cmsPostList.posts || [];

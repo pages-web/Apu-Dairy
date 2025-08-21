@@ -3,25 +3,13 @@
 import React, { useState } from "react";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
 import Other from "./otherJor";
+import { useTranslations } from "next-intl";
 
 const JorCarousel = ({ posts }: { posts: ICmsPost[] }) => {
-  const dropdown1Items = [
-    "Төрөл",
-    "Хоол",
-    "Вeган",
-    "Зууш",
-    "Өглөөний цай",
-    "Смүүти",
-    "Кофe",
-  ];
-  const dropdown2Items = [
-    "Брeнд",
-    "Про+",
-    "Сайн",
-    "Хонин нуга",
-    "Цэвэр Сүү",
-    "Бугар Йогурт",
-  ];
+  const t = useTranslations("Recipe");
+
+  const dropdown1Items: string[] = t.raw("Dropdown1");
+  const dropdown2Items: string[] = t.raw("Dropdown2");
 
   const [selected1, setSelected1] = useState(dropdown1Items[0]);
   const [selected2, setSelected2] = useState(dropdown2Items[0]);
@@ -30,23 +18,24 @@ const JorCarousel = ({ posts }: { posts: ICmsPost[] }) => {
     <div className="max-w-[1500px] mx-auto px-4">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-6 sm:mb-8">
         <h2 className="text-[#232323] font-sf-pro-rounded text-[24px] md:ml-10 sm:text-[28px] md:text-[32px] font-medium text-center sm:text-start">
-          Хоолны жорууд
+          {t("Title")}
         </h2>
 
-        <div className="flex gap-4 mt-5 md:mr-10">
-          <div className="relative w-48">
+        <div className="flex gap-4 md:mr-10">
+          {/* Dropdown 1 */}
+          <div className="relative w-32 h-10 border border-gray-300 rounded-2xl">
             <select
-              className="appearance-none w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 text-sm font-medium"
               value={selected1}
               onChange={(e) => setSelected1(e.target.value)}
+              className="w-full h-full px-3 text-sm rounded-2xl appearance-none focus:outline-none"
             >
               {dropdown1Items.map((item, i) => (
-                <option key={i} value={item} className="text-black">
+                <option key={i} value={item}>
                   {item}
                 </option>
               ))}
             </select>
-            <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
+            <div className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -64,19 +53,19 @@ const JorCarousel = ({ posts }: { posts: ICmsPost[] }) => {
           </div>
 
           {/* Dropdown 2 */}
-          <div className="relative w-48">
+          <div className="relative w-32 h-10 border border-gray-300 rounded-2xl">
             <select
-              className="appearance-none w-full bg-white border border-gray-300 rounded-2xl px-4 py-2 text-sm font-medium"
               value={selected2}
               onChange={(e) => setSelected2(e.target.value)}
+              className="w-full h-full px-3 text-sm rounded-2xl appearance-none focus:outline-none"
             >
               {dropdown2Items.map((item, i) => (
-                <option key={i} value={item} className="text-black">
+                <option key={i} value={item}>
                   {item}
                 </option>
               ))}
             </select>
-            <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
+            <div className="pointer-events-none absolute right-2 top-1/2 -translate-y-1/2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"

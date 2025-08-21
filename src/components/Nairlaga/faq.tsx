@@ -1,32 +1,12 @@
 "use client";
 
 import React, { useState } from "react";
+import { useTranslations } from "next-intl";
 import LongLine from "./longline";
 
-const faqData = [
-  {
-    question: "Нийт бүтээгдэхүүнүүдэд хадгалалтын нэмэлт бодис ордог уу?",
-    answer:
-      "Pipe makes cuntomer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms.",
-  },
-  {
-    question: "Бүтээгдэхүүнүүдийг хаанаас худалдаж авах боломжтой вэ?",
-    answer:
-      "Pipe makes cuntomer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms.",
-  },
-  {
-    question: "Хүүхдэд зориулсан бүтээгдэхүүнд ямар орц хэрэглэдэг вэ?",
-    answer:
-      "Pipe makes cuntomer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms.",
-  },
-  {
-    question: "Сүүн бүтээгдэхүүний түүхий сүү хаанаас нийлүүлдэг вэ?",
-    answer:
-      "Pipe makes cuntomer-friendly capital & smart financial tools accessible to growing business inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms.",
-  },
-];
-
 const FAQ = () => {
+  const t = useTranslations();
+  const faqData = t.raw("FAQProduct");
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (index: number) => {
@@ -41,41 +21,20 @@ const FAQ = () => {
             Гол найрлага
           </h1>
         </div>
-        <h2
-          style={{
-            color: "#000",
-            fontSize: "32px",
-            fontStyle: "normal",
-            fontWeight: 600,
-            lineHeight: "normal",
-          }}
-          className="md:mb-10 lg:mb-10 text-xl sm:text-xl md:text-2xl font-sf-pro-rounded"
-        >
+        <h2 className="md:mb-10 lg:mb-10 text-xl sm:text-xl md:text-2xl font-sf-pro-rounded text-black">
           Түгээмэл асуулт хариултууд
         </h2>
-        {faqData.map((item, idx) => {
+
+        {faqData.map((item: any, idx: number) => {
           const isOpen = openIndex === idx;
 
           return (
-            <div
-              key={idx}
-              style={{ marginBottom: 10, borderBottom: "1px solid gray" }}
-            >
+            <div key={idx} className="border-b border-gray-300 mb-4">
               <button
                 onClick={() => toggle(idx)}
-                style={{
-                  display: "flex",
-                  padding: "12px 0",
-                  justifyContent: "space-between",
-                  alignSelf: "stretch",
-                  width: "100%",
-                  border: "none",
-                  background: "#fff",
-                  cursor: "pointer",
-                }}
+                className="flex justify-between items-center w-full py-3 bg-white cursor-pointer border-none"
               >
-                {item.question}
-
+                <span>{item.question}</span>
                 {isOpen ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +43,6 @@ const FAQ = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    style={{ marginRight: 8 }}
                   >
                     <path
                       strokeLinecap="round"
@@ -101,7 +59,6 @@ const FAQ = () => {
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
-                    style={{ marginRight: 8 }}
                   >
                     <path
                       strokeLinecap="round"
@@ -112,32 +69,13 @@ const FAQ = () => {
                   </svg>
                 )}
               </button>
-              <>
-                <div
-                  className="faq-answer"
-                  style={{
-                    maxHeight: isOpen ? "500px" : "0px",
-                    padding: isOpen ? "10px" : "0 10px",
-                    maxWidth: isOpen ? "900px" : "0px",
-                  }}
-                >
-                  {isOpen && <p>{item.answer}</p>}
-                </div>
-
-                <style jsx>{`
-                  .faq-answer {
-                    width: 800px;
-                    background: #fafafa;
-                    overflow: hidden;
-                    transition: max-height 0.5s ease, padding 0.3s ease;
-                  }
-                  @media (max-width: 640px) {
-                    .faq-answer {
-                      width: 300px;
-                    }
-                  }
-                `}</style>
-              </>
+              <div
+                className={`overflow-hidden transition-all duration-500 ${
+                  isOpen ? "max-h-96 py-2" : "max-h-0"
+                }`}
+              >
+                {isOpen && <p className="text-gray-700">{item.answer}</p>}
+              </div>
             </div>
           );
         })}

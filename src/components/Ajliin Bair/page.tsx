@@ -1,7 +1,9 @@
 import React from "react";
 import ErxesForm from "../Erxes Form/erxesForm";
+import { useTranslations } from "next-intl";
 
 const AjliinBair = () => {
+  const t = useTranslations("jobs");
   const handleClick = () => {
     const modalButton = document.querySelector(
       '[data-erxes-modal="FBWGfk"]'
@@ -12,28 +14,28 @@ const AjliinBair = () => {
     <div className="max-w-[1400px] w-full px-4 mx-auto py-12">
       <div className="text-center mb-12">
         <span className="inline-block bg-red-100 text-red-500 text-sm px-4 py-1 rounded-full mb-4">
-          Нээлттэй ажлын байр
+          {t("openLabel")}
         </span>
         <h1 className="text-2xl sm:text-3xl font-normal text-[#232323] font-sf-pro-rounded leading-normal">
-          Our Open Roles
+          {t("title")}
         </h1>
       </div>
 
       <div className="flex flex-wrap justify-center mb-8 gap-2">
         <button className="bg-red-500 text-white px-4 py-2 rounded-full text-sm min-w-[120px]">
-          All Roles (6)
+          {t("filters.all")}
         </button>
         <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px]">
-          Finance &amp; Accounting (2)
+          {t("filters.finance")}
         </button>
         <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px]">
-          Drivers (1)
+          {t("filters.drivers")}
         </button>
         <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px]">
-          IT &amp; Systems (3)
+          {t("filters.it")}
         </button>
         <button className="bg-gray-100 text-gray-400 px-4 py-2 rounded-full text-sm min-w-[120px]">
-          Other Roles (0)
+          {t("filters.other")}
         </button>
       </div>
 
@@ -67,7 +69,7 @@ const AjliinBair = () => {
                   onClick={handleClick}
                   className="bg-red-500 text-white px-5 py-3 rounded-full flex items-center text-sm whitespace-nowrap"
                 >
-                  Анкет бөглөх
+                  {t("anket")}
                   <img
                     src="/images/forward.png"
                     alt="forward arrow"

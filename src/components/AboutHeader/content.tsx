@@ -7,8 +7,10 @@ import Alham from "@/src/components/Security/alham";
 import Secure from "@/src/components/Security/page";
 import Avatar from "@/src/components/Zahiral Avatar/page";
 import Hogjil from "../Hogjil/page";
+import { useTranslations } from "next-intl";
 
 const About = ({ post }: { post: ICmsPost }) => {
+  const t = useTranslations("stats");
   return (
     <div className="py flex flex-col items-center gap-8">
       <div>
@@ -52,7 +54,7 @@ const About = ({ post }: { post: ICmsPost }) => {
                     21M
                   </p>
                   <p className="text-xs md:text-sm text-[#EEE] font-sf-pro-rounded">
-                    Global Reach of Users
+                    {t("globalReach")}
                   </p>
                 </div>
                 <div>
@@ -60,7 +62,7 @@ const About = ({ post }: { post: ICmsPost }) => {
                     12+
                   </p>
                   <p className="text-xs md:text-sm text-[#EEE] font-sf-pro-rounded">
-                    Years of Expertise
+                    {t("yearsExpertise")}
                   </p>
                 </div>
                 <div>
@@ -68,7 +70,7 @@ const About = ({ post }: { post: ICmsPost }) => {
                     654
                   </p>
                   <p className="text-xs md:text-sm text-[#EEE] font-sf-pro-rounded">
-                    Projects Completed
+                    {t("projectsCompleted")}
                   </p>
                 </div>
               </div>
@@ -78,7 +80,7 @@ const About = ({ post }: { post: ICmsPost }) => {
                     113K
                   </p>
                   <p className="text-xs md:text-sm text-[#EEE] font-sf-pro-rounded">
-                    Monthly Active Users
+                    {t("monthlyActiveUsers")}
                   </p>
                 </div>
                 <div>
@@ -86,7 +88,7 @@ const About = ({ post }: { post: ICmsPost }) => {
                     461K
                   </p>
                   <p className="text-xs md:text-sm text-[#EEE] font-sf-pro-rounded">
-                    Registered Customers
+                    {t("registeredCustomers")}
                   </p>
                 </div>
                 <div>
@@ -94,7 +96,7 @@ const About = ({ post }: { post: ICmsPost }) => {
                     10K+
                   </p>
                   <p className="text-xs md:text-sm text-[#EEE] font-sf-pro-rounded">
-                    Daily Users
+                    {t("dailyUsers")}
                   </p>
                 </div>
               </div>

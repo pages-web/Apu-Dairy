@@ -1,24 +1,24 @@
+"use client";
+
 import React from "react";
 import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 import FoodCategoryCarousel from "./foodCategoryCarousel";
+import { useLocale } from "next-intl";
 
-export default async function FoodCategory() {
-  const localeMap: Record<string, string> = {
-    en: "en",
-    mn: "mn",
-  };
+export default function FoodCategory() {
+  const locale = useLocale();
 
-  const currentLang = localeMap || "mn";
+  const { cmsTags, loading: tagsLoading } = useCmsTags({});
 
-  const { cmsTags } = useCmsTags({});
+  const foodCategoryTagId =
+    cmsTags?.find((tag: { name: string }) => tag.name === "Food Category")
+      ?._id || "";
 
-  const { cmsPosts } = useCmsPosts({
-    tagIds: [
-      cmsTags.find((tag: { name: string }) => tag.name === "Food Category")
-        ?._id,
-    ],
-    language: "mn",
+  const { cmsPosts, loading: postsLoading } = useCmsPosts({
+    tagIds: [foodCategoryTagId],
+    language: locale,
   });
+
   return (
     <div>
       <FoodCategoryCarousel posts={cmsPosts} />
