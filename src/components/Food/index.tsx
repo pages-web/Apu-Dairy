@@ -9,12 +9,12 @@ import { useLocale } from "next-intl";
 export default function Food() {
   const locale = useLocale();
 
-  const { cmsTags, loading: tagsLoading } = useCmsTags({});
+  const { cmsTags } = useCmsTags({});
 
   const foodTagId =
     cmsTags?.find((tag: { name: string }) => tag.name === "Food")?._id || "";
 
-  const { cmsPosts, loading: postsLoading } = useCmsPosts({
+  const { cmsPosts } = useCmsPosts({
     tagIds: [foodTagId],
     language: locale,
   });

@@ -6,14 +6,16 @@ import FoodItemCarousel from "./footItemCarousel";
 import { useLocale } from "next-intl";
 
 export default function FoodItem() {
+  const { cmsTags } = useCmsTags({});
+
+  const foodTagId =
+    cmsTags?.find((tag: { name: string }) => tag.name === "FoogImage")?._id ||
+    "";
+
   const locale = useLocale();
 
-  const { cmsTags, loading: tagsLoading } = useCmsTags({});
-  const foodImageTagId =
-    cmsTags?.find((tag: { name: string }) => tag.name === "FoodImage")?._id ||
-    "";
-  const { cmsPosts, loading: postsLoading } = useCmsPosts({
-    tagIds: [foodImageTagId],
+  const { cmsPosts } = useCmsPosts({
+    tagIds: [foodTagId],
     language: locale,
   });
 

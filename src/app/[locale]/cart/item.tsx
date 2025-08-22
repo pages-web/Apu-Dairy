@@ -1,5 +1,6 @@
 "use client";
 import { useCmsPosts } from "@/src/graphql/queries/kb";
+import { useLocale } from "next-intl";
 import React from "react";
 
 const cards = [
@@ -55,19 +56,11 @@ const Item = () => {
     "Ki3h0j7LGclf27wudzRQK", // red 2 card
     "69iXgS7Fagi0rmjMmJTuF", // green card
   ];
+  const locale = useLocale();
 
-  const { cmsPosts, loading } = useCmsPosts({
-    tagIds,
-    language: "mn",
+  const { cmsPosts } = useCmsPosts({
+    language: locale,
   });
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-[20rem]">
-        Түр хүлээнэ үү...
-      </div>
-    );
-  }
 
   return (
     <div className="relative w-full h-full flex items-center justify-center overflow-visible min-h-[30rem] p-32">

@@ -1,7 +1,7 @@
 "use client";
 import { useCmsPosts } from "@/src/graphql/queries/kb";
+import { useLocale } from "next-intl";
 import React, { useState } from "react";
-import Image from "next/image";
 
 const staticImages = [
   "/images/01.jpg",
@@ -18,9 +18,11 @@ const Content = () => {
     "teiUZlY65XXZhg9XfWQJy", // 04
   ];
 
+  const locale = useLocale();
+
   const { cmsPosts, loading } = useCmsPosts({
     tagIds,
-    language: "mn",
+    language: locale,
   });
 
   const [activeStep, setActiveStep] = useState(0);

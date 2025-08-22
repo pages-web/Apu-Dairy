@@ -24,17 +24,18 @@ const Item = ({ post }: { post: ICmsPost }) => {
         </div>
       )}
 
-      <div className="flex flex-col sm:flex-row sm:justify-between items-start sm:items-center w-full max-w-[650px] sm:gap-0">
+      {/* Text + Time */}
+      <div className="flex flex-col sm:flex-row w-full gap-3 p-4 items-start sm:items-start sm:mr-52">
         <div
-          className="text-black text-base sm:text-lg leading-6 sm:leading-[25px] font-sf-pro-rounded font-normal"
+          className="text-black text-base sm:text-lg leading-6 sm:leading-[25px] font-sf-pro-rounded font-normal whitespace-nowrap"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
         <div className="flex items-center gap-4 text-gray-700 text-sm font-medium mt-2 sm:mt-0">
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 whitespace-nowrap">
             <Clock className="w-5 h-5 text-red-500" />
             <span>25 мин</span>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 whitespace-nowrap">
             <Flame className="w-5 h-5 text-orange-500" />
             <span>826 ккал</span>
           </div>

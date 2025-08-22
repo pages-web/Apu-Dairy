@@ -13,12 +13,11 @@ export default function Human() {
 
   const { cmsTags } = useCmsTags({});
 
-  const tagId = cmsTags?.find(
-    (tag: { name: string }) => tag.name === "Hunii noots"
-  )?._id;
+  const foodTagId =
+    cmsTags?.find((tag: { name: string }) => tag.name === "Hunii noots")?._id ||
+    "";
 
   const { cmsPosts } = useCmsPosts({
-    tagIds: tagId ? [tagId] : [],
     language: locale,
   });
 
