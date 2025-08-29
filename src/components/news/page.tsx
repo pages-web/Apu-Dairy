@@ -1,24 +1,19 @@
 "use client";
 
 import React from "react";
-import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
+import { useCmsPosts } from "@/src/graphql/queries/kb";
 import NewsCarousel from "./newsCarousel";
 import { useLocale } from "next-intl";
 
+const NEWS_TAG_ID = "PtP0iD42Hp1YkM3uO_DFg";
+
 export default function News() {
   const locale = useLocale();
-  const localeMap: Record<string, string> = { en: "en", mn: "mn" };
-  const currentLang = localeMap[locale] || "mn";
 
-  const { cmsTags } = useCmsTags({});
-  const newsTagId = cmsTags.find((tag) => tag.name === "News")?._id;
-
-  const { cmsPosts, loading } = useCmsPosts({
-    tagIds: newsTagId ? [newsTagId] : [],
-    language: currentLang,
+  const { cmsPosts } = useCmsPosts({
+    tagIds: [NEWS_TAG_ID],
+    language: locale,
   });
-
-  if (loading) return <div>Loading...</div>;
 
   return (
     <div className="px-3">

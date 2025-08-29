@@ -39,10 +39,10 @@ const Footer = async () => {
               <Link href="/aboutheader">Бидний тухай</Link>
             </li>
             <li>
-              <Link href="/products">Бүтээгдэхүүн</Link>
+              <Link href="/category">Бүтээгдэхүүн</Link>
             </li>
             <li>
-              <Link href="/milk">Сүү бэлтгэл</Link>
+              <Link href="/#">Сүү бэлтгэл</Link>
             </li>
           </ul>
         </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { Suspense } from "react";
 import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 import AlhamCarousel from "./alhamCarousel";
 import ALhamItem from "./alhamItem";
@@ -20,15 +20,17 @@ export default function Alham() {
 
   return (
     <div className="w-full max-w-[1600px] mx-auto px-6 py-10 flex flex-col lg:flex-row">
-      {/* Зүүн талд carousel */}
-      <div className="w-full lg:w-1/2">
-        <AlhamCarousel posts={cmsPosts} />
-      </div>
+      <Suspense>
+        {/* Зүүн талд carousel */}
+        <div className="w-full lg:w-1/2">
+          <AlhamCarousel posts={cmsPosts} />
+        </div>
 
-      {/* Баруун талд item */}
-      <div className="w-full lg:w-1/2 flex items-center">
-        <ALhamItem />
-      </div>
+        {/* Баруун талд item */}
+        <div className="w-full lg:w-1/2 flex items-center">
+          <ALhamItem />
+        </div>
+      </Suspense>
     </div>
   );
 }

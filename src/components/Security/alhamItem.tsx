@@ -1,23 +1,17 @@
+"use client";
+
 import React from "react";
-import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
+import { useCmsPosts } from "@/src/graphql/queries/kb";
 import ALhamItemCarousel from "./alhamimageCarousel";
 
-export default async function ALhamItem() {
-  const localeMap: Record<string, string> = {
-    en: "en",
-    mn: "mn",
-  };
+const SECURE_IMAGE_TAG_ID = "6acFMCWKG14Gl_F3AvIzh";
 
-  const currentLang = localeMap || "mn";
-
-  const { cmsTags } = useCmsTags({});
-
+export default function ALhamItem() {
   const { cmsPosts } = useCmsPosts({
-    tagIds: [
-      cmsTags.find((tag: { name: string }) => tag.name === "Secure Image")?._id,
-    ],
+    tagIds: [SECURE_IMAGE_TAG_ID],
     language: "mn",
   });
+
   return (
     <div className="px-3">
       <ALhamItemCarousel posts={cmsPosts} />

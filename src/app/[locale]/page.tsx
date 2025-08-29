@@ -1,22 +1,52 @@
 "use client";
 
-import React from "react";
-import Brand from "../../components/Brand/brand";
-import MainBanner from "../../components/heading/cmsPost";
-import Food from "../../components/Food";
-import FoodCategory from "../../components/Food Category/foodCategory";
-import AboutUs from "./about/page";
-import Secure from "../../components/Security/page";
-import Alham from "../../components/Security/alham";
-import News from "../../components/news/page";
-import Togtwortoi from "../../components/TogtwortoiHogjil";
+import dynamic from "next/dynamic";
+import { Suspense } from "react";
+
+// Dynamic import with skeleton loading
+const MainBanner = dynamic(() => import("../../components/heading/cmsPost"), {
+  loading: () => (
+    <p className="p-10 bg-gray-100 animate-pulse rounded">
+      Banner ачааллаж байна...
+    </p>
+  ),
+});
+const Brand = dynamic(() => import("../../components/Brand/brand"), {
+  ssr: false,
+});
+const Food = dynamic(() => import("../../components/Food"), { ssr: false });
+const FoodCategory = dynamic(
+  () => import("../../components/Food Category/foodCategory"),
+  { ssr: false }
+);
+const AboutUs = dynamic(() => import("./about/page"), { ssr: false });
+const Secure = dynamic(() => import("../../components/Security/page"), {
+  ssr: false,
+});
+const Alham = dynamic(() => import("../../components/Security/alham"), {
+  ssr: false,
+});
+const Togtwortoi = dynamic(() => import("../../components/TogtwortoiHogjil"), {
+  ssr: false,
+});
+const News = dynamic(() => import("../../components/news/page"), {
+  ssr: false,
+});
 
 export const revalidate = 60;
 
 const Home = () => {
   return (
-    <div>
-      <MainBanner />
+    <div className="space-y-10">
+      <Suspense
+        fallback={
+          <p className="p-10 bg-gray-100 animate-pulse rounded">
+            Banner ачааллаж байна...
+          </p>
+        }
+      >
+        <MainBanner />
+      </Suspense>
       <Brand />
       <Food />
       <FoodCategory />

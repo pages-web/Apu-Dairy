@@ -15,7 +15,7 @@ const Detail = (props: Props) => {
   const { post, loading } = getCmsPostDetail({ id: props.postId });
 
   if (loading) {
-    return <div>loading</div>;
+    return <div>Wait a minute</div>;
   }
 
   const thirdCustomFieldValue = post?.customFieldsData?.[2]?.value ?? null;
@@ -70,7 +70,14 @@ const Detail = (props: Props) => {
           Жор татах [PDF] <DownloadIcon className="w-4 h-4" />
         </button>
       </div>
-      <ImageCarousel images={images} />
+      <div>
+        {images.length > 0 ? (
+          <ImageCarousel images={images} />
+        ) : (
+          <p className="text-gray-500 text-center py-8">No image</p>
+        )}
+      </div>
+
       <div className="bg-gray-200 h-px w-full col-span-full"></div>
       <div className="lg:col-span-2 grid grid-cols-1 lg:grid-cols-2 gap-8 w-full">
         <Instructions postId={props.postId} />

@@ -1,6 +1,5 @@
 "use client";
-import { useCmsPosts } from "@/src/graphql/queries/kb";
-import { useLocale } from "next-intl";
+import { ICmsPost } from "@/src/graphql/types/cms.types";
 import React from "react";
 
 const cards = [
@@ -48,23 +47,15 @@ const cards = [
   },
 ];
 
-const Item = () => {
-  const tagIds = [
-    "s6DBTN9aBYvuTPvfCTMRd", // red card
-    "wqlbGxAHIBH0WFq5PJsF9", // blue card
-    "04D5cBojsYfI3UCMl21Jn", // yellow card
-    "Ki3h0j7LGclf27wudzRQK", // red 2 card
-    "69iXgS7Fagi0rmjMmJTuF", // green card
-  ];
-  const locale = useLocale();
+interface ItemProps {
+  cmsPosts: ICmsPost[];
+}
 
-  const { cmsPosts } = useCmsPosts({
-    language: locale,
-  });
-
+const Item = ({ cmsPosts }: ItemProps) => {
   return (
     <div className="relative w-full h-full flex items-center justify-center overflow-visible min-h-[30rem] p-32">
       {cards.map((card, idx) => {
+        // props-аас авсан cmsPosts–ийн idx-р шууд авч харуулж байна
         const post = cmsPosts?.[idx];
 
         return (

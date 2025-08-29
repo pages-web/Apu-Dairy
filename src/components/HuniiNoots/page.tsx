@@ -5,14 +5,13 @@ import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 import AjliinBair from "@/src/components/Ajliin Bair/page";
 import Songon from "@/src/components/Shalgaruulalt/page";
 import HumanCarousel from "./humanCarousel";
-import Item from "@/src/app/[locale]/cart/item";
 import { useLocale } from "next-intl";
+import CardPage from "@/src/app/[locale]/cart/page";
 
 export default function Human() {
   const locale = useLocale();
 
   const { cmsTags } = useCmsTags({});
-
   const tagId =
     cmsTags?.find((tag: { name: string }) => tag.name === "Hunii noots")?._id ||
     "";
@@ -25,7 +24,7 @@ export default function Human() {
   return (
     <div>
       <HumanCarousel posts={cmsPosts} />
-      <Item />
+      <CardPage />
       <AjliinBair />
       <Songon />
     </div>
