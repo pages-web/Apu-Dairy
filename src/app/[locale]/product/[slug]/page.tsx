@@ -9,6 +9,7 @@ import Nairlaga from "@/src/components/Nairlaga/page";
 import LongLine from "@/src/components/Nairlaga/longline";
 import RecommendedProducts from "@/src/components/recommended-products/recommended-products";
 import SideImage from "@/src/components/ProductSideImage/page";
+import { getTranslations } from "next-intl/server";
 
 export const revalidate = 300;
 
@@ -68,6 +69,7 @@ const Product = async ({ params }: { params: { slug: string } }) => {
     { label: "Calories", value: "140", circle: "LOW\nCAL" },
     { label: "B12", value: "70% DV", circle: "VITAMIN\nB12" },
   ];
+  const t = await getTranslations("Detail");
 
   return (
     <>
@@ -75,11 +77,11 @@ const Product = async ({ params }: { params: { slug: string } }) => {
         <div className="w-full lg:w-1/2 flex flex-col gap-6 md:mt-28 lg:mt-28 mt-10">
           <div className="flex gap-2 flex-wrap">
             {[
-              "Дархлаа дэмжинэ",
-              "Органик",
-              "Веган",
-              "Жин хасах",
-              "Витамин",
+              t("immunity"),
+              t("organic"),
+              t("vegan"),
+              t("weight_loss"),
+              t("vitamin"),
             ].map((badge) => (
               <span
                 key={badge}

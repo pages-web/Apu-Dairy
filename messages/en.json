@@ -223,5 +223,12 @@
     "news": "News",
     "contact": "Contact",
     "feedback": "Feedback"
+  },
+  "Detail": {
+    "immunity": "Boosts Immunity",
+    "organic": "Organic",
+    "vegan": "Vegan",
+    "weight_loss": "Weight Loss",
+    "vitamin": "Vitamin"
   }
 }
