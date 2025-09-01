@@ -174,21 +174,22 @@ CarouselContent.displayName = "CarouselContent";
 const CarouselItem = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => {
+>(({ className, children, ...props }, ref) => {
   const { orientation } = useCarousel();
-
   return (
     <div
       ref={ref}
       role="group"
       aria-roledescription="slide"
       className={cn(
-        "min-w-0 shrink-0 grow-0 basis-full",
+        "min-w-0 shrink-0 grow-0 basis-full select-none", // default draggable
         orientation === "horizontal" ? "pl-4" : "pt-4",
         className
       )}
       {...props}
-    />
+    >
+      <div className="select-text">{children}</div>
+    </div>
   );
 });
 CarouselItem.displayName = "CarouselItem";

@@ -10,7 +10,7 @@ const Food = ({ post }: { post: ICmsPost }) => {
         Бүтээгдэхүүн
       </Button>
 
-      <h1 className="text-2xl sm:text-3xl font-medium text-[#414545] text-center mt-4 mb-8 sm:mt-5 sm:mb-12 font-sf-pro-rounded">
+      <h1 className="text-2xl sm:text-3xl font-medium text-[#414545] text-center mt-4 sm:mt-5 font-sf-pro-rounded">
         {post.title}
       </h1>
 

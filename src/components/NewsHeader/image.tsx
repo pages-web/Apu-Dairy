@@ -7,7 +7,7 @@ import Link from "next/link";
 const Images = ({ post }: { post: ICmsPost }) => {
   return (
     <div className="flex flex-col items-start gap-3 px-2 sm:px-4 max-w-full sm:max-w-md lg:max-w-lg">
-      <Link href={`/newsa/${post._id}`} className="block w-full">
+      <Link href={`/newsa/${post._id}`} className="block w-full cursor-none">
         <div className="relative aspect-[3/2] rounded-xl overflow-hidden">
           <Image
             src={`https://apudairy.api.erxes.io/api/read-file?key=${post.thumbnail?.url}`}

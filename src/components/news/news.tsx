@@ -21,7 +21,7 @@ const News = ({ post }: { post: ICmsPost }) => {
 
       <div className="flex justify-between text-sm text-gray-500 px-1">
         <p>2 сарын 4</p>
-        <p>5 mins read</p>
+        <p>5 mins reads</p>
       </div>
 
       <p className="text-[#353535] font-sf-pro-rounded text-[16px] leading-[25px] px-1">

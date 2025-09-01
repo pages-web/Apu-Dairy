@@ -28,7 +28,7 @@ const SideImage = () => {
           <div
             key={index}
             onClick={() => handleClick(index)}
-            className={`flex items-center justify-center rounded-full cursor-pointer shadow-md bg-blue-300 transition-transform duration-100 ${
+            className={`flex items-center justify-center rounded-full shadow-md cursor-none bg-blue-300 transition-transform duration-100 ${
               isActive ? "w-28 h-28 scale-110" : "w-16 h-16 hover:scale-110"
             }`}
           >

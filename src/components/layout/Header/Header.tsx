@@ -36,7 +36,7 @@ export function NavbarTop() {
           <img
             src={logo || "/images/footer.svg"}
             alt="Logo"
-            className="w-24 h-auto"
+            className="w-24 h-auto cursor-none"
           />
         </Link>
 
@@ -46,7 +46,7 @@ export function NavbarTop() {
             <Link
               key={item.href}
               href={item.href}
-              className="cursor-pointer px-3 py-1 rounded-full hover:bg-white hover:text-[#D64545] transition duration-300"
+              className="cursor-none px-3 py-1 rounded-full hover:bg-white hover:text-[#D64545] transition duration-300"
             >
               {item.label}
             </Link>
@@ -56,7 +56,7 @@ export function NavbarTop() {
         {/* Desktop Right Buttons */}
         <div className="max-sm:hidden lg:flex items-center gap-3">
           <LanguageSwitcher />
-          <button className="flex items-center gap-2 bg-white text-[#D64545] font-medium px-4 py-2 rounded-full hover:bg-gray-100 transition shadow-sm">
+          <button className="flex items-center cursor-none gap-2 bg-white text-[#D64545] font-medium px-4 py-2 rounded-full hover:bg-gray-100 transition shadow-sm">
             💬 {t("feedback")}
           </button>
         </div>
@@ -80,7 +80,7 @@ export function NavbarTop() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="cursor-pointer px-3 py-2 rounded-full hover:bg-gray-100 hover:text-[#D64545] transition"
+                className="cursor-none px-3 py-2 rounded-full hover:bg-gray-100 hover:text-[#D64545] transition"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}

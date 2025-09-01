@@ -22,19 +22,19 @@ const AjliinBair = () => {
       </div>
 
       <div className="flex flex-wrap justify-center mb-8 gap-2">
-        <button className="bg-red-500 text-white px-4 py-2 rounded-full text-sm min-w-[120px]">
+        <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px] cursor-none">
           {t("filters.all")}
         </button>
-        <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px]">
+        <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px] cursor-none">
           {t("filters.finance")}
         </button>
-        <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px]">
+        <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px] cursor-none">
           {t("filters.drivers")}
         </button>
-        <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px]">
+        <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px] cursor-none">
           {t("filters.it")}
         </button>
-        <button className="bg-gray-100 text-gray-400 px-4 py-2 rounded-full text-sm min-w-[120px]">
+        <button className="bg-gray-100 text-gray-400 px-4 py-2 rounded-full text-sm min-w-[120px] cursor-none">
           {t("filters.other")}
         </button>
       </div>
@@ -67,7 +67,7 @@ const AjliinBair = () => {
                 />
                 <button
                   onClick={handleClick}
-                  className="bg-red-500 text-white px-5 py-3 rounded-full flex items-center text-sm whitespace-nowrap"
+                  className="bg-red-500 text-white px-5 py-3 rounded-full flex items-center text-sm whitespace-nowrap cursor-none"
                 >
                   {t("anket")}
                   <img

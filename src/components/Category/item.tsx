@@ -51,13 +51,13 @@ const Itemcategory = ({ post }: { post: ICmsPost }) => {
             ))}
           </ul>
           <div className="flex space-x-3">
-            <button className="w-10 h-10 flex justify-center items-center border border-red-500 rounded-full text-red-500 hover:bg-red-100">
+            <button className="w-10 h-10 cursor-none flex justify-center items-center border border-red-500 rounded-full text-red-500 hover:bg-red-100">
               <FaFacebookF />
             </button>
-            <button className="w-10 h-10 flex justify-center items-center border border-red-500 rounded-full text-red-500 hover:bg-red-100">
+            <button className="w-10 h-10 cursor-none flex justify-center items-center border border-red-500 rounded-full text-red-500 hover:bg-red-100">
               <FaYoutube />
             </button>
-            <button className="w-10 h-10 flex justify-center items-center border border-red-500 rounded-full text-red-500 hover:bg-red-100">
+            <button className="w-10 h-10 cursor-none flex justify-center items-center border border-red-500 rounded-full text-red-500 hover:bg-red-100">
               <FaInstagram />
             </button>
           </div>

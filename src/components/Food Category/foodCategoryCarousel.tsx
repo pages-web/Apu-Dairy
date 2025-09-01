@@ -20,7 +20,7 @@ const FoodCarousel = ({ posts }: { posts: ICmsPost[] }) => {
         </div>
       </div>
       <div className="mt-8 flex justify-center">
-        <Button className="h-10 w-36 px-6 rounded-full border border-white bg-white text-red-600 hover:bg-red-50 transition">
+        <Button className="h-10 w-36 px-6 rounded-full border border-white bg-white text-red-600 transition">
           Цааш үзэх
         </Button>
       </div>

@@ -11,7 +11,7 @@ export default function Brand() {
   const { cmsTags, loading: tagsLoading } = useCmsTags({});
   const brandTagId =
     cmsTags?.find((tag: { name: string }) => tag.name === "Brand")?._id || "";
-  const { cmsPosts, loading: postsLoading } = useCmsPosts({
+  const { cmsPosts } = useCmsPosts({
     tagIds: [brandTagId],
     language: locale,
   });

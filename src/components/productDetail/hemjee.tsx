@@ -12,7 +12,7 @@ const SizeSelector = () => {
         <button
           key={index}
           onClick={() => setSelectedSize(size)}
-          className={`w-[60px] h-[60px] rounded-full flex items-center justify-center border text-sm font-medium shadow
+          className={`w-[60px] h-[60px] rounded-full flex items-center justify-center border text-sm font-medium shadow cursor-none
             ${
               selectedSize === size
                 ? "bg-red-600 text-white border-red-600"

@@ -36,13 +36,19 @@ const Footer = async () => {
           <h3 className="font-semibold uppercase mb-2">Танилцуулга</h3>
           <ul className="space-y-1 text-sm">
             <li>
-              <Link href="/aboutheader">Бидний тухай</Link>
+              <Link href="/aboutheader" className="cursor-none">
+                Бидний тухай
+              </Link>
             </li>
             <li>
-              <Link href="/category">Бүтээгдэхүүн</Link>
+              <Link href="/category" className="cursor-none">
+                Бүтээгдэхүүн
+              </Link>
             </li>
             <li>
-              <Link href="/#">Сүү бэлтгэл</Link>
+              <Link href="/#" className="cursor-none">
+                Сүү бэлтгэл
+              </Link>
             </li>
           </ul>
         </div>
@@ -51,10 +57,14 @@ const Footer = async () => {
           <h3 className="font-semibold uppercase mb-2">Мэдээ мэдээлэл</h3>
           <ul className="space-y-1 text-sm">
             <li>
-              <Link href="/human">Хүний нөөц</Link>
+              <Link href="/human" className="cursor-none">
+                Хүний нөөц
+              </Link>
             </li>
             <li>
-              <Link href="/news">Мэдээлэл</Link>
+              <Link href="/news" className="cursor-none">
+                Мэдээлэл
+              </Link>
             </li>
           </ul>
         </div>
@@ -66,7 +76,7 @@ const Footer = async () => {
               {!!phoneNumber && (
                 <FooterLink
                   href={`tel:${phoneNumber}`}
-                  className="flex items-center text-white"
+                  className="flex items-center text-white cursor-none"
                 >
                   {phoneNumber}
                 </FooterLink>
@@ -76,7 +86,7 @@ const Footer = async () => {
               {!!phoneNumber && (
                 <FooterLink
                   href={`tel:${phoneNumber}`}
-                  className="flex items-center text-white"
+                  className="flex items-center text-white cursor-none"
                 >
                   {phoneNumber}
                 </FooterLink>
@@ -107,6 +117,7 @@ const Footer = async () => {
                 href={(links || {})[link] || ""}
                 icon={link.toLowerCase()}
                 key={link}
+                className="cursor-none"
               >
                 {link}
               </SocialLink>

@@ -22,7 +22,7 @@ export function LanguageSwitcher() {
   return (
     <Button
       onClick={handleClick}
-      className="w-10 h-10 rounded-full bg-white/50 flex items-center justify-center text-xl font-bold shadow-sm"
+      className="w-10 h-10 rounded-full cursor-none bg-white/50 flex items-center justify-center text-xl font-bold shadow-sm"
       aria-label="Change language"
     >
       🌐

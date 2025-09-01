@@ -13,7 +13,7 @@ const NutritionalHighlights = ({
     <div className="mb-5">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 mb-4 focus:outline-none justify-between w-full"
+        className="flex items-center gap-2 mb-4 focus:outline-none justify-between w-full cursor-none"
         aria-expanded={open}
         aria-controls="nutritional-items"
       >

@@ -30,7 +30,7 @@ const Item = ({ post }: { post: ICmsPost }) => {
           className="text-black text-base sm:text-lg leading-6 sm:leading-[25px] font-sf-pro-rounded font-normal whitespace-nowrap"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
-        <div className="flex items-center gap-4 text-gray-700 text-sm font-medium mt-2 sm:mt-0">
+        <div className="flex items-center gap-4 text-gray-700 text-sm font-medium">
           <div className="flex items-center gap-1 whitespace-nowrap">
             <Clock className="w-5 h-5 text-red-500" />
             <span>25 мин</span>

@@ -37,7 +37,7 @@ const FAQContact = () => {
                 width: "100%",
                 border: "none",
                 background: "#fff",
-                cursor: "pointer",
+                cursor: "none",
               }}
             >
               {item.question}
@@ -94,6 +94,7 @@ const FAQContact = () => {
               .faq-answer {
                 width: 800px;
                 background: #fafafa;
+                cursor: none;
                 overflow: hidden;
                 transition: max-height 0.5s ease, padding 0.3s ease;
               }

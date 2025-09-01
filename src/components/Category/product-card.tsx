@@ -13,6 +13,7 @@ const ProductCard = ({
 }: IProduct & { className?: string }) => {
   const { name, attachment, unitPrice, _id } = product;
   const [bgColor, setBgColor] = useState("white");
+  const [hover, setHover] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const ProductCard = ({
 
     return () => fac.destroy();
   }, [attachment]);
+
   return (
     <div
       className={cn(
@@ -40,24 +42,19 @@ const ProductCard = ({
     >
       <Link href={`/product/${_id}`}>
         <div
-          className="flex h-[280px] p-12 relative w-52 overflow-hidden group justify-center items-center gap-1 shrink-0 self-stretch rounded-2xl transition-colors duration-200"
-          style={{
-            backgroundColor: "white",
-          }}
-          onMouseEnter={(e) => {
-            (e.currentTarget as HTMLDivElement).style.backgroundColor = bgColor;
-          }}
-          onMouseLeave={(e) => {
-            (e.currentTarget as HTMLDivElement).style.backgroundColor = "white";
-          }}
+          className={`flex h-[280px] p-12 relative w-52 overflow-hidden group justify-center items-center gap-1 shrink-0 self-stretch rounded-2xl transition-colors duration-300
+    ${hover ? "" : ""}`}
+          style={{ backgroundColor: hover ? bgColor : undefined }}
+          onMouseEnter={() => setHover(true)}
+          onMouseLeave={() => setHover(false)}
         >
           <Image
             ref={imgRef}
-            src={product.attachment?.url || ""}
+            src={attachment?.url || ""}
             alt={name}
             fill
-            className="object-contain rounded-2xl transition-all duration-200 scale-125 group-hover:scale-175 group-hover:translate-x-2"
-            sizes="(max-width: 768px) 100vw, 280px"
+            className="object-contain rounded-2xl transition-transform duration-300 scale-100 group-hover:scale-110"
+            sizes="(max-width: 528px) 80vw, 180px"
             loading="lazy"
           />
         </div>

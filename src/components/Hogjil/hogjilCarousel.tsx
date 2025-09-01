@@ -14,7 +14,7 @@ const HogjilCarousel = ({ posts }: { posts: ICmsPost[] }) => {
       <Carousel className="w-full" data-aos="fade-up">
         <CarouselContent>
           {posts.map((post, index) => (
-            <CarouselItem className="w-full">
+            <CarouselItem className="w-full" key={index}>
               <Text post={post} />
             </CarouselItem>
           ))}

@@ -34,8 +34,7 @@ const ProductCard = ({
   return (
     <div
       className={cn(
-        "border border-neutral-200 rounded-[24px] p-4 h-96 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow duration-200",
-        className
+        "border border-neutral-200 rounded-[24px] p-4 h-96 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow duration-200"
       )}
     >
       <Link href={`/product/${_id}`}>
@@ -56,7 +55,7 @@ const ProductCard = ({
             src={product.attachment?.url || ""}
             alt={name}
             fill
-            className="object-contain rounded-2xl transition-all duration-200 scale-125 group-hover:scale-175 group-hover:translate-x-2"
+            className="object-contain rounded-2xl transition-all duration-200 scale-125 group-hover:scale-175 group-hover:translate-x-2 cursor-none"
             sizes="(max-width: 768px) 100vw, 280px"
             loading="lazy"
           />

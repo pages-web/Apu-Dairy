@@ -13,7 +13,7 @@ const BarcodeDescriptionToggle = ({
     <div className="mt-5 mb-5">
       <button
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 cursor-pointer font-semibold text-lg focus:outline-none w-full justify-between"
+        className="flex items-center gap-2 font-semibold text-lg focus:outline-none w-full justify-between cursor-none "
         aria-expanded={open}
         aria-controls="barcode-description"
       >

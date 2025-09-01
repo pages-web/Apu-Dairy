@@ -45,7 +45,7 @@ const Info = async () => {
             href={`https://www.google.com/maps/@${coordinate?.longitude},${coordinate?.latitude}`}
             target="_blank"
             className={cn(
-              "items-start -mt-1 h-auto whitespace-normal",
+              "items-start -mt-1 h-auto whitespace-normal cursor-none",
               (address || "").length < 20 && "items-center"
             )}
           >

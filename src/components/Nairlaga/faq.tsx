@@ -29,10 +29,13 @@ const FAQ = () => {
           const isOpen = openIndex === idx;
 
           return (
-            <div key={idx} className="border-b border-gray-300 mb-4">
+            <div
+              key={idx}
+              className="border-b border-gray-300 mb-4 cursor-none"
+            >
               <button
                 onClick={() => toggle(idx)}
-                className="flex justify-between items-center w-full py-3 bg-white cursor-pointer border-none"
+                className="flex justify-between items-center w-full py-3 bg-white cursor-none border-none"
               >
                 <span>{item.question}</span>
                 {isOpen ? (

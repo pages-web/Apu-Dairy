@@ -30,7 +30,9 @@ export default function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+      <body
+        className={`${inter.className} min-h-screen flex flex-col cursor-none`}
+      >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <NavbarTop />
           <main className="flex-grow">

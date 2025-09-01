@@ -69,13 +69,13 @@ const StrategySlider = () => {
         <div className="absolute left-1/2 -translate-x-1/2 flex gap-4">
           <button
             onClick={handlePrev}
-            className="bg-white/20 text-green-800 px-3 py-2 rounded-full shadow hover:bg-white/30 transition"
+            className="bg-white/20 text-green-800 px-3 py-2 rounded-full shadow hover:bg-white/30 transition cursor-none"
           >
             <img src="/images/Frame.svg" alt="zuun sum" />
           </button>
           <button
             onClick={handleNext}
-            className="bg-white/20 text-green-800 px-3 py-2 rounded-full shadow hover:bg-white/30 transition"
+            className="bg-white/20 text-green-800 px-3 py-2 rounded-full shadow hover:bg-white/30 transition cursor-none"
           >
             <img src="/images/Frame1.svg" alt="baruun sum" />
           </button>

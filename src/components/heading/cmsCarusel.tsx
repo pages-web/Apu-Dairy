@@ -13,7 +13,7 @@ const MainBannerCarousel = ({ posts }: { posts: ICmsPost[] }) => {
           {posts.map((post, index) => (
             <CarouselItem
               key={index}
-              className="w-full h-[60vh] sm:h-[70vh] md:h-[80vh] lg:h-[90vh] xl:h-[100vh]"
+              className="w-full h-[40vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-[100vh]"
             >
               <BannerCard post={post} />
             </CarouselItem>
