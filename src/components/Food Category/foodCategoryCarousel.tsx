@@ -3,8 +3,10 @@ import React, { useEffect } from "react";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
 import Item from "./item";
 import { Button } from "../ui/Button/Button";
+import { useTranslations } from "use-intl";
 
 const FoodCarousel = ({ posts }: { posts: ICmsPost[] }) => {
+  const t = useTranslations("NewsMain");
   return (
     <div>
       <div className="w-full md:max-w-[100%]" data-aos="fade-up">
@@ -21,7 +23,7 @@ const FoodCarousel = ({ posts }: { posts: ICmsPost[] }) => {
       </div>
       <div className="mt-8 flex justify-center">
         <Button className="h-10 w-36 px-6 rounded-full border border-white bg-white text-red-600 transition">
-          Цааш үзэх
+          {t("viewMore")}
         </Button>
       </div>
     </div>

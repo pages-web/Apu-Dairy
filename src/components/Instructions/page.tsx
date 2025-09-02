@@ -7,7 +7,7 @@ type Props = {
 };
 
 const Instructions = (props: Props) => {
-  const { post, loading } = getCmsPostDetail({ id: props.postId });
+  const { post } = getCmsPostDetail({ id: props.postId });
 
   return (
     <div className="flex flex-col lg:flex-row gap-8">
@@ -19,12 +19,12 @@ const Instructions = (props: Props) => {
           Step 1/3
         </h4>
         <div className="mb-2 text-black font-sans text-[20px] font-normal leading-normal">
-          {post?.customFieldsData?.[3]?.value?.toString() || "No value"}
+          {post?.customFieldsData?.[0]?.value?.toString() || "No value"}
         </div>
 
         <div className="mb-2">
           <ul className="list-disc list-inside">
-            {post?.customFieldsData?.[0]?.value
+            {post?.customFieldsData?.[1]?.value
               ?.split("\n")
               .map((line: string, idx: number) => (
                 <li key={idx}>{line}</li>
@@ -33,17 +33,17 @@ const Instructions = (props: Props) => {
         </div>
 
         <div className="mb-2">
-          {post?.customFieldsData?.[1]?.value?.toString() || "No value"}
+          {post?.customFieldsData?.[2]?.value?.toString() || "No value"}
         </div>
         <h4 className="mb-5 text-[rgba(53,53,53,0.6)] font-sans text-[16px] font-normal leading-normal">
           Step 2/3
         </h4>
         <div className="mb-2 text-black font-sans text-[20px] font-normal leading-normal">
-          {post?.customFieldsData?.[4]?.value?.toString() || "No value"}
+          {post?.customFieldsData?.[3]?.value?.toString() || "No value"}
         </div>
         <div className="mb-5">
           <ul className="list-disc list-inside">
-            {post?.customFieldsData?.[5]?.value
+            {post?.customFieldsData?.[4]?.value
               ?.split("\n")
               .map((line: string, idx: number) => (
                 <li key={idx}>{line}</li>
@@ -51,17 +51,17 @@ const Instructions = (props: Props) => {
           </ul>
         </div>
         <div className="mb-2">
-          {post?.customFieldsData?.[6]?.value?.toString() || "No value"}
+          {post?.customFieldsData?.[5]?.value?.toString() || "No value"}
         </div>
         <h4 className="mb-5 text-[rgba(53,53,53,0.6)] font-sans text-[16px] font-normal leading-normal">
           Step 3/3
         </h4>
         <div className="mb-2 text-black font-sans text-[20px] font-normal leading-normal">
-          {post?.customFieldsData?.[7]?.value?.toString() || "No value"}
+          {post?.customFieldsData?.[6]?.value?.toString() || "No value"}
         </div>
         <div className="mb-5">
           <ul className="list-disc list-inside">
-            {post?.customFieldsData?.[8]?.value
+            {post?.customFieldsData?.[7]?.value
               ?.split("\n")
               .map((line: string, idx: number) => (
                 <li key={idx}>{line}</li>
@@ -69,7 +69,7 @@ const Instructions = (props: Props) => {
           </ul>
         </div>
         <div className="mb-2">
-          {post?.customFieldsData?.[9]?.value?.toString() || "No value"}
+          {post?.customFieldsData?.[8]?.value?.toString() || "No value"}
         </div>
       </div>
     </div>

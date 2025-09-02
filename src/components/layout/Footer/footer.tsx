@@ -5,20 +5,27 @@ import { getBranchDetail } from "@/src/graphql/queries/auth";
 import { Button } from "../../ui/Button/Button";
 import { icons } from "./icons";
 import { cn } from "@/src/lib/utils/utils";
+import { getTranslations } from "next-intl/server";
+import React from "react";
 
 const Footer = async () => {
   const { branchDetail } = await getBranchDetail();
   const { email, phoneNumber, address, coordinate, links } = branchDetail || {};
-
+  const t = await getTranslations("Footer");
   return (
     <footer className="bg-[#ED3237] text-white rounded-3xl px-6 py-10 mt-16 mb-16 mx-auto max-w-[1400px]">
       <div className="grid grid-cols-1 md:grid-cols-5 gap-10">
         <div className="space-y-4">
           <h2 className="text-2xl font-bold">APU DAIRY</h2>
           <p className="text-sm leading-relaxed">
-            Монгол улс, Улаанбаатар хот, Хан-Уул дүүрэг, 1-р хороо
-            <br />
-            Чингисийн өргөн чөлөө 33/5, Үйлдвэр 10/17042
+            {t("address")
+              .split("\n")
+              .map((line, index) => (
+                <React.Fragment key={index}>
+                  {line}
+                  <br />
+                </React.Fragment>
+              ))}
           </p>
         </div>
 
@@ -33,44 +40,44 @@ const Footer = async () => {
         </div>
 
         <div className="space-y-2">
-          <h3 className="font-semibold uppercase mb-2">Танилцуулга</h3>
+          <h3 className="font-semibold uppercase mb-2">{t("Introduction")}</h3>
           <ul className="space-y-1 text-sm">
             <li>
               <Link href="/aboutheader" className="cursor-none">
-                Бидний тухай
+                {t("Aboutus")}
               </Link>
             </li>
             <li>
               <Link href="/category" className="cursor-none">
-                Бүтээгдэхүүн
+                {t("Product")}
               </Link>
             </li>
             <li>
               <Link href="/#" className="cursor-none">
-                Сүү бэлтгэл
+                {t("milkPreparation")}
               </Link>
             </li>
           </ul>
         </div>
 
         <div className="space-y-2">
-          <h3 className="font-semibold uppercase mb-2">Мэдээ мэдээлэл</h3>
+          <h3 className="font-semibold uppercase mb-2">{t("News")}</h3>
           <ul className="space-y-1 text-sm">
             <li>
               <Link href="/human" className="cursor-none">
-                Хүний нөөц
+                {t("Human")}
               </Link>
             </li>
             <li>
               <Link href="/news" className="cursor-none">
-                Мэдээлэл
+                {t("Information")}
               </Link>
             </li>
           </ul>
         </div>
 
         <div className="space-y-2">
-          <h3 className="font-semibold uppercase mb-2">Бидэнтэй холбогдох</h3>
+          <h3 className="font-semibold uppercase mb-2">{t("contactUs")}</h3>
           <ul className="space-y-2 text-sm text-white">
             <li className="flex items-start">
               {!!phoneNumber && (

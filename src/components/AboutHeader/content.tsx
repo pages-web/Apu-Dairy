@@ -107,7 +107,7 @@ const About = ({ post }: { post: ICmsPost }) => {
       <Zamnal />
       <Hogjil />
       <h2 className="text-sm font-medium leading-normal text-[#ED3237] bg-[rgb(250,203,205)] rounded-full font-sf-pro-rounded w-32 h-7 flex items-center justify-center">
-        Аюулгүй байдал
+        {t("safety")}
       </h2>
       <Secure />
       <Alham />

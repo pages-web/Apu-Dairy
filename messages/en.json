@@ -11,7 +11,10 @@
     "News": "News",
     "Human": "Human Resources",
     "Information": "Information",
-    "Contactus": "Contact us"
+    "Contactus": "Contact us",
+    "milkPreparation": "Milk Preparation",
+    "contactUs": "Contact Us",
+    "address": "Mongolia, Ulaanbaatar, Khan-Uul District, 1st Khoroo\nChinggis Avenue 33/5, Uildver 10/17042"
   },
   "AboutUs": {
     "headline": "Signed a total $40 million agreement with Asian Development Bank (ADB) and European Bank for Reconstruction and Development (EBRD)",
@@ -197,7 +200,8 @@
     "projectsCompleted": "Projects Completed",
     "monthlyActiveUsers": "Monthly Active Users",
     "registeredCustomers": "Registered Customers",
-    "dailyUsers": "Daily Users"
+    "dailyUsers": "Daily Users",
+    "safety": "Safety"
   },
   "security": "Security",
   "jobs": {
@@ -230,5 +234,8 @@
     "vegan": "Vegan",
     "weight_loss": "Weight Loss",
     "vitamin": "Vitamin"
+  },
+  "Hogjil": {
+    "sustainableDevelopment": "Sustainable Development"
   }
 }
