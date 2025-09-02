@@ -15,7 +15,6 @@ const currentConfig = gql`
       uiOptions {
         logo
         colors
-        favIcon
       }
     }
   }
