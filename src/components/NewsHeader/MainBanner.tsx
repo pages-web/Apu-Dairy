@@ -3,7 +3,6 @@
 import React from "react";
 import { useCmsPosts } from "@/src/graphql/queries/kb";
 import NewsCarousel from "./newsCarousel";
-import Skeleton from "../Skeleton/page";
 import { useLocale } from "next-intl";
 
 export default function Main() {
@@ -12,7 +11,7 @@ export default function Main() {
 
   const locale = useLocale();
 
-  const { cmsPosts, loading } = useCmsPosts({
+  const { cmsPosts } = useCmsPosts({
     tagIds,
     language: locale,
   });

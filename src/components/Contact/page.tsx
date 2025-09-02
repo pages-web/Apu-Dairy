@@ -3,7 +3,6 @@
 import React from "react";
 import { useCmsPosts } from "@/src/graphql/queries/kb";
 import ContactCarousel from "./carousel";
-import Skeleton from "../Skeleton/page";
 import { useLocale } from "next-intl";
 
 export default function Contact() {
@@ -15,7 +14,7 @@ export default function Contact() {
     language: locale,
   });
   if (loading) {
-    return <Skeleton />;
+    return <div>Wait Minutes ...</div>;
   }
 
   return (

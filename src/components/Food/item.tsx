@@ -12,7 +12,6 @@ const Item = ({ post }: { post: ICmsPost }) => {
           <span className="absolute top-3 left-3 bg-white text-red-500 text-xs font-semibold px-2 py-0.5 rounded-full z-10">
             Веган
           </span>
-
           <Image
             src={`https://apudairy.api.erxes.io/api/read-file?key=${post.thumbnail.url}`}
             alt={post.title}

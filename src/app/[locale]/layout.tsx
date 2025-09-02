@@ -12,7 +12,14 @@ import mn from "@/messages/mn.json";
 import { NavbarTop } from "@/src/components/layout/Header/Header";
 
 const inter = Inter({ subsets: ["latin"] });
-export const metadata = { title: "APU", description: "Company description" };
+
+export const metadata = {
+  title: "APU",
+  description: "Company description",
+  icons: {
+    icon: "/apu-dairy-favicon.jpg",
+  },
+};
 
 export default function RootLayout({
   children,
@@ -30,6 +37,13 @@ export default function RootLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        <link
+          rel="icon"
+          type="image/jpeg"
+          href="/images/apu-dairy-favicon.jpg"
+        />
+      </head>
       <body
         className={`${inter.className} min-h-screen flex flex-col cursor-none`}
       >

@@ -6,7 +6,6 @@ const cmsPosts = gql`
     $type: String
     $featured: Boolean
     $categoryIds: [String]
-    $searchValue: String
     $status: PostStatus
     $page: Int
     $perPage: Int
@@ -20,7 +19,6 @@ const cmsPosts = gql`
       type: $type
       featured: $featured
       categoryIds: $categoryIds
-      searchValue: $searchValue
       status: $status
       page: $page
       perPage: $perPage
@@ -45,7 +43,6 @@ const cmsPosts = gql`
 const cmsCategories = gql`
   query CmsCategories(
     $clientPortalId: String!
-    $searchValue: String
     $status: CategoryStatus
     $page: Int
     $perPage: Int
@@ -54,7 +51,6 @@ const cmsCategories = gql`
   ) {
     cmsCategories(
       clientPortalId: $clientPortalId
-      searchValue: $searchValue
       status: $status
       page: $page
       perPage: $perPage
@@ -83,7 +79,6 @@ const cmsCategories = gql`
 const cmsTags = gql`
   query CmsTags(
     $clientPortalId: String!
-    $searchValue: String
     $page: Int
     $perPage: Int
     $sortField: String
@@ -91,7 +86,6 @@ const cmsTags = gql`
   ) {
     cmsTags(
       clientPortalId: $clientPortalId
-      searchValue: $searchValue
       page: $page
       perPage: $perPage
       sortField: $sortField

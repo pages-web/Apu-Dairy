@@ -3,8 +3,10 @@
 import Image from "next/image";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
 import { Button } from "@/src/components/ui/Button/Button";
+import { useTranslations } from "next-intl";
 
 const About = ({ post }: { post: ICmsPost }) => {
+  const t = useTranslations("Sustainable");
   return (
     <div className="container py flex flex-col items-center gap-12">
       <div
@@ -74,7 +76,7 @@ const About = ({ post }: { post: ICmsPost }) => {
       )}
       <div className="mt-12">
         <Button className="flex items-center gap-2 px-6 py-2 text-red-500 bg-white rounded-full hover:bg-red-50 font-semibold shadow-md">
-          Дэлгэрэнгүй
+          {t("button")}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"

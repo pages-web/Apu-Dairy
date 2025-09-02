@@ -9,13 +9,13 @@ import { useLocale } from "next-intl";
 export default function JorPage() {
   const locale = useLocale();
 
-  const { cmsTags, loading: tagsLoading } = useCmsTags({});
+  const { cmsTags } = useCmsTags({});
 
   const jorTagId = cmsTags.find(
     (tag: { name: string }) => tag.name === "Jor"
   )?._id;
 
-  const { cmsPosts, loading } = useCmsPosts({
+  const { cmsPosts } = useCmsPosts({
     tagIds: [jorTagId],
     language: locale,
   });

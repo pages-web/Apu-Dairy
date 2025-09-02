@@ -2,7 +2,6 @@ import { gql } from "@apollo/client";
 
 const products = gql`
   query poscProducts(
-    $searchValue: String
     $type: String
     $categoryId: String
     $page: Int
@@ -14,7 +13,6 @@ const products = gql`
     $ids: [String]
   ) {
     poscProducts(
-      searchValue: $searchValue
       categoryId: $categoryId
       type: $type
       page: $page
@@ -67,14 +65,12 @@ const productsCount = gql`
   query productsCount(
     $categoryId: String
     $type: String
-    $searchValue: String
     $groupedSimilarity: String
     $isKiosk: Boolean
   ) {
     poscProductsTotalCount(
       categoryId: $categoryId
       type: $type
-      searchValue: $searchValue
       groupedSimilarity: $groupedSimilarity
       isKiosk: $isKiosk
     )
@@ -86,7 +82,6 @@ const tagsQuery = gql`
     $type: String
     $tagIds: [String]
     $parentId: String
-    $searchValue: String
     $ids: [String]
     $excludeIds: Boolean
     $page: Int
@@ -96,7 +91,6 @@ const tagsQuery = gql`
       type: $type
       tagIds: $tagIds
       parentId: $parentId
-      searchValue: $searchValue
       ids: $ids
       excludeIds: $excludeIds
       page: $page

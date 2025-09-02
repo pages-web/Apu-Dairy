@@ -43,7 +43,7 @@ const AllProductsPage = () => {
       <div className="flex flex-row sm:flex-row gap-4 sm:gap-10 mb-10">
         <div className="relative w-32">
           <select
-            className="appearance-none w-full border rounded-2xl p-2 text-sm pr-8"
+            className="appearance-none w-full border rounded-2xl p-2 text-sm pr-8 cursor-none"
             value={brand}
             onChange={handleChange}
           >
@@ -70,7 +70,7 @@ const AllProductsPage = () => {
           </div>
         </div>
         <div className="relative w-32">
-          <select className="appearance-none w-full border rounded-2xl p-2 text-sm pr-8">
+          <select className="appearance-none w-full border rounded-2xl p-2 text-sm pr-8 cursor-none">
             <option>{t("TypePlaceholder")}</option>
             <option>{t("TypeOptions.Milk")}</option>
             <option>{t("TypeOptions.Yogurt")}</option>
@@ -94,7 +94,7 @@ const AllProductsPage = () => {
           </div>
         </div>
         <div className="relative w-32">
-          <select className="appearance-none w-full border rounded-2xl p-2 text-sm pr-8">
+          <select className="appearance-none w-full border rounded-2xl p-2 text-sm pr-8 cursor-none">
             <option>{t("SizePlaceholder")}</option>
             <option>900 гр</option>
             <option>760 гр</option>

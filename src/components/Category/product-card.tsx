@@ -53,7 +53,7 @@ const ProductCard = ({
             src={attachment?.url || ""}
             alt={name}
             fill
-            className="object-contain rounded-2xl transition-transform duration-300 scale-100 group-hover:scale-110"
+            className="object-contain rounded-2xl transition-transform duration-300 scale-100 group-hover:scale-110 cursor-none"
             sizes="(max-width: 528px) 80vw, 180px"
             loading="lazy"
           />

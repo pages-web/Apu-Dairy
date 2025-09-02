@@ -8,8 +8,8 @@ const commonFields = `
 `;
 
 const productCategories = gql`
-  query poscProductCategories ($parentId: String, $searchValue: String, $excludeEmpty: Boolean, $meta: String, $page: Int, $perPage: Int, $sortField: String, $sortDirection: Int) {
-    poscProductCategories(parentId: $parentId, searchValue: $searchValue, excludeEmpty: $excludeEmpty, meta: $meta, page: $page, perPage: $perPage, sortField: $sortField, sortDirection: $sortDirection) {
+  query poscProductCategories ($parentId: String, $excludeEmpty: Boolean, $meta: String, $page: Int, $perPage: Int, $sortField: String, $sortDirection: Int) {
+    poscProductCategories(parentId: $parentId, excludeEmpty: $excludeEmpty, meta: $meta, page: $page, perPage: $perPage, sortField: $sortField, sortDirection: $sortDirection) {
       ${commonFields}
       order
       parentId
@@ -22,7 +22,6 @@ const productCategories = gql`
 
 const products = gql`
   query poscProducts(
-    $searchValue: String,
     $type: String, 
     $categoryId: String, 
     $page: Int, 
@@ -33,7 +32,6 @@ const products = gql`
     $sortDirection: Int
     ) {
     poscProducts(
-      searchValue: $searchValue, 
       categoryId: $categoryId, 
       type: $type, 
       page: $page, 
@@ -99,14 +97,12 @@ const productsCount = gql`
   query productsCount(
     $categoryId: String
     $type: String
-    $searchValue: String
     $groupedSimilarity: String
     $isKiosk: Boolean
   ) {
     poscProductsTotalCount(
       categoryId: $categoryId
       type: $type
-      searchValue: $searchValue
       groupedSimilarity: $groupedSimilarity
       isKiosk: $isKiosk
     )
