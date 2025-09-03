@@ -24,10 +24,6 @@ const nextConfig = {
       },
     ],
   },
-  i18n: {
-    locales: ["en", "mn"],
-    defaultLocale: "mn",
-  },
   env: {
     NEXT_PUBLIC_MAIN_API_DOMAIN: "https://apudairy.app.erxes.io/gateway",
     NEXT_PUBLIC_POS_TOKEN: "IEItiKcXK7xQI6yb55DWXiYnNtoY8OUj",
