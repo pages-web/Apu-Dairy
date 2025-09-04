@@ -6,21 +6,21 @@ import {
   CarouselItem,
 } from "@/src/components/heading/carousel";
 import Item from "./itemMain";
-
 const NewsCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
-    <div className="md:px-8 md:py-28 lg:py-28 max-sm:mt-20 mb-10">
-      <Carousel>
-        <CarouselContent>
-          {posts.map((post, index) => (
-            <CarouselItem key={index} className="flex justify-center">
-              <Item post={post} />
-            </CarouselItem>
-          ))}
-        </CarouselContent>
-      </Carousel>
+    <div className="w-full flex justify-center mt-[100px]">
+      <div className="w-full max-w-[1350px] mb-10">
+        <Carousel>
+          <CarouselContent>
+            {posts.map((post, index) => (
+              <CarouselItem key={index} className="flex w-full">
+                <Item post={post} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+        </Carousel>
+      </div>
     </div>
   );
 };
-
 export default NewsCarousel;

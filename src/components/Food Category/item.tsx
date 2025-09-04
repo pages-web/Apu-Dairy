@@ -6,7 +6,7 @@ import Image from "next/image";
 
 const Item = ({ post }: { post: ICmsPost }) => {
   return (
-    <div className="flex flex-col items-center gap-4 max-w-[400px] mx-auto ">
+    <div className="flex flex-col items-center gap-4 max-w-[400px] mx-auto">
       {post.thumbnail?.url && (
         <div className="relative w-full h-[200px] rounded-4xl overflow-hidden">
           <Image

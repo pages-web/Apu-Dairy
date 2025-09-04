@@ -6,14 +6,14 @@ import Link from "next/link";
 
 const Images = ({ post }: { post: ICmsPost }) => {
   return (
-    <div className="flex flex-col items-start gap-3 px-2 sm:px-4 max-w-full sm:max-w-md lg:max-w-lg">
-      <Link href={`/newsa/${post._id}`} className="block w-full cursor-none">
-        <div className="relative aspect-[3/2] rounded-xl overflow-hidden">
+    <div className="flex flex-col justify-between w-full">
+      <Link href={`/newsa/${post._id}`} className="block w-full">
+        <div className="relative aspect-[3/2] rounded-lg overflow-hidden">
           <Image
             src={`https://apudairy.api.erxes.io/api/read-file?key=${post.thumbnail?.url}`}
             alt={post.title}
             fill
-            className="object-cover rounded-xl"
+            className="object-cover rounded-lg"
             loading="lazy"
           />
         </div>
@@ -23,7 +23,7 @@ const Images = ({ post }: { post: ICmsPost }) => {
           <span>5 mins read</span>
         </div>
 
-        <div className="text-[#121212] font-semibold text-[16px] leading-[120%] font-sf-pro-rounded text-start mt-1">
+        <div className="text-black font-semibold text-[16px] leading-[120%] font-sf-pro-rounded text-start mt-1">
           {post.title}
         </div>
       </Link>

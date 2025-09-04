@@ -31,7 +31,7 @@ export function NavbarTop() {
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50 bg-white/50 backdrop-blur-md border-b border-gray-200 shadow-sm">
-      <div className="max-w-screen-xl mx-auto flex items-center justify-between py-4 px-6">
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between py-4 px-6">
         <Link href="/">
           <img
             src={logo || "/images/footer.svg"}
@@ -41,7 +41,7 @@ export function NavbarTop() {
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="max-sm:hidden lg:flex items-center bg-gray-100 px-4 py-2 rounded-full text-sm font-semibold text-[#232323]">
+        <nav className="max-sm:hidden md:hidden lg:flex items-center bg-gray-100 px-4 py-2 rounded-full text-sm font-semibold text-[#232323]">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -54,7 +54,7 @@ export function NavbarTop() {
         </nav>
 
         {/* Desktop Right Buttons */}
-        <div className="max-sm:hidden lg:flex items-center gap-3">
+        <div className="max-sm:hidden md:hidden lg:flex items-center gap-3">
           <LanguageSwitcher />
           <button className="flex items-center cursor-none gap-2 bg-white text-[#D64545] font-medium px-4 py-2 rounded-full hover:bg-gray-100 transition shadow-sm">
             💬 {t("feedback")}
@@ -62,7 +62,7 @@ export function NavbarTop() {
         </div>
 
         {/* Mobile Hamburger */}
-        <div className="lg:hidden flex items-center">
+        <div className="lg:hidden not-last:md:hidden flex items-center">
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
             className="p-2 rounded-md border border-gray-300"

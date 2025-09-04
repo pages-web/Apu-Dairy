@@ -14,10 +14,10 @@ const AboutCarousel = ({ posts }: { posts: ICmsPost[] }) => {
         </p>
       </div>
 
-      <div className="w-full md:max-w-[90%] pb-10 mt-10">
-        <div className="gap-2">
+      <div className="w-full pb-10 mt-10 flex justify-center">
+        <div className="w-full max-w-5xl px-4">
           {posts.map((post, index) => (
-            <div className="lg:basis-full" key={index}>
+            <div key={index}>
               <About post={post} />
             </div>
           ))}
