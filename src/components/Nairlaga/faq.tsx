@@ -1,87 +1,58 @@
 "use client";
 
 import React, { useState } from "react";
-import { useTranslations } from "next-intl";
 import LongLine from "./longline";
+import { ICmsPost } from "@/src/graphql/types/cms.types";
+import { useTranslations } from "next-intl";
 
-const FAQ = () => {
-  const t = useTranslations();
-  const faqData = t.raw("FAQProduct");
+interface ItemProps {
+  cmsPosts: ICmsPost[];
+}
+
+const FAQ = ({ cmsPosts }: ItemProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
+  const t = useTranslations("FAQ");
   return (
     <>
       <div className="mb-28">
         <div className="text-start md:mb-10 mt-10 mb-5">
           <h1 className="inline-block bg-[#FFEFF0] text-[#ED3237] font-sf-pro-rounded text-[13px] font-medium leading-[100%] px-4 py-1 rounded-full">
-            Танд юугаар туслах вэ?
+            {t("help")}
           </h1>
         </div>
+
         <h2 className="md:mb-10 lg:mb-10 text-xl sm:text-xl md:text-2xl font-sf-pro-rounded text-black">
-          Түгээмэл асуулт хариултууд
+          {t("FAQTitle")}
         </h2>
 
-        {faqData.map((item: any, idx: number) => {
-          const isOpen = openIndex === idx;
-
-          return (
+        {cmsPosts.map((post, index) => (
+          <div
+            key={post._id}
+            className="border-b border-gray-200 py-3 cursor-pointer"
+          >
             <div
-              key={idx}
-              className="border-b border-gray-300 mb-4 cursor-none"
+              onClick={() => toggle(index)}
+              className="flex justify-between items-center"
             >
-              <button
-                onClick={() => toggle(idx)}
-                className="flex justify-between items-center w-full py-3 bg-white cursor-none border-none"
-              >
-                <span>{item.question}</span>
-                {isOpen ? (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M18 12H6"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M12 6v12M6 12h12"
-                    />
-                  </svg>
-                )}
-              </button>
-              <div
-                className={`overflow-hidden transition-all duration-500 ${
-                  isOpen ? "max-h-96 py-2" : "max-h-0"
-                }`}
-              >
-                {isOpen && <p className="text-gray-700">{item.answer}</p>}
-              </div>
+              <h3 className="font-sf-pro-rounded text-xl">{post.title}</h3>
+              <span className="text-xl">{openIndex === index ? "−" : "+"}</span>
             </div>
-          );
-        })}
+            <div
+              className={`transition-all duration-500 overflow-hidden ${
+                openIndex === index ? "max-h-[500px] mt-2" : "max-h-0"
+              }`}
+            >
+              <div
+                className="text-gray-600 text-sm leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />
+            </div>
+          </div>
+        ))}
       </div>
       <LongLine />
     </>

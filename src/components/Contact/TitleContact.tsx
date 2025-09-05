@@ -3,7 +3,7 @@
 import { ICmsPost } from "@/src/graphql/types/cms.types";
 import ContactForm from "../Erxes Form/contactForm";
 import Info from "./info";
-import FAQContact from "./faqContact";
+import FAQContact from "./faqPage";
 
 const TitleContact = ({ post }: { post: ICmsPost }) => {
   return (

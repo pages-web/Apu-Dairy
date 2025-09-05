@@ -23,7 +23,7 @@ const Text = ({ post }: { post: ICmsPost }) => {
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
         <div className="shrink-0">
-          <ReportDropdown />
+          <ReportDropdown postId={post._id} />
         </div>
       </div>
       <StrategySlider />

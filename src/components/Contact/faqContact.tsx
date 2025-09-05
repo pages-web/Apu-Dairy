@@ -1,114 +1,60 @@
 "use client";
 
-import { useTranslations } from "next-intl";
 import React, { useState } from "react";
+import { ICmsPost } from "@/src/graphql/types/cms.types";
+import { useTranslations } from "next-intl";
 
-const FAQContact = () => {
-  const t = useTranslations("FAQ");
-  const faqs = t.raw("faqs"); // JSON array шууд татаж авна
+interface ItemProps {
+  cmsPosts: ICmsPost[];
+}
 
+const FAQ = ({ cmsPosts }: ItemProps) => {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
-
+  const t = useTranslations("FAQ");
   return (
-    <div className="mb-28">
-      <h2 className="text-[32px] font-medium leading-none text-black font-sf-pro-rounded mb-10">
-        {t("FAQTitle")}
-      </h2>
+    <>
+      <div className="mb-28">
+        <div className="text-start md:mb-10 mt-10 mb-5">
+          <h1 className="inline-block bg-[#FFEFF0] text-[#ED3237] font-sf-pro-rounded text-[13px] font-medium leading-[100%] px-4 py-1 rounded-full">
+            {t("help")}
+          </h1>
+        </div>
 
-      {faqs.map((item: { question: string; answer: string }, idx: number) => {
-        const isOpen = openIndex === idx;
+        <h2 className="md:mb-10 lg:mb-10 text-xl sm:text-xl md:text-2xl font-sf-pro-rounded text-black">
+          {t("FAQTitle")}
+        </h2>
 
-        return (
+        {cmsPosts.map((post, index) => (
           <div
-            key={idx}
-            style={{ marginBottom: 10, borderBottom: "1px solid gray" }}
+            key={post._id}
+            className="border-b border-gray-200 py-3 cursor-pointer"
           >
-            <button
-              onClick={() => toggle(idx)}
-              style={{
-                display: "flex",
-                padding: "12px 0",
-                justifyContent: "space-between",
-                alignSelf: "stretch",
-                width: "100%",
-                border: "none",
-                background: "#fff",
-                cursor: "none",
-              }}
-            >
-              {item.question}
-
-              {isOpen ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  style={{ marginRight: 8 }}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M18 12H6"
-                  />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  style={{ marginRight: 8 }}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M12 6v12M6 12h12"
-                  />
-                </svg>
-              )}
-            </button>
-
             <div
-              className="faq-answer"
-              style={{
-                maxHeight: isOpen ? "500px" : "0px",
-                padding: isOpen ? "10px" : "0 10px",
-                maxWidth: isOpen ? "900px" : "0px",
-              }}
+              onClick={() => toggle(index)}
+              className="flex justify-between items-center"
             >
-              {isOpen && <p>{item.answer}</p>}
+              <h3 className="font-sf-pro-rounded text-xl">{post.title}</h3>
+              <span className="text-xl">{openIndex === index ? "−" : "+"}</span>
             </div>
-
-            <style jsx>{`
-              .faq-answer {
-                width: 800px;
-                background: #fafafa;
-                cursor: none;
-                overflow: hidden;
-                transition: max-height 0.5s ease, padding 0.3s ease;
-              }
-              @media (max-width: 640px) {
-                .faq-answer {
-                  width: 300px;
-                }
-              }
-            `}</style>
+            <div
+              className={`transition-all duration-500 overflow-hidden ${
+                openIndex === index ? "max-h-[500px] mt-2" : "max-h-0"
+              }`}
+            >
+              <div
+                className="text-gray-600 text-sm leading-relaxed"
+                dangerouslySetInnerHTML={{ __html: post.content }}
+              />
+            </div>
           </div>
-        );
-      })}
-    </div>
+        ))}
+      </div>
+    </>
   );
 };
 
-export default FAQContact;
+export default FAQ;

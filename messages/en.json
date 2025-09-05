@@ -80,24 +80,7 @@
   },
   "FAQ": {
     "FAQTitle": "Frequently Asked Questions",
-    "faqs": [
-      {
-        "question": "Do all products contain preservatives?",
-        "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing businesses inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
-      },
-      {
-        "question": "Where can I buy the products?",
-        "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing businesses inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
-      },
-      {
-        "question": "What ingredients are used in children’s products?",
-        "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing businesses inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
-      },
-      {
-        "question": "Where is the raw milk for dairy products sourced from?",
-        "answer": "Pipe makes customer-friendly capital & smart financial tools accessible to growing businesses inside the software they use every day. Our embedded solutions are built to scale and give business builders across industries the power to grow on their own terms."
-      }
-    ]
+    "help": "How can we help you?"
   },
   "RecommendProduct": {
     "RecommendedProducts": "Recommended Products"

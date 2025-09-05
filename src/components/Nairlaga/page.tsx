@@ -3,6 +3,7 @@
 import React from "react";
 import FAQ from "./faq";
 import { useTranslations } from "next-intl";
+import FAQProduct from "./faqPage";
 
 const Nairlaga = () => {
   const t = useTranslations("Product");
@@ -19,7 +20,6 @@ const Nairlaga = () => {
       <h2 className="text-[#232323] text-center font-sf-pro-rounded text-[28px] sm:text-[32px] font-medium leading-normal max-w-3xl mx-auto mb-10 px-2">
         {intro}
       </h2>
-
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {ingredients.map((item: any) => (
           <div
@@ -42,7 +42,8 @@ const Nairlaga = () => {
           </div>
         ))}
       </div>
-      <FAQ />
+      {/* <FAQ cmsPosts={cmsPosts}/> */}
+      <FAQProduct />
     </div>
   );
 };
