@@ -9,8 +9,8 @@ const FoodCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   const t = useTranslations("NewsMain");
   return (
     <div>
-      <div className="w-full md:max-w-[100%]" data-aos="fade-up">
-        <div className="flex flex-wrap overflow-visible justify-center gap-2">
+      <div className="w-full md:max-w-[1352px] mx-auto">
+        <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 overflow-visible justify-center gap-2 ">
           {posts.map((post, index) => (
             <div
               key={index}

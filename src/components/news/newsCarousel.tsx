@@ -28,8 +28,8 @@ const NewsCarousel = ({ posts }: { posts: ICmsPost[] }) => {
         </Link>
       </div>
 
-      <Carousel className="w-full mt-8" data-aos="fade-up">
-        <div className="flex flex-col md:flex-row">
+      <Carousel className="w-full mt-8">
+        <div className="grid grod-cols-1 md:grid-cols-3 gap-10 mx-auto">
           {posts.map((post, index) => (
             <CarouselItem key={index} className="w-full md:basis-1/3">
               <News post={post} />

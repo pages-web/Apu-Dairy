@@ -4,25 +4,11 @@ import Item from "./item";
 
 const FoodItemCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
-    <div className="px-4 md:px-8">
-      {/* Mobile & Tablet layout */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 lg:hidden">
+    <div className="md:px-8 mt-12 w-full max-w-[1400px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {posts.map((post, index) => (
-          <div key={index}>
-            <Item post={post} />
-          </div>
+          <Item key={index} post={post} />
         ))}
-      </div>
-
-      {/* Desktop carousel layout */}
-      <div className="hidden lg:block mt-12">
-        <div className="flex gap-48 justify-center">
-          {posts.map((post, index) => (
-            <div key={index} className="w-[90vw] max-w-[500px] shrink-0 px-2">
-              <Item post={post} />
-            </div>
-          ))}
-        </div>
       </div>
     </div>
   );
