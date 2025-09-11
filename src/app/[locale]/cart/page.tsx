@@ -22,7 +22,7 @@ export default function CardPage() {
   });
 
   return (
-    <div className="px-3">
+    <div>
       <Item cmsPosts={cmsPosts} />
     </div>
   );

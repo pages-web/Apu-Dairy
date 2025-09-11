@@ -10,7 +10,7 @@ const Info = async () => {
   const { branchDetail } = await getBranchDetail();
   const { email, phoneNumber, address, coordinate } = branchDetail || {};
   return (
-    <div className="mx-auto max-w-md p-6">
+    <div className="mx-auto max-w-[1400px] p-6">
       <div className="space-y-10">
         <div>
           <h2 className="text-2xl font-semibold text-gray-800">Email</h2>
@@ -45,7 +45,7 @@ const Info = async () => {
             href={`https://www.google.com/maps/@${coordinate?.longitude},${coordinate?.latitude}`}
             target="_blank"
             className={cn(
-              "items-start -mt-1 h-auto whitespace-normal cursor-none",
+              "items-start h-auto cursor-none",
               (address || "").length < 20 && "items-center"
             )}
           >

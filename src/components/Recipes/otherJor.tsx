@@ -6,7 +6,7 @@ import Link from "next/link";
 const Other = ({ post }: { post: ICmsPost }) => {
   const { _id } = post;
   return (
-    <div className="flex flex-col items-center gap-4 px-4 sm:px-6">
+    <div className="flex flex-col items-center px-4">
       {post.thumbnail?.url && (
         <div className="relative w-full max-w-[500px] aspect-square overflow-hidden rounded-3xl">
           <Link href={`/jor/${post._id}`}>

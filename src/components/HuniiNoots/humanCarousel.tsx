@@ -11,7 +11,7 @@ import Content from "./title";
 
 const HumanCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
-    <div className="w-full flex flex-col items-center py-16 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8">
+    <div className="w-full flex flex-col items-center py-32 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8">
       <div className="w-full max-w-[1200px]" data-aos="fade-up">
         <Carousel>
           <CarouselContent>

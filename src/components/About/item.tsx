@@ -74,7 +74,7 @@ const About = ({ post }: { post: ICmsPost }) => {
           </div>
         </div>
       )}
-      <div className="mt-12">
+      <div>
         <Button className="flex items-center gap-2 px-6 py-2 text-red-500 bg-white rounded-full hover:bg-red-50 font-semibold shadow-md">
           {t("button")}
           <svg

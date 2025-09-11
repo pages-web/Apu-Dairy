@@ -53,9 +53,8 @@ interface ItemProps {
 
 const Item = ({ cmsPosts }: ItemProps) => {
   return (
-    <div className="relative w-full h-full flex items-center justify-center overflow-visible min-h-[30rem] p-32">
+    <div className="relative w-full h-full flex items-center justify-center overflow-visible min-h-[30rem]">
       {cards.map((card, idx) => {
-        // props-аас авсан cmsPosts–ийн idx-р шууд авч харуулж байна
         const post = cmsPosts?.[idx];
 
         return (

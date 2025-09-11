@@ -35,28 +35,34 @@ const Avatar = () => {
   ];
 
   return (
-    <div className="w-full px-4 justify-center grid overflow-hidden">
-      <div className="flex overflow-x-hidden space-x-6 pb-4 no-scrollbar">
+    <div className="w-full max-w-[1400px] mx-auto">
+      <div
+        className="
+          flex md:flex-row flex-wrap justify-center"
+      >
         {members.map((member, index) => {
-          const isOdd = index % 2 === 0; // 1, 3, 5 (0-based index)
+          const isOdd = index % 2 === 0;
           return (
             <div
               key={index}
-              className="flex-shrink-0 w-56 flex flex-col items-center text-center"
+              className="flex flex-col items-center text-center w-40 sm:w-44 md:w-48 lg:w-56"
             >
               <div
                 className={`
-            flex flex-col items-center gap-4 w-[224px]
-            ${isOdd ? "mt-12 ml-10" : "mb-12 ml-5"}
-            `}
+                  flex flex-col items-center gap-3 sm:gap-4 w-full
+                  ${isOdd ? "mt-6 md:mt-12" : "mb-6 md:mb-12"}
+                `}
               >
                 <div
                   className={`
-                    w-50 h-60 overflow-hidden shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl border-8
-                    ${isOdd ? "clip-cone" : "rounded-full"}
-                    ${isOdd ? " hover:rotate-[3deg]" : "none"}
-                    ${isOdd ? "border-yellow-400" : "border-red-400"}
-                `}
+                    w-32 h-40 sm:w-36 sm:h-44 md:w-44 md:h-56 
+                    overflow-hidden shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl border-4 sm:border-6 md:border-8
+                    ${
+                      isOdd
+                        ? "clip-cone hover:rotate-[3deg] border-yellow-400"
+                        : "rounded-full border-red-400"
+                    }
+                  `}
                 >
                   <img
                     alt={member.name}
@@ -64,10 +70,12 @@ const Avatar = () => {
                     src={member.image}
                   />
                 </div>
-                <h3 className="font-bold text-base text-gray-800">
+                <h3 className="font-bold text-sm sm:text-base text-gray-800">
                   {member.name}
                 </h3>
-                <p className="text-gray-500 text-xs">{member.position}</p>
+                <p className="text-gray-500 text-xs sm:text-sm">
+                  {member.position}
+                </p>
               </div>
             </div>
           );

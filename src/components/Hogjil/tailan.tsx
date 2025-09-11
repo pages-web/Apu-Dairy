@@ -28,7 +28,7 @@ const ReportDropdown = (props: Props) => {
     window.URL.revokeObjectURL(url);
   };
   return (
-    <div className="relative mt-4">
+    <div className="relative mt-4 max-sm:mb-5">
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="px-6 py-2 bg-[#ED3237] text-white font-sf-pro-rounded font-medium text-sm rounded-lg border border-[#ED3237] transition-all duration-300 flex items-center gap-2 cursor-pointer"

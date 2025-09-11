@@ -8,7 +8,7 @@ import { useTranslations } from "next-intl";
 const Text = ({ post }: { post: ICmsPost }) => {
   const t = useTranslations("Hogjil");
   return (
-    <div className="w-full max-w-screen-xl mx-auto px-4 sm:px-6 py-10">
+    <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 py-10">
       <div className="flex flex-col items-center justify-center mb-10">
         <h2 className="text-sm font-medium leading-normal text-[#ED3237] whitespace-nowrap bg-[rgb(250,203,205)] rounded-full font-sf-pro-rounded w-48 h-7 flex items-center justify-center">
           {t("sustainableDevelopment")}

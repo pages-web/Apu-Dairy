@@ -7,7 +7,7 @@ import { useTranslations } from "next-intl";
 const Item = ({ post }: { post: ICmsPost }) => {
   const t = useTranslations("songon");
   return (
-    <div className="relative w-full flex flex-col items-start justify-start px-4 md:left-[180px]">
+    <div className="flex flex-col items-start justify-start max-w-[1400px] w-full px-4 mx-auto">
       <h1 className="text-[14px] font-medium leading-normal text-primary font-sf-pro-rounded inline-block bg-red-100 text-red-500 text-sm px-4 py-1 rounded-full mb-4 cursor-none">
         {t("title")}
       </h1>

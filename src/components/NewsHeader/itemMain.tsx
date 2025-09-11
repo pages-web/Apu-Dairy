@@ -6,7 +6,7 @@ import { TimerIcon } from "lucide-react";
 
 const Item = ({ post }: { post: ICmsPost }) => {
   return (
-    <div className="flex">
+    <div className="flex pl-4">
       {post.thumbnail?.url && (
         <div className=" md:h-[480px] w-full h-[300px] sm:h-[400px]">
           {/* Background Image */}

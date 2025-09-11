@@ -8,7 +8,7 @@ const Carousels = ({ posts }: { posts: ICmsPost[] }) => {
   const bottomRightPost = posts[2];
 
   return (
-    <div className="grid md:grid-cols-3 gap-4 py-10 max-w-[1400px] mx-auto px-1">
+    <div className="grid md:grid-cols-3 gap-4 py-10 max-w-[1400px] mx-auto px-1 mt-[30px]">
       <div className="md:col-span-2 md:row-span-2 h-full mt-10">
         <Item post={leftPost} large />
       </div>

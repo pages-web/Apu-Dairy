@@ -17,14 +17,14 @@ const FAQ = ({ cmsPosts }: ItemProps) => {
   const t = useTranslations("FAQ");
   return (
     <>
-      <div className="mb-28">
-        <div className="text-start md:mb-10 mt-10 mb-5">
+      <div>
+        <div className="text-start mb-5">
           <h1 className="inline-block bg-[#FFEFF0] text-[#ED3237] font-sf-pro-rounded text-[13px] font-medium leading-[100%] px-4 py-1 rounded-full">
             {t("help")}
           </h1>
         </div>
 
-        <h2 className="md:mb-10 lg:mb-10 text-xl sm:text-xl md:text-2xl font-sf-pro-rounded text-black">
+        <h2 className="md:mb-5 lg:mb-5 text-xl sm:text-xl md:text-2xl font-sf-pro-rounded text-black">
           {t("FAQTitle")}
         </h2>
 

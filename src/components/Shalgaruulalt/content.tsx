@@ -47,13 +47,14 @@ const Content = () => {
   const currentStep = steps[activeStep] || steps[0];
 
   return (
-    <div className="p-2 max-w-full">
-      <div className="grid grid-cols-1 md:grid-cols-4 w-[1500px] mb-8 gap-4">
+    <div className="max-w-[1400px] w-full mx-auto">
+      {/* Steps */}
+      <div className="grid grid-cols-1 md:grid-cols-4 mb-8 gap-4">
         {steps.map(({ title, description, color }, index) => (
           <div
             key={index}
             onClick={() => setActiveStep(index)}
-            className="cursor-none"
+            className="cursor-pointer"
           >
             <span
               className={`text-2xl font-bold ${
@@ -69,20 +70,22 @@ const Content = () => {
             >
               {title}
             </h2>
-            <p className="text-gray-600 text-sm mt-2 max-w-xs md:max-w-none">
-              <span dangerouslySetInnerHTML={{ __html: description }} />
-            </p>
+            <div
+              className="text-gray-600 text-sm mt-2"
+              dangerouslySetInnerHTML={{ __html: description }}
+            />
             {index === activeStep && (
               <div className="w-full h-1 bg-red-500 mt-4 rounded"></div>
             )}
           </div>
         ))}
       </div>
-      <div className="relative lg:w-[1500px] md:w-[1500px] h-[600px] overflow-hidden group rounded-2xl">
+      <div className="relative lg:w-[1500px] md:w-[1500px] md:h-[600px] lg:h-[600px] overflow-hidden group">
+        {" "}
         <img
           src={currentStep.img}
           alt={currentStep.title}
-          className="w-full max-w-full h-auto rounded-lg object-cover"
+          className="w-full max-w-[1390px] h-auto rounded-lg object-cover"
         />
       </div>
     </div>

@@ -6,6 +6,7 @@ import Image from "../ui/image";
 import { TimerIcon } from "lucide-react";
 import Images from "./image";
 import { useCmsPosts } from "@/src/graphql/queries/kb";
+import ArticleLike from "./articleLike";
 
 type Props = {
   postId: string;
@@ -58,7 +59,7 @@ const Detail = (props: Props) => {
       {cmsPosts?.length > 0 && (
         <div className="mt-16">
           <h2 className="text-[32px] font-normal leading-none text-[#232323] font-[SF Pro Rounded] mb-6">
-            Articles you may like
+            <ArticleLike />
           </h2>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">

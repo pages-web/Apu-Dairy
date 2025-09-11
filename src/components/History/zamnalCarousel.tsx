@@ -12,7 +12,7 @@ const ZamnalCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   return (
     <div className="w-full flex flex-col items-center">
-      <Carousel className="w-full max-w-full pb-10" data-aos="fade-up">
+      <Carousel className="w-full max-w-full" data-aos="fade-up">
         <CarouselContent>
           {posts.map((post, index) => (
             <CarouselItem className="w-full">

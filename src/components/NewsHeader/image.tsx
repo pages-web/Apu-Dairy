@@ -8,12 +8,12 @@ const Images = ({ post }: { post: ICmsPost }) => {
   return (
     <div className="flex flex-col justify-between w-full">
       <Link href={`/newsa/${post._id}`} className="block w-full">
-        <div className="relative aspect-[3/2] rounded-lg overflow-hidden">
+        <div className="relative aspect-[3/2] overflow-hidden">
           <Image
             src={`https://apudairy.api.erxes.io/api/read-file?key=${post.thumbnail?.url}`}
             alt={post.title}
             fill
-            className="object-cover rounded-lg"
+            className="object-cover"
             loading="lazy"
           />
         </div>

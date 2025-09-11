@@ -15,14 +15,13 @@ const JorCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   const [selected2, setSelected2] = useState(dropdown2Items[0]);
 
   return (
-    <div className="max-w-[1500px] mx-auto px-4">
-      <div className="flex flex-col sm:flex-row justify-between items-center mb-6 sm:mb-8">
+    <div className="max-w-[1450px] mx-auto">
+      <div className="flex flex-col sm:flex-row justify-between items-center mb-2 sm:mb-8">
         <h2 className="text-[#232323] font-sf-pro-rounded text-[24px] md:ml-10 sm:text-[28px] md:text-[32px] font-medium text-center sm:text-start">
           {t("Title")}
         </h2>
 
         <div className="flex gap-4 md:mr-10">
-          {/* Dropdown 1 */}
           <div className="relative w-32 h-10 border border-gray-300 rounded-2xl">
             <select
               value={selected1}
@@ -51,8 +50,6 @@ const JorCarousel = ({ posts }: { posts: ICmsPost[] }) => {
               </svg>
             </div>
           </div>
-
-          {/* Dropdown 2 */}
           <div className="relative w-32 h-10 border border-gray-300 rounded-2xl">
             <select
               value={selected2}

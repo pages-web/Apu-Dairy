@@ -19,7 +19,7 @@ export default function Alham() {
   });
 
   return (
-    <div className="w-full max-w-[1600px] mx-auto px-6 py-10 flex flex-col lg:flex-row">
+    <div className="w-full max-w-[1600px] mx-auto flex flex-col lg:flex-row">
       <Suspense>
         {/* Зүүн талд carousel */}
         <div className="w-full lg:w-1/2">

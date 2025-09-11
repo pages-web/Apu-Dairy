@@ -16,7 +16,7 @@ const Joruud = () => {
   });
 
   return (
-    <div className="px-3">
+    <div>
       <JorCarousel posts={cmsPosts} />
     </div>
   );
