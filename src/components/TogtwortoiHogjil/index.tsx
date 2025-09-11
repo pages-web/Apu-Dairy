@@ -9,24 +9,17 @@ import { Suspense } from "react";
 const Togtwortoi = () => {
   const t = useTranslations("Sustainable");
   return (
-    <div className="w-full max-w-[1400px] mx-auto relative overflow-hidden px-4 py-8 rounded-2xl bg-green-800 flex flex-col items-start md:h-[480px]">
+    <div className="w-full max-w-[1400px] mx-auto relative overflow-hidden  rounded-2xl bg-green-800 flex flex-col items-start md:h-[480px]">
       <Suspense>
-        {/* Logo */}
         <div className="w-32 h-auto z-10 mb-4 md:absolute md:top-6 md:left-6">
           <img src="/images/togtwor.svg" alt="logo" />
         </div>
-
-        {/* Title */}
         <div className="text-white text-2xl md:text-4xl font-extrabold leading-snug tracking-tight mb-4 md:absolute md:top-[230px] md:left-6">
           {t("title")}
         </div>
-
-        {/* Description */}
         <div className="text-white text-xs md:text-sm max-w-full md:max-w-[300px] mb-4 md:absolute md:top-[280px] md:left-6">
           {t("description")}
         </div>
-
-        {/* Button */}
         <div className="mt-4 md:absolute md:top-[400px] md:left-6">
           <Link href="/contact">
             <Button className="flex items-center gap-2 px-4 py-2 mt-2 text-[#3B834D] bg-white rounded-full transition">
@@ -48,8 +41,6 @@ const Togtwortoi = () => {
             </Button>
           </Link>
         </div>
-
-        {/* Background images */}
         <div className="absolute bottom-48 left-190 w-14 h-10 z-10 hidden md:block">
           <Image
             src="/images/mod1.svg"

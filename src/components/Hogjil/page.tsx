@@ -15,7 +15,7 @@ export default function Hogjil() {
   });
 
   return (
-    <div className="px-3">
+    <div>
       <HogjilCarousel posts={cmsPosts} />
     </div>
   );

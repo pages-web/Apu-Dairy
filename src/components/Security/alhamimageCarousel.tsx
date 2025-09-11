@@ -4,7 +4,7 @@ import SecureMain from "./images";
 
 const ALhamItemCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
-    <div className="w-full max-w-[1400px] px-4 py-10">
+    <div className="w-full max-w-[1400px]">
       <div className="w-full" data-aos="fade-up">
         <div className="flex flex-wrap overflow-visible justify-start gap-8">
           {posts.map((post, index) => (

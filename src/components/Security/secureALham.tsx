@@ -5,7 +5,7 @@ import { ICmsPost } from "@/src/graphql/types/cms.types";
 const SecureMain = ({ post }: { post: ICmsPost }) => {
   return (
     <div className="flex flex-col items-center">
-      <h1 className="text-[32px] font-medium text-[#353535] text-center font-sf-pro-rounded leading-none mt-5 mb-5">
+      <h1 className="text-[32px] font-medium text-[#353535] text-center font-sf-pro-rounded leading-none mb-5">
         {post.title}
       </h1>
 

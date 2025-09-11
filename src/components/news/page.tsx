@@ -16,7 +16,7 @@ export default function News() {
   });
 
   return (
-    <div className="px-3">
+    <div>
       <NewsCarousel posts={cmsPosts} />
     </div>
   );
