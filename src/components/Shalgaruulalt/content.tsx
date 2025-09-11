@@ -48,7 +48,6 @@ const Content = () => {
 
   return (
     <div className="max-w-[1400px] w-full mx-auto">
-      {/* Steps */}
       <div className="grid grid-cols-1 md:grid-cols-4 mb-8 gap-4">
         {steps.map(({ title, description, color }, index) => (
           <div
@@ -80,12 +79,11 @@ const Content = () => {
           </div>
         ))}
       </div>
-      <div className="relative lg:w-[1500px] md:w-[1500px] md:h-[600px] lg:h-[600px] overflow-hidden group">
-        {" "}
+      <div className="relative md:w-[1390px] md:h-[600px] lg:h-[600px] overflow-hidden group">
         <img
           src={currentStep.img}
           alt={currentStep.title}
-          className="w-full max-w-[1390px] h-auto rounded-lg object-cover"
+          className="w-full max-w-[1400px] h-auto rounded-lg object-cover"
         />
       </div>
     </div>

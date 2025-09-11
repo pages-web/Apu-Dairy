@@ -13,7 +13,7 @@ const AjliinBair = () => {
   };
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   return (
-    <div className="max-w-[1400px] w-full px-4 mx-auto py-12">
+    <div className="max-w-[1415px] w-full px-4 mx-auto py-12">
       <div className="text-center mb-12">
         <span className="inline-block bg-red-100 text-red-500 text-sm px-4 py-1 rounded-full mb-4">
           {t("openLabel")}

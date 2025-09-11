@@ -11,12 +11,12 @@ import Content from "./title";
 
 const HumanCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
-    <div className="w-full flex flex-col items-center py-32 sm:py-24 md:py-32 px-4 sm:px-6 md:px-8">
-      <div className="w-full max-w-[1200px]" data-aos="fade-up">
+    <div className="w-full flex justify-center items-start px-4 sm:px-6 md:px-8">
+      <div className="w-full max-w-[1200px] flex flex-col items-center py-32 sm:py-24 md:py-32">
         <Carousel>
-          <CarouselContent>
+          <CarouselContent className="flex justify-center items-center">
             {posts.map((post, index) => (
-              <CarouselItem className="w-full" key={index}>
+              <CarouselItem key={index} className="flex justify-center">
                 <Content post={post} />
               </CarouselItem>
             ))}

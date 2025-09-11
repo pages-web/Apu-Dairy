@@ -13,7 +13,7 @@ export default function ALhamItem() {
   });
 
   return (
-    <div className="px-3">
+    <div>
       <ALhamItemCarousel posts={cmsPosts} />
     </div>
   );

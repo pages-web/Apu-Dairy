@@ -6,9 +6,9 @@ import Link from "next/link";
 const Other = ({ post }: { post: ICmsPost }) => {
   const { _id } = post;
   return (
-    <div className="flex flex-col items-center px-4">
+    <div className="flex flex-col items-center px-7">
       {post.thumbnail?.url && (
-        <div className="relative w-full max-w-[500px] aspect-square overflow-hidden rounded-3xl">
+        <div className="relative w-full aspect-square overflow-hidden rounded-3xl">
           <Link href={`/jor/${post._id}`}>
             <Image
               src={`https://apudairy.api.erxes.io/api/read-file?key=${post.thumbnail.url}`}

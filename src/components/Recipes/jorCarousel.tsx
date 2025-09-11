@@ -17,7 +17,7 @@ const JorCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
     <div className="max-w-[1450px] mx-auto">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-2 sm:mb-8">
-        <h2 className="text-[#232323] font-sf-pro-rounded text-[24px] md:ml-10 sm:text-[28px] md:text-[32px] font-medium text-center sm:text-start">
+        <h2 className="text-[#232323] font-sf-pro-rounded text-[24px] md:ml-6 sm:text-[28px] md:text-[32px] font-medium text-center sm:text-start">
           {t("Title")}
         </h2>
 
@@ -81,7 +81,7 @@ const JorCarousel = ({ posts }: { posts: ICmsPost[] }) => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
         {posts.map((post, index) => (
           <Other key={index} post={post} />
         ))}
