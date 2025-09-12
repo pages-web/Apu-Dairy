@@ -9,20 +9,20 @@ import { Suspense } from "react";
 const Togtwortoi = () => {
   const t = useTranslations("Sustainable");
   return (
-    <div className="w-full max-w-[1400px] mx-auto relative overflow-hidden  rounded-2xl bg-green-800 flex flex-col items-start md:h-[480px]">
+    <div className="w-full max-w-[1400px] max-sm:max-w-[90%] mx-auto relative overflow-hidden p-5 rounded-2xl bg-green-800 flex flex-col items-start md:h-[480px]">
       <Suspense>
         <div className="w-32 h-auto z-10 mb-4 md:absolute md:top-6 md:left-6">
           <img src="/images/togtwor.svg" alt="logo" />
         </div>
-        <div className="text-white text-2xl md:text-4xl font-extrabold leading-snug tracking-tight mb-4 md:absolute md:top-[230px] md:left-6">
+        <div className="text-white text-2xl md:text-4xl font-extrabold leading-snug tracking-tight mb-4 md:absolute md:top-[230px] md:left-6 md:text-left">
           {t("title")}
         </div>
-        <div className="text-white text-xs md:text-sm max-w-full md:max-w-[300px] mb-4 md:absolute md:top-[280px] md:left-6">
+        <div className="text-white text-xs md:text-sm  md:max-w-[300px] mb-5 mx-auto md:absolute md:top-[280px] md:left-7 text-start md:text-left">
           {t("description")}
         </div>
-        <div className="mt-4 md:absolute md:top-[400px] md:left-6">
+        <div className="md:mt-5 md:absolute md:mb-5 mb-5 md:top-[400px] md:left-3 md:ml-3">
           <Link href="/contact">
-            <Button className="flex items-center gap-2 px-4 py-2 mt-2 text-[#3B834D] bg-white rounded-full transition">
+            <Button className="flex items-center gap-2  mt-2 text-[#3B834D] bg-white rounded-full transition">
               {t("button")}
               <svg
                 xmlns="http://www.w3.org/2000/svg"

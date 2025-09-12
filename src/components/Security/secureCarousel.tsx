@@ -5,7 +5,7 @@ import AlhamMain from "./secureALham";
 
 const SecureCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full max-sm:max-w-[90%] flex flex-col items-center justify-center mx-auto">
       <div>
         {posts.map((post, index) => (
           <div key={index}>

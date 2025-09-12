@@ -8,18 +8,11 @@ import { useTranslations } from "use-intl";
 const FoodCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   const t = useTranslations("NewsMain");
   return (
-    <div>
-      <div className="w-full md:max-w-[1352px] mx-auto">
-        <div className="grid md:grid-cols-4 sm:grid-cols-2 grid-cols-1 overflow-visible justify-center gap-2 ">
-          {posts.map((post, index) => (
-            <div
-              key={index}
-              className="flex-grow min-w-[280px] max-w-[335px] shrink-0 px-2"
-            >
-              <Item post={post} />
-            </div>
-          ))}
-        </div>
+    <div className="md:px-8 mt-12 w-full max-w-[1380px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        {posts.map((post, index) => (
+          <Item key={index} post={post} />
+        ))}
       </div>
       <div className="mt-8 flex justify-center">
         <Button className="h-10 w-36 px-6 rounded-full border border-white bg-white text-red-600 transition">

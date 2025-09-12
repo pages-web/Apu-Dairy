@@ -4,82 +4,92 @@ const Avatar = () => {
   const members = [
     {
       name: "Г.Анударь",
-      position: "Санхүүгийн захирал (CFO)",
+      position: "CFO",
       image: "/images/Г.Анударь.jpg",
+      border: "border-red-500",
+      shape: "rounded-l-full",
     },
     {
       name: "Г.Баярмагнай",
-      position: "Гүйцэтгэх захирал (CEO)",
+      position: "CEO",
       image: "/images/Г.Баярмагнай.jpg",
+      border: "border-yellow-400",
+      shape: "rounded-lg",
     },
     {
       name: "Б.Батмөнх",
-      position: "Үйлдвэрлэл үйл ажиллагааны захирал (COO)",
+      position: "COO",
       image: "/images/Б.Батмөнх.png",
+      border: "border-green-500",
+      shape: "rounded-full",
     },
     {
       name: "П.Цэнд-Аюуш",
-      position: "Стратегийн захирал (CSO)",
+      position: "CSO",
       image: "/images/П.Цэнд-Аюушfe.jpg",
+      border: "border-blue-500",
+      shape: "rounded-full",
     },
     {
       name: "П.Цэнд-Аюуш",
-      position: "Борлуулалт, маркетингийн захирал (CMO)",
+      position: "CMO",
       image: "/images/П.Цэнд-Аюуш.png",
+      border: "border-red-500",
+      shape: "rounded-tr-full",
     },
     {
       name: "Г.Баярмагнай",
-      position: "Гүйцэтгэх захирал (CEO)",
+      position: "CEO",
       image: "/images/Г.Баярмагнай.jpg",
+      border: "border-yellow-400",
+      shape: "rounded-lg",
     },
   ];
 
+  const columns = [
+    [members[0]],
+    [members[1], members[2]],
+    [members[3]],
+    [members[4], members[5]],
+  ];
+
   return (
-    <div className="w-full max-w-[1400px] mx-auto">
-      <div
-        className="
-          flex md:flex-row flex-wrap justify-center"
-      >
-        {members.map((member, index) => {
-          const isOdd = index % 2 === 0;
-          return (
-            <div
-              key={index}
-              className="flex flex-col items-center text-center w-40 sm:w-44 md:w-48 lg:w-56"
-            >
+    <div className="w-full max-w-[1400px] mx-auto p-10">
+      <div className="grid grid-cols-4 gap-4">
+        {columns.map((column, colIndex) => (
+          <div
+            key={colIndex}
+            className={`flex flex-col gap-4 ${
+              colIndex === 0 || colIndex === 2 ? "justify-center" : ""
+            }`}
+          >
+            {column.map((member, index) => (
               <div
-                className={`
-                  flex flex-col items-center gap-3 sm:gap-4 w-full
-                  ${isOdd ? "mt-6 md:mt-12" : "mb-6 md:mb-12"}
-                `}
+                key={index}
+                className={`flex flex-col items-center ${
+                  (colIndex === 1 && index === 1) ||
+                  (colIndex === 3 && index === 1)
+                    ? "mt-32"
+                    : ""
+                }`}
               >
                 <div
-                  className={`
-                    w-32 h-40 sm:w-36 sm:h-44 md:w-44 md:h-56 
-                    overflow-hidden shadow-md transition-transform duration-300 ease-in-out hover:scale-105 hover:shadow-xl border-4 sm:border-6 md:border-8
-                    ${
-                      isOdd
-                        ? "clip-cone hover:rotate-[3deg] border-yellow-400"
-                        : "rounded-full border-red-400"
-                    }
-                  `}
+                  className={`w-full h-64 overflow-hidden shadow-md border-4 ${member.border} ${member.shape}`}
                 >
                   <img
+                    src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover"
-                    src={member.image}
                   />
                 </div>
-                <h3 className="font-bold text-sm sm:text-base text-gray-800">
-                  {member.name}
-                </h3>
-                <p className="text-gray-500 text-xs sm:text-sm">
-                  {member.position}
-                </p>
+                <div className="text-center mt-2">
+                  <h3 className="text-gray-800 font-bold">{member.name}</h3>
+                  <p className="text-gray-500">{member.position}</p>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

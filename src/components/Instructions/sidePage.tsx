@@ -29,7 +29,7 @@ const IngredientList = () => {
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
 
   return (
-    <div className="max-w-lg mx-auto w-full">
+    <div className="max-w-[1400px] mx-auto w-full">
       <h3 className="text-[#ED3237] font-sans text-[24px] font-normal leading-normal mb-5">
         Ingredients
       </h3>

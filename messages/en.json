@@ -228,5 +228,22 @@
   "History": {
     "historyTrace": "Our Historical Path",
     "historicalJourney": "Historical Journey"
+  },
+  "strategySlider": {
+    "title": "RESILIENT LEGACY",
+    "cards": [
+      {
+        "title": "Investment",
+        "description": "A total of $40 million agreements were established with the Asian Development Bank (ADB) and the European Bank for Reconstruction and Development (EBRD)"
+      },
+      {
+        "title": "Training Program",
+        "description": "Successfully implemented 'Farmer Training and Workshop', 'Healthy Herds Program', and 'Client Farmers Experience Exchange Program'"
+      },
+      {
+        "title": "Products",
+        "description": "All four products of the MONT-YAK brand received international organic food certification from a Mongolian accredited organization"
+      }
+    ]
   }
 }

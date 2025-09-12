@@ -10,7 +10,7 @@ import { useTranslations } from "next-intl";
 const NewsCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   const t = useTranslations("NewsMain");
   return (
-    <div className="w-full max-w-[1400px] mx-auto flex flex-col items-start">
+    <div className="w-full max-w-[1400px] max-sm:max-w-[90%] mx-auto flex flex-col items-start">
       <div className="flex flex-col items-start mt-12">
         <Button className="h-9 w-36 rounded-full border border-red-600 text-red-600 hover:bg-red-50 transition">
           {t("category")}

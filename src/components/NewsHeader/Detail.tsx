@@ -26,7 +26,7 @@ const Detail = (props: Props) => {
   }
 
   return (
-    <div className="w-full max-w-screen-xl px-4 py-16 md:py-24 lg:py-32 mx-auto">
+    <div className="w-full max-w-screen-xl px-4 md:py-24 py-24 mx-auto">
       <div className="flex flex-wrap gap-4 items-center mb-4 text-sm">
         <div className="bg-gray-300 w-fit px-3 py-1 text-center rounded-full text-gray-600 text-[13px]">
           Research
@@ -55,7 +55,7 @@ const Detail = (props: Props) => {
         className="prose prose-sm sm:prose-base lg:prose-lg max-w-none text-left"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
-      <div className="bg-gray-200 h-px w-full mt-10 md:mt-16 lg:mt-20"></div>
+      <div className="bg-gray-200 h-px w-full mt-5 md:mt-10"></div>
       {cmsPosts?.length > 0 && (
         <div className="mt-16">
           <h2 className="text-[32px] font-normal leading-none text-[#232323] font-[SF Pro Rounded] mb-6">

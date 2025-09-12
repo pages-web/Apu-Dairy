@@ -39,7 +39,7 @@ export function NavbarTop() {
             className="w-24 h-auto cursor-none"
           />
         </Link>
-        <nav className="hidden md:flex items-center bg-gray-100 px-4 py-2 rounded-full text-sm font-semibold text-[#232323]">
+        <nav className="sm:hidden max-sm:hidden md:flex items-center bg-gray-100 px-4 py-2 rounded-full text-sm font-semibold text-[#232323]">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -50,7 +50,7 @@ export function NavbarTop() {
             </Link>
           ))}
         </nav>
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="sm:hidden max-sm:hidden md:hidden lg:flex items-center gap-3">
           <LanguageSwitcher />
           <button className="flex items-center cursor-none gap-2 bg-white text-[#D64545] font-medium px-4 py-2 rounded-full hover:bg-gray-100 transition shadow-sm">
             💬 {t("feedback")}

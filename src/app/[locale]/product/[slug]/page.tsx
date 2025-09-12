@@ -123,7 +123,7 @@ const Product = async ({ params }: { params: { slug: string } }) => {
         </div>
       </div>
       <LongLine />
-      <div className="relative bottom-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-[1450px] px-4 md:mt-10">
+      <div className="relative bottom-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-[1380px] px-4 md:mt-10">
         <div className="w-full">
           <Nairlaga />
         </div>

@@ -15,6 +15,7 @@ export interface ICmsTag {
 }
 
 export interface ICmsPost {
+  customFieldsData: any;
   pdfAttachment: any;
   _id: string;
   slug: string;

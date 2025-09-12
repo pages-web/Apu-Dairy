@@ -11,7 +11,7 @@ const ProductCard = ({
   className,
   ...product
 }: IProduct & { className?: string }) => {
-  const { name, attachment, unitPrice, _id } = product;
+  const { name, attachment, _id } = product;
   const [bgColor, setBgColor] = useState("white");
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -31,18 +31,18 @@ const ProductCard = ({
 
     return () => fac.destroy();
   }, [attachment]);
+
   return (
     <div
       className={cn(
-        "border border-neutral-200 rounded-[24px] p-4 h-96 flex flex-col items-center text-center shadow-md hover:shadow-lg transition-shadow duration-200"
+        "border border-neutral-200 rounded-2xl shadow-md hover:shadow-lg transition-shadow duration-200 w-full max-w-[200px] h-[280px] mx-auto flex flex-col items-center text-center",
+        className
       )}
     >
-      <Link href={`/product/${_id}`}>
+      <Link href={`/product/${_id}`} className="w-full">
         <div
-          className="flex h-[280px] p-12 relative w-52 overflow-hidden group justify-center items-center gap-1 shrink-0 self-stretch rounded-2xl transition-colors duration-200"
-          style={{
-            backgroundColor: "white",
-          }}
+          className="relative w-full h-[220px] flex items-center justify-center rounded-xl overflow-hidden group transition-colors duration-200"
+          style={{ backgroundColor: "white" }}
           onMouseEnter={(e) => {
             (e.currentTarget as HTMLDivElement).style.backgroundColor = bgColor;
           }}
@@ -52,20 +52,20 @@ const ProductCard = ({
         >
           <Image
             ref={imgRef}
-            src={product.attachment?.url || ""}
+            src={attachment?.url || ""}
             alt={name}
             fill
-            className="object-contain rounded-2xl transition-all duration-200 scale-125 group-hover:scale-175 group-hover:translate-x-2 cursor-none"
-            sizes="(max-width: 768px) 100vw, 280px"
+            className="object-contain p-4 transition-transform duration-300 scale-100 group-hover:scale-110"
+            sizes="(max-width: 768px) 100vw, 220px"
             loading="lazy"
           />
         </div>
       </Link>
 
-      <div className="mt-4">
+      <div className="mt-3 px-2">
         <Link
           href={`/product/${_id}`}
-          className="text-base font-medium hover:text-primary"
+          className="text-base font-medium hover:text-primary line-clamp-2"
         >
           {name}
         </Link>

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 
 const images = [
   { text: "Нийт 40 сая долларын гэрээ...", imageUrl: "/images/green1.png" },
@@ -34,9 +35,12 @@ const StrategySlider = () => {
     setRotation((prev) => prev + 75);
   };
 
+  const t = useTranslations("strategySlider");
+  const cards = t.raw("cards");
+
   return (
     <div
-      className={`flex flex-col lg:flex-row items-center justify-between gap-16 p-10 rounded-3xl max-w-screen w-full mx-auto h-[350px] ${
+      className={`w-full mx-auto flex flex-col lg:flex-row items-center justify-between gap-16 p-10 rounded min-h-[400px] ${
         bgColors[index % bgColors.length]
       }`}
     >
@@ -83,19 +87,19 @@ const StrategySlider = () => {
       </div>
       <div className="w-full text-white">
         <h1 className="text-lg md:text-xs font-normald flex justify-start">
-          RESILIENT LEGACY
+          {t("title")}
         </h1>
 
         <div className="flex items-start gap-4 mt-2">
           <div className="bg-white rounded-2xl shadow-lg p-6 w-24 h-20 flex flex-col justify-center items-center text-center">
             <img src="/images/tea.svg" alt="" />
+
             <p className="text-[12px] leading-[13.2px] font-semibold text-[#307ABD] text-center font-sf-pro-rounded">
-              Хөрөнгө оруулалт
+              {cards[0].title}
             </p>
           </div>
           <p className="text-[14px] leading-[15.4px] font-semibold text-white font-sfpro">
-            Нийт 40 сая долларын гэрээг Азийн Хөгжлийн Банк (АХБ) болон Европын
-            Сэргээн Босголт Хөгжлийн банк (ЕСБХБ)-тай байгуулав
+            {cards[0].description}
           </p>
         </div>
 
@@ -103,13 +107,11 @@ const StrategySlider = () => {
           <div className="bg-white rounded-2xl shadow-lg p-6 w-24 h-20 flex flex-col justify-center items-center text-center">
             <img src="/images/tea.svg" alt="" />
             <p className="text-[12px] leading-[13.2px] font-semibold text-[#307ABD] text-center font-sf-pro-rounded">
-              Сургалт хөтөлбөр
+              {cards[1].title}
             </p>
           </div>
           <p className="text-[14px] leading-[15.4px] font-semibold text-white font-sfpro">
-            “Фермерийн сургалт, өдөрлөг”, "Эрүүл малчин хөтөлбөр", "Харилцагч
-            фермерүүдийн туршлага солилцох хөтөлбөр"-үүдийг амжилттай
-            хэрэгжүүллээ
+            {cards[1].description}
           </p>
         </div>
 
@@ -117,13 +119,11 @@ const StrategySlider = () => {
           <div className="bg-white rounded-2xl shadow-lg p-6 w-24 h-20 flex flex-col justify-center items-center text-center">
             <img src="/images/Group01.svg" alt="" />
             <p className="text-[12px] leading-[13.2px] font-semibold text-[#307ABD] text-center font-sf-pro-rounded">
-              Бүтээгдэхүүн
+              {cards[2].title}
             </p>
           </div>
           <p className="text-[14px] leading-[15.4px] font-semibold text-white font-sfpro">
-            MONT-YAK брэндийн нийт дөрвөн бүтээгдэхүүн нь Монгол Улсын
-            Итгэмжлэгдсэн байгууллагаас олгодог органик хүнсний олон улсын
-            гэрчилгээг авав
+            {cards[2].description}
           </p>
         </div>
       </div>

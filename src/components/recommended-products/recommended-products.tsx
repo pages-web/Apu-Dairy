@@ -30,29 +30,26 @@ const RecommendedProducts = async ({
   const t = await getTranslations("RecommendProduct");
 
   return (
-    <div className="mt-5">
+    <>
       <div>
-        <h2 className="text-black font-medium text-[32px] font-sans leading-normal mb-10">
+        <h2 className="text-black font-medium text-[32px] md:ml-5 font-sans leading-normal mb-10 w-full max-w-[1000px]">
           {t("RecommendedProducts")}
         </h2>
       </div>
 
       <Carousel opts={{ dragFree: true }}>
-        <CarouselContent>
+        <CarouselContent className="gap-3">
           {exceptCurrent.map((product: IProduct) => (
             <CarouselItem
               className="basis-full sm:basis-1/2 lg:basis-1/2 xl:basis-1/4 2xl:basis-1/5"
               key={product._id}
             >
-              <ProductCard
-                {...product}
-                className={cn(product.hasSimilarity && "pb-8")}
-              />
+              <ProductCard {...product} />
             </CarouselItem>
           ))}
         </CarouselContent>
       </Carousel>
-    </div>
+    </>
   );
 };
 

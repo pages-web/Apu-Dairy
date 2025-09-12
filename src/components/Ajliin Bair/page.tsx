@@ -1,17 +1,37 @@
 "use client";
 import React, { useState } from "react";
 import ErxesForm from "../Erxes Form/erxesForm";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
+import { useCmsPosts } from "@/src/graphql/queries/kb";
+
+const categories = [
+  { label: "Бүх байр", value: "all" },
+  { label: "Санхүү & Нягтлан", value: "finance" },
+  { label: "Жолооч", value: "driver" },
+  { label: "IT & Систем", value: "it" },
+  { label: "Бусад", value: "other" },
+];
 
 const AjliinBair = () => {
   const t = useTranslations("jobs");
+  const locale = useLocale();
+
+  const tagId = ["NYvArWicSrqEyJbDqxQGp"];
+  const { cmsPosts } = useCmsPosts({
+    tagIds: tagId,
+    language: locale,
+  });
+
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [selectedCategory, setSelectedCategory] = useState("all");
+
   const handleClick = () => {
     const modalButton = document.querySelector(
       '[data-erxes-modal="FBWGfk"]'
     ) as HTMLElement;
     modalButton?.click();
   };
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
   return (
     <div className="max-w-[1415px] w-full px-4 mx-auto py-12">
       <div className="text-center mb-12">
@@ -22,63 +42,87 @@ const AjliinBair = () => {
           {t("title")}
         </h1>
       </div>
-
       <div className="flex flex-wrap justify-center mb-8 gap-2">
-        <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px] cursor-none">
-          Бүх байр (6)
-        </button>
-        <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px] cursor-none">
-          Санхүү & Нягтлан (2)
-        </button>
-        <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px] cursor-none">
-          Жолооч (1)
-        </button>
-        <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px] cursor-none">
-          IT & Систем (3)
-        </button>
-        <button className="bg-gray-100 text-gray-600 px-4 py-2 rounded-full text-sm min-w-[120px] cursor-none">
-          Бусад (0)
-        </button>
+        {categories.map((cat) => (
+          <button
+            key={cat.value}
+            onClick={() => setSelectedCategory(cat.value)}
+            className={`px-4 py-2 rounded-full text-sm min-w-[120px] ${
+              selectedCategory === cat.value
+                ? "bg-red-500 text-white cursor-pointer"
+                : "bg-gray-100 text-gray-600 cursor-pointer"
+            }`}
+          >
+            {cat.label}{" "}
+            {cat.value === "all" ? `(${cmsPosts?.length || 0})` : ""}
+          </button>
+        ))}
       </div>
       <div className="space-y-4">
-        {[...Array(4)].map((_, i) => {
+        {cmsPosts?.map((post, i) => {
           const isOpen = openIndex === i;
+          const postCat =
+            post?.customFieldsData?.[2]?.value?.toString().toLowerCase() ||
+            "other";
+
+          const showContent =
+            selectedCategory === "all" ||
+            selectedCategory === "it" ||
+            selectedCategory === postCat;
+
           return (
             <div key={i} className="border-b pb-4">
               <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
-                <div className="flex flex-col">
-                  <h2 className="text-base font-semibold text-gray-800">
-                    {i === 0
-                      ? "Senior Inventory Specialist"
-                      : i === 1
-                      ? "Senior Software Developer"
-                      : i === 2
-                      ? "Junior UI/UX Fullstack Designer"
-                      : "Senior Inventory Specialist"}
-                  </h2>
-                  <div className="flex flex-wrap items-center text-gray-500 text-sm mt-1 gap-x-3">
-                    <span>Full time</span>
-                    <span className="text-gray-300">•</span>
-                    <span>
-                      {i === 0
-                        ? "1.6 m - 1.8 m"
-                        : i === 1
-                        ? "3.5 m - 4 m"
-                        : i === 2
-                        ? "2.5 m - 3 m"
-                        : "1.6 m - 1.8 m"}
-                    </span>
-                    <span className="text-gray-300">•</span>
-                    <span>
-                      {i === 1 ? "Khan-Uul District" : "Bayanzurkh District"}
-                    </span>
-                  </div>
+                <div className="flex flex-col gap-2">
+                  {selectedCategory === "finance" ||
+                  selectedCategory === "driver" ? (
+                    <p className="text-gray-500 italic">
+                      {" "}
+                      <>
+                        <div className="flex flex-wrap items-center text-gray-500 text-sm gap-x-3">
+                          <span>Full time</span>
+                          <span className="text-gray-300">•</span>
+
+                          <div className="font-sans text-[16px] font-normal leading-normal">
+                            {!!post?.customFieldsData?.[0]?.value?.toString() ||
+                              "No value"}
+                          </div>
+                          <span className="text-gray-300">•</span>
+                          <div className="font-sans text-[20px] font-normal leading-normal">
+                            {!!post?.customFieldsData?.[1]?.value?.toString() ||
+                              "No value"}
+                          </div>
+                        </div>
+                      </>
+                    </p>
+                  ) : showContent ? (
+                    <>
+                      <p className="text-gray-800 text-xl font-semibold">
+                        {post.title || "No title"}
+                      </p>
+
+                      <div className="flex flex-wrap items-center text-gray-500 text-sm gap-x-3">
+                        <span>Full time</span>
+                        <span className="text-gray-300">•</span>
+
+                        <div className="font-sans text-[16px] font-normal leading-normal">
+                          {post?.customFieldsData?.[0]?.value?.toString() ||
+                            "No value"}
+                        </div>
+                        <span className="text-gray-300">•</span>
+                        <div className="font-sans text-[20px] font-normal leading-normal">
+                          {post?.customFieldsData?.[1]?.value?.toString() ||
+                            "No value"}
+                        </div>
+                      </div>
+                    </>
+                  ) : null}
                 </div>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 mt-2 sm:mt-0">
                   <button
                     onClick={() => setOpenIndex(isOpen ? null : i)}
-                    className="flex items-center cursor-none"
+                    className="flex items-center"
                   >
                     <img
                       src="/images/downarrow.png"
@@ -99,18 +143,22 @@ const AjliinBair = () => {
                       className="ml-2"
                     />
                   </button>
-
                   <ErxesForm brandId="KMylUq" formId="FBWGfk" />
                 </div>
               </div>
+
+              {/* Post content */}
               <div
                 className={`overflow-hidden transition-all duration-500 ${
                   isOpen ? "max-h-[500px] mt-4" : "max-h-0"
                 }`}
               >
-                <p className="text-gray-600 text-sm mb-4">
-                  Энэ бол тухайн ажлын байрны дэлгэрэнгүй мэдээлэл.
-                </p>
+                {showContent && (
+                  <p
+                    className="text-gray-600 text-sm mb-4"
+                    dangerouslySetInnerHTML={{ __html: post.content }}
+                  ></p>
+                )}
               </div>
             </div>
           );
