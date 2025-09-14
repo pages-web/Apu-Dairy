@@ -50,7 +50,10 @@ const Info = async () => {
             )}
           >
             <MapPinIcon className="flex-none h-5 w-5 mt-1" />
-            <span className="ml-2 text-wrap">{address || ""}</span>
+            <a href="https://www.google.com/maps/@47.8830669,106.8604773,14z?entry=ttu&g_ep=EgoyMDI1MDkxMC4wIKXMDSoASAFQAw%3D%3D/"></a>
+            <span className="ml-2 text-wrap w-72">
+              Khan-Uul district, 3 khoroo, Uildver street, Ulaanbaatar, Mongolia
+            </span>
           </FooterLink>
         </div>
       </div>
