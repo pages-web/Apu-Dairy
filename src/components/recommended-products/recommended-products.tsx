@@ -39,9 +39,9 @@ const RecommendedProducts = async ({
 
       <Carousel opts={{ dragFree: true }}>
         <CarouselContent className="gap-3">
-          {exceptCurrent.map((product: IProduct) => (
+          {exceptCurrent.slice(0, 10).map((product: IProduct) => (
             <CarouselItem
-              className="basis-full sm:basis-1/2 lg:basis-1/2 xl:basis-1/4 2xl:basis-1/5"
+              className="basis-full sm:basis-1/2 lg:basis-1/2 xl:basis-1/4"
               key={product._id}
             >
               <ProductCard {...product} />

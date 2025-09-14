@@ -5,15 +5,12 @@ import AlhamMain from "./alhamMain";
 
 const AlhamCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
-    <div className="w-full flex">
-      <div className="w-full max-w-[500px] justify-center items-center">
-        <div className="flex lg:flex-wrap lg:overflow-visible overflow-x-auto gap-4 scrollbar-hide">
+    <div className="w-full flex justify-center">
+      <div className="w-full max-w-[500px] flex justify-center items-center mr-0 md:mr-[80px] lg:mr-[150px]">
+        <div className="flex flex-col lg:flex-row lg:flex-wrap lg:overflow-visible gap-4 justify-center">
           {posts?.length > 0 &&
             posts.map((post, index) => (
-              <div
-                key={index}
-                className="min-w-[250px] max-w-[320px] flex-shrink-0 lg:flex-shrink"
-              >
+              <div key={index} className="w-full sm:w-[320px] flex-shrink-0">
                 <AlhamMain post={post} />
               </div>
             ))}
