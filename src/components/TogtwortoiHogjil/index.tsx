@@ -21,7 +21,7 @@ const Togtwortoi = () => {
           {t("description")}
         </div>
         <div className="md:mt-5 md:absolute md:mb-5 mb-5 md:top-[400px] md:left-3 md:ml-3">
-          <Link href="/contact">
+          <Link href="/aboutheader">
             <Button className="flex items-center gap-2  mt-2 text-[#3B834D] bg-white rounded-full transition">
               {t("button")}
               <svg

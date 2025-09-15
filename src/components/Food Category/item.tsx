@@ -22,13 +22,10 @@ const Item = ({ post }: { post: ICmsPost }) => {
       )}
 
       <div className="flex flex-col w-full gap-4">
-        {/* Content */}
         <div
           className="w-full max-w-[600px] text-black font-sf-pro-rounded text-base sm:text-lg lg:text-xl leading-6 sm:leading-7 lg:leading-8 text-center lg:text-left mx-auto"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
-
-        {/* Icons */}
         <div className="flex flex-row lg:flex-row items-center justify-center lg:justify-start gap-4 text-gray-700 text-[16px]">
           <div className="flex items-center gap-1 whitespace-nowrap">
             <Clock className="w-5 h-5 text-red-500" />
