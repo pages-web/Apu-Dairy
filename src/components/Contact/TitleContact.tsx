@@ -19,8 +19,8 @@ const TitleContact = ({ post }: { post: ICmsPost }) => {
           <Info />
         </div>
       </div>
-      <div className="mt-16 flex justify-center px-4 sm:px-6 md:px-8">
-        <div className="w-full max-w-[1150px]">
+      <div className="mt-16 flex justify-center">
+        <div className="w-full max-w-[1200px]">
           <FAQContact />
         </div>
       </div>

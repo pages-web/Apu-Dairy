@@ -26,3 +26,12 @@ const ZamnalCarousel = ({ posts }: Props) => {
 };
 
 export default ZamnalCarousel;
+
+//  <div className="flex flex-col items-center justify-center mb-10">
+//         <h2 className="text-sm font-medium leading-normal text-[#ED3237] bg-[rgb(250,203,205)] rounded-full w-32 h-7 flex items-center justify-center mb-10">
+//           {t("historicalJourney")}
+//         </h2>
+//         <h2 className="text-[#353535] text-center text-2xl font-medium mt-2">
+//           {t("historyTrace")}
+//         </h2>
+//       </div>
