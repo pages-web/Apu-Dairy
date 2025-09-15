@@ -14,7 +14,7 @@ const Nairlaga = () => {
     <div className="w-full mx-auto px-4 py-1">
       <div className="text-center mb-4">
         <h1 className="inline-block bg-[#FFEFF0] text-[#ED3237] font-sf-pro-rounded text-[13px] font-medium leading-[100%] px-4 py-1 rounded-full">
-          Гол найрлага
+          {t("main")}
         </h1>
       </div>
       <h2 className="text-[#232323] text-center font-sf-pro-rounded text-[28px] sm:text-[32px] font-medium leading-normal max-w-3xl mx-auto mb-10 px-2">
