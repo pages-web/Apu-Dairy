@@ -33,6 +33,7 @@ const cmsPosts = gql`
         slug
         content
         customFieldsData
+        categoryIds
         thumbnail {
           url
         }

@@ -16,7 +16,7 @@ const Item = ({ post }: { post: ICmsPost }) => {
               alt={post.title}
               fill
               quality={100}
-              className="object-cover rounded-2xl"
+              className="object-cover"
               loading="lazy"
             />
             <div className="absolute inset-0 flex flex-col justify-end px-20 bg-gradient-to-t from-black/60 to-transparent text-white">

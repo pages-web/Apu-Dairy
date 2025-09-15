@@ -245,5 +245,18 @@
         "description": "All four products of the MONT-YAK brand received international organic food certification from a Mongolian accredited organization"
       }
     ]
+  },
+  "jobsa": {
+    "openLabel": "Open Positions",
+    "fulltime": "Full time",
+    "title": "Current Job Openings",
+    "anket": "Apply",
+    "categories": {
+      "all": "All",
+      "it": "IT & Systems",
+      "finance": "Finance & Accounting",
+      "driver": "Driver",
+      "other": "Other"
+    }
   }
 }
