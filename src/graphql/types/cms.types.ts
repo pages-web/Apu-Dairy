@@ -29,6 +29,7 @@ export interface ICmsPost {
   title: string;
   excerpt: string;
   content: string;
+  videoUrl: string;
   customFieldsMap: { benefitPost: IBenefitCustomField };
 }
 

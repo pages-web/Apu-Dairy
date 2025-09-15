@@ -10,6 +10,7 @@ import Hogjil from "../Hogjil/page";
 import { useTranslations } from "next-intl";
 
 const About = ({ post }: { post: ICmsPost }) => {
+  console.log("postAA", post);
   const t = useTranslations("stats");
   return (
     <div className="py flex flex-col items-center gap-8">
@@ -33,17 +34,16 @@ const About = ({ post }: { post: ICmsPost }) => {
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
       <div className="bg-[rgb(237,50,55)] rounded-3xl p-8 w-full max-w-[1400px] mx-auto">
-        {post.thumbnail?.url && (
+        {post.videoUrl && (
           <div className="flex flex-col items-center w-full gap-8">
             <div className="rounded-xl overflow-hidden w-full hidden md:block lg:block">
-              <Image
-                src={`https://apudairy.api.erxes.io/api/read-file?key=${post.thumbnail.url}`}
-                alt={post.title}
-                width={800}
-                height={600}
-                quality={100}
+              <video
+                src={post.videoUrl}
+                controls
+                autoPlay={true}
+                muted={false}
+                loop={true}
                 className="object-cover w-full h-auto rounded-xl"
-                loading="lazy"
               />
             </div>
 

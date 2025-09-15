@@ -1,34 +1,45 @@
-// graphql/client/apollo-server-client.tsx
-import { ApolloClient, InMemoryCache, createHttpLink } from "@apollo/client";
-import { useMemo } from "react";
+import {
+  ApolloClient,
+  InMemoryCache,
+  HttpLink,
+  ApolloProvider,
+} from "@apollo/client";
+import { RetryLink } from "@apollo/client/link/retry";
+import { setContext } from "@apollo/client/link/context";
 
-let apolloClient: ApolloClient<any> | null = null;
+// Http link
+const httpLink = new HttpLink({
+  uri: `${process.env.NEXT_PUBLIC_MAIN_API_DOMAIN}/graphql`,
+  credentials: "include",
+});
 
-const createApolloClient = () => {
-  return new ApolloClient({
-    ssrMode: typeof window === "undefined",
-    link: createHttpLink({
-      uri: `${process.env.NEXT_PUBLIC_MAIN_API_DOMAIN}/graphql`,
-      fetch,
-    }),
-    cache: new InMemoryCache(),
-  });
-};
+// Auth link
+const authLink = setContext((_, { headers }) => {
+  const token = sessionStorage.getItem("token") || "";
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
 
-export function initializeApollo(initialState = null) {
-  const _apolloClient = apolloClient ?? createApolloClient();
+const httpLinkWithMiddleware = authLink.concat(httpLink);
 
-  if (initialState) {
-    _apolloClient.cache.restore(initialState);
-  }
+// Retry link тохиргоо
+const retryLink = new RetryLink({
+  attempts: {
+    max: 2, // retry оролдлогын тоо багасгах
+    retryIf: (error) => !!error,
+  },
+  delay: {
+    initial: 300, // retry-ийн анхны хүлээлт (ms)
+    max: 1000,
+    jitter: true,
+  },
+});
 
-  if (typeof window === "undefined") return _apolloClient;
-  if (!apolloClient) apolloClient = _apolloClient;
-
-  return apolloClient;
-}
-
-export function useApollo(initialState: any) {
-  const store = useMemo(() => initializeApollo(initialState), [initialState]);
-  return store;
-}
+const client = new ApolloClient({
+  link: retryLink.concat(httpLinkWithMiddleware),
+  cache: new InMemoryCache(),
+});
