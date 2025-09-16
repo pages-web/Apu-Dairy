@@ -11,6 +11,7 @@ const products = gql`
     $sortField: String
     $sortDirection: Int
     $ids: [String]
+    $tag: String
   ) {
     poscProducts(
       categoryId: $categoryId
@@ -22,11 +23,13 @@ const products = gql`
       sortField: $sortField
       sortDirection: $sortDirection
       ids: $ids
+      tag: $tag
     ) {
       _id
       name
       unitPrice
       hasSimilarity
+      tagIds
       tagIds
       attachment {
         url

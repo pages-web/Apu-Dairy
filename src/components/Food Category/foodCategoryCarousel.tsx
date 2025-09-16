@@ -4,6 +4,7 @@ import { ICmsPost } from "@/src/graphql/types/cms.types";
 import Item from "./item";
 import { Button } from "../ui/Button/Button";
 import { useTranslations } from "use-intl";
+import Link from "next/link";
 
 const FoodCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   const t = useTranslations("NewsMain");
@@ -15,9 +16,11 @@ const FoodCarousel = ({ posts }: { posts: ICmsPost[] }) => {
         ))}
       </div>
       <div className="mt-8 flex justify-center">
-        <Button className="h-10 w-36 px-6 rounded-full border border-white bg-white text-red-600 transition">
-          {t("viewMore")}
-        </Button>
+        <Link href="/recipes">
+          <Button className="h-10 w-36 px-6 rounded-full border border-white bg-white text-red-600 transition">
+            {t("viewMore")}
+          </Button>
+        </Link>
       </div>
     </div>
   );

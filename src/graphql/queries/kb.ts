@@ -1,6 +1,13 @@
 import { OperationVariables, useQuery } from "@apollo/client";
 import queries from "./cms/queries";
-import { ICmsCategory, ICmsPost, ICmsTag } from "../types/cms.types";
+import productQuery from "./product/productFilter";
+import {
+  ICmsCategory,
+  ICmsPost,
+  ICmsTag,
+  IProductFilter,
+} from "../types/cms.types";
+import { headers } from "next/dist/client/components/headers";
 
 export const useCmsPosts = (variables?: OperationVariables) => {
   const { data: cmsPostsData, loading } = useQuery(queries.cmsPosts, {
@@ -58,4 +65,32 @@ export const useCmsPostDetail = (variables?: OperationVariables) => {
   const cmsPostDetail: ICmsPost = data?.cmsPost;
 
   return { cmsPostDetail, loading };
+};
+
+export const useProductTag = (variables?: OperationVariables) => {
+  const { data, loading } = useQuery(productQuery.productTag, {
+    variables: {
+      type: "core:product",
+      page: 1,
+      perPage: 20,
+    },
+    notifyOnNetworkStatusChange: true,
+    fetchPolicy: "no-cache",
+    context: {
+      headers: {
+        "erxes-app-token": process.env.NEXT_PUBLIC_ERXES_APP_TOKEN,
+      },
+    },
+  });
+
+  // зөвхөн tags буцаана
+  const cmsPosts: IProductFilter[] =
+    data?.tags?.map((tag: any) => ({
+      id: tag._id,
+      name: tag.name,
+      parentId: tag.parentId,
+      order: tag.order,
+    })) || [];
+
+  return { cmsPosts, loading };
 };

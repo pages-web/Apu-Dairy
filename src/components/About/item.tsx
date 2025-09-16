@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
 import { Button } from "@/src/components/ui/Button/Button";
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 
 const About = ({ post }: { post: ICmsPost }) => {
   const t = useTranslations("Sustainable");
@@ -75,23 +76,25 @@ const About = ({ post }: { post: ICmsPost }) => {
         </div>
       )}
       <div>
-        <Button className="flex items-center gap-2 px-6 py-2 text-red-500 bg-white rounded-full hover:bg-red-50 font-semibold shadow-md">
-          {t("button")}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="21"
-            viewBox="0 0 20 21"
-            fill="none"
-          >
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M5.22001 15.1067C5.36064 15.2471 5.55126 15.326 5.75001 15.326C5.94876 15.326 6.13939 15.2471 6.28001 15.1067L13.5 7.88666V13.5767C13.5 13.7756 13.579 13.9663 13.7197 14.107C13.8603 14.2476 14.0511 14.3267 14.25 14.3267C14.4489 14.3267 14.6397 14.2476 14.7803 14.107C14.921 13.9663 15 13.7756 15 13.5767V6.07666C15 5.87775 14.921 5.68698 14.7803 5.54633C14.6397 5.40568 14.4489 5.32666 14.25 5.32666H6.75001C6.5511 5.32666 6.36033 5.40568 6.21968 5.54633C6.07903 5.68698 6.00001 5.87775 6.00001 6.07666C6.00001 6.27557 6.07903 6.46634 6.21968 6.60699C6.36033 6.74764 6.5511 6.82666 6.75001 6.82666H12.44L5.22001 14.0467C5.07956 14.1873 5.00067 14.3779 5.00067 14.5767C5.00067 14.7754 5.07956 14.966 5.22001 15.1067Z"
-              fill="#ED3237"
-            />
-          </svg>
-        </Button>
+        <Link href="/aboutheader">
+          <Button className="flex items-center gap-2 px-6 py-2 text-red-500 bg-white rounded-full hover:bg-red-50 font-semibold shadow-md">
+            {t("button")}
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="21"
+              viewBox="0 0 20 21"
+              fill="none"
+            >
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M5.22001 15.1067C5.36064 15.2471 5.55126 15.326 5.75001 15.326C5.94876 15.326 6.13939 15.2471 6.28001 15.1067L13.5 7.88666V13.5767C13.5 13.7756 13.579 13.9663 13.7197 14.107C13.8603 14.2476 14.0511 14.3267 14.25 14.3267C14.4489 14.3267 14.6397 14.2476 14.7803 14.107C14.921 13.9663 15 13.7756 15 13.5767V6.07666C15 5.87775 14.921 5.68698 14.7803 5.54633C14.6397 5.40568 14.4489 5.32666 14.25 5.32666H6.75001C6.5511 5.32666 6.36033 5.40568 6.21968 5.54633C6.07903 5.68698 6.00001 5.87775 6.00001 6.07666C6.00001 6.27557 6.07903 6.46634 6.21968 6.60699C6.36033 6.74764 6.5511 6.82666 6.75001 6.82666H12.44L5.22001 14.0467C5.07956 14.1873 5.00067 14.3779 5.00067 14.5767C5.00067 14.7754 5.07956 14.966 5.22001 15.1067Z"
+                fill="#ED3237"
+              />
+            </svg>
+          </Button>
+        </Link>
       </div>
     </div>
   );

@@ -32,6 +32,13 @@ export interface ICmsPost {
   videoUrl: string;
   customFieldsMap: { benefitPost: IBenefitCustomField };
 }
+export interface IProductFilter {
+  id: string;
+  name: string;
+  parentId: string;
+  order: string;
+  thumbnail?: { url: string };
+}
 
 export interface IBenefitCustomField {
   locations?: string;
