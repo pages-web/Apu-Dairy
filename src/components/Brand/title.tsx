@@ -21,9 +21,11 @@ const Brand = ({ post }: { post: ICmsPost }) => {
     { name: "Ийли", image: "/images/iili.png" },
     { name: "Эрүүл сүү", image: "/images/eruul.png" },
     { name: "Сайн", image: "/images/sain.png" },
-    { name: "Дээж", image: "/images/deej.png" },
+    { name: "Дээж", image: "/images/deej.jpg" },
   ];
+
   const [hoverImage, setHoverImage] = useState<string | null>(null);
+  const [hoverIndex, setHoverIndex] = useState<number | null>(null);
 
   return (
     <div className="w-full min-h-screen flex flex-col items-center justify-start pt-16 md:pt-28 px-4">
@@ -34,13 +36,13 @@ const Brand = ({ post }: { post: ICmsPost }) => {
           className="mx-auto mb-8"
         />
         <div
-          className="text-[#353535] font-sf-pro-rounded text-[48px] md:text-5xl font-medium leading-normal"
+          className="text-[#353535] text-[48px] md:text-5xl font-medium leading-normal"
           dangerouslySetInnerHTML={{ __html: post.content }}
         />
       </div>
       <div className="relative w-full min-h-[60vh] flex flex-col items-center justify-center overflow-hidden">
         <div
-          className="absolute inset-0 transition-opacity duration-700 ease-in-out"
+          className="fixed inset-0 transition-opacity duration-700 ease-in-out -z-10"
           style={{
             backgroundImage: hoverImage ? `url(${hoverImage})` : "none",
             backgroundSize: "cover",
@@ -52,10 +54,24 @@ const Brand = ({ post }: { post: ICmsPost }) => {
           {textList.map((item, index) => (
             <span
               key={index}
-              className="cursor-pointer text-[20vw] sm:text-[15vw] md:text-[12vw] lg:text-[10vw]
-                 font-bold text-black py-12 transition-colors duration-300 text-center"
-              onMouseEnter={() => setHoverImage(item.image)}
-              onMouseLeave={() => setHoverImage(null)}
+              className={`font-mogul cursor-none 
+                         text-[172px] font-bold leading-none 
+                         text-center transition-colors duration-300 
+                         ${
+                           hoverIndex === index
+                             ? "text-white"
+                             : hoverIndex !== null
+                             ? "text-gray-400"
+                             : "text-[#131313]"
+                         }`}
+              onMouseEnter={() => {
+                setHoverImage(item.image);
+                setHoverIndex(index);
+              }}
+              onMouseLeave={() => {
+                setHoverImage(null);
+                setHoverIndex(null);
+              }}
             >
               {item.name}
             </span>

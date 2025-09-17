@@ -6,7 +6,7 @@ import Link from "next/link";
 const Other = ({ post }: { post: ICmsPost }) => {
   const { _id } = post;
   return (
-    <div className="flex flex-col items-center px-7">
+    <div className="flex flex-col items-center px-3">
       {post.thumbnail?.url && (
         <div className="relative w-full aspect-square overflow-hidden rounded-3xl">
           <Link href={`/jor/${post._id}`}>
@@ -26,10 +26,10 @@ const Other = ({ post }: { post: ICmsPost }) => {
         </div>
       )}
       <div className="flex flex-col w-full max-w-[500px] gap-2">
-        <div className="text-[18px] font-normal font-weigth-400 text-black z-10 font-sf-pro-rounded">
+        <div className="text-[18px] font-normal font-weigth-400 text-black z-10 font-sf-pro-rounded mt-2">
           {post.title}
         </div>
-        <div className="flex items-center gap-4 text-gray-700 text-sm font-medium">
+        <div className="flex items-center gap-4 text-gray-700 text-sm font-medium mb-3">
           <div className="flex items-center gap-1">
             <Clock className="w-5 h-5 text-black/50" />
             <span>25 мин</span>

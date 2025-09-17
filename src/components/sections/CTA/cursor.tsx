@@ -16,20 +16,20 @@ const MilkDropCursor: React.FC = () => {
 
   return (
     <>
-      <div
+      <img
+        src="/images/cursor.png"
+        alt="cursor"
         style={{
           position: "fixed",
           top: position.y,
           left: position.x,
-          width: "30px",
+          width: "38px", // үндсэн cursor-ийн хэмжээнд ойролцоо
           height: "38px",
-          background: "radial-gradient(circle at 50% 75%, white, #e0e0e0)",
-          borderRadius: "10% 100% 100% 100% / 50% 100% 80% 100%",
           pointerEvents: "none",
           zIndex: 9999,
-          transform: "translate(-10%, -30%) rotate(-30deg)",
-          boxShadow: "0 3px 6px rgba(0,0,0,0.15)",
-          transition: "transform 0.05s ease-out",
+          transform: "translate(-50%, -50%) rotate(-30deg)",
+          background: "transparent",
+          cursor: "none",
         }}
       />
     </>
