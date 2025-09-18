@@ -5,7 +5,7 @@ import Food from "./title";
 
 const FoodCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
-    <div className="mt-28">
+    <div>
       {posts.map((post, index) => (
         <div key={index}>
           <Food post={post} />

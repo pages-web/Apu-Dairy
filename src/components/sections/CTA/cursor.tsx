@@ -21,9 +21,9 @@ const MilkDropCursor: React.FC = () => {
         alt="cursor"
         style={{
           position: "fixed",
-          top: position.y,
-          left: position.x,
-          width: "38px", // үндсэн cursor-ийн хэмжээнд ойролцоо
+          top: position.y + 10,
+          left: position.x + 5,
+          width: "38px",
           height: "38px",
           pointerEvents: "none",
           zIndex: 9999,

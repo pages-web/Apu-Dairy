@@ -10,6 +10,7 @@ import { routing } from "@/src/i18n/routing";
 import en from "@/messages/en.json";
 import mn from "@/messages/mn.json";
 import { NavbarTop } from "@/src/components/layout/Header/Header";
+import Icon from "@/src/components/Side Icon/page";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -53,6 +54,7 @@ export default function RootLayout({
             <Providers>{children}</Providers>
           </main>
           <MilkDropCursor />
+          <Icon children={undefined} />
           <Footer />
         </NextIntlClientProvider>
       </body>

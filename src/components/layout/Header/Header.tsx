@@ -26,7 +26,6 @@ export function NavbarTop() {
     { label: t("about"), href: "/aboutheader" },
     { label: t("human"), href: "/human" },
     { label: t("news"), href: "/news" },
-    { label: t("contact"), href: "/contact" },
   ];
 
   return (
@@ -52,11 +51,6 @@ export function NavbarTop() {
         </nav>
         <div className="sm:hidden max-sm:hidden md:hidden lg:flex items-center gap-3">
           <LanguageSwitcher />
-          <Link href="/contact">
-            <button className="flex items-center cursor-none gap-2 bg-white text-[#D64545] font-medium px-4 py-2 rounded-full hover:bg-gray-100 transition shadow-sm">
-              💬 {t("feedback")}
-            </button>
-          </Link>
         </div>
         <div className="md:hidden flex items-center">
           <button

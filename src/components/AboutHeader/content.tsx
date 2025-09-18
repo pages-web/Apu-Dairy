@@ -10,7 +10,6 @@ import Hogjil from "../Hogjil/page";
 import { useTranslations } from "next-intl";
 
 const About = ({ post }: { post: ICmsPost }) => {
-  console.log("postAA", post);
   const t = useTranslations("stats");
   return (
     <div className="py flex flex-col items-center gap-8">

@@ -1,19 +1,21 @@
 "use client";
 
-import React from "react";
-import { useCmsPosts } from "@/src/graphql/queries/kb";
+import React, { useEffect } from "react";
 import JorCarousel from "./jorCarousel";
-import { useLocale } from "next-intl";
-
-const JORUUD_TAG_ID = "C3hPHx0bBH-Me_jN3Smz_";
+import { useParams } from "next/navigation";
+import { useCmsPostsByCategory } from "@/src/graphql/queries/kb";
 
 const Joruud = () => {
-  const locale = useLocale();
+  const params = useParams();
+  const currentLocale = params.locale as string;
 
-  const { cmsPosts } = useCmsPosts({
-    tagIds: [JORUUD_TAG_ID],
-    language: locale,
+  const { posts: cmsPosts, refetch } = useCmsPostsByCategory("joruud", {
+    language: currentLocale,
   });
+
+  useEffect(() => {
+    refetch();
+  }, [currentLocale]);
 
   return (
     <div>

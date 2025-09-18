@@ -1,5 +1,6 @@
 import { OperationVariables, useQuery } from "@apollo/client";
 import queries from "./cms/queries";
+import queries1 from "./cms/jor";
 import productQuery from "./product/productFilter";
 import {
   ICmsCategory,
@@ -7,23 +8,22 @@ import {
   ICmsTag,
   IProductFilter,
 } from "../types/cms.types";
-import { headers } from "next/dist/client/components/headers";
 
-export const useCmsPosts = (variables?: OperationVariables) => {
-  const { data: cmsPostsData, loading } = useQuery(queries.cmsPosts, {
+export const useCmsPosts = (variables?: any) => {
+  const { data, loading, error } = useQuery(queries.cmsPosts, {
     variables: {
       clientPortalId: process.env.NEXT_PUBLIC_CP_ID,
-      sortField: "created-desc",
       perPage: 200,
+      sortField: "created-desc",
       ...variables,
     },
-    notifyOnNetworkStatusChange: true, // chuhal (orchuulga hiihed)
-    fetchPolicy: "no-cache", // chuhal (orchuulga hiihed)
+    fetchPolicy: "no-cache",
   });
 
-  const cmsPosts: ICmsPost[] = cmsPostsData?.cmsPostList.posts || [];
+  // Data structure-д тохируулж авах
+  const cmsPostsList: ICmsPost[] = data?.cmsPostList?.posts || [];
 
-  return { cmsPosts, loading };
+  return { cmsPosts: cmsPostsList, loading, error };
 };
 
 export const useCmsCategories = (variables?: OperationVariables) => {
@@ -93,4 +93,29 @@ export const useProductTag = (variables?: OperationVariables) => {
     })) || [];
 
   return { cmsPosts, loading };
+};
+
+export const useCmsPostsByCategory = (
+  slug: string,
+  variables?: OperationVariables
+) => {
+  const { cmsCategories, loading: categoriesLoading } = useCmsCategories();
+
+  const categoryId = cmsCategories.find((c) => c.slug === slug)?._id;
+
+  const { data, loading, refetch } = useQuery(queries1.CmsPosts, {
+    variables: {
+      clientPortalId: process.env.NEXT_PUBLIC_CP_ID,
+      ...variables,
+      perPage: 20,
+      categoryIds: categoryId ? [categoryId] : [""],
+    },
+    notifyOnNetworkStatusChange: true,
+    fetchPolicy: "no-cache",
+    skip: !slug || categoriesLoading,
+  });
+
+  const posts: ICmsPost[] = data?.cmsPostList.posts || [];
+
+  return { posts, loading: loading || categoriesLoading, refetch };
 };
