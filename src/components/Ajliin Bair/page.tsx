@@ -61,8 +61,8 @@ const AjliinBair = () => {
             onClick={() => setSelectedCategory(cat.value)}
             className={`px-4 py-2 rounded-full text-sm min-w-[120px] ${
               selectedCategory === cat.value
-                ? "bg-red-500 text-white cursor-pointer"
-                : "bg-gray-100 text-gray-600 cursor-pointer"
+                ? "bg-red-500 text-white cursor-none"
+                : "bg-gray-100 text-gray-600 cursor-none"
             }`}
           >
             {cat.label}{" "}
@@ -105,14 +105,14 @@ const AjliinBair = () => {
                     <img
                       src="/images/downarrow.png"
                       alt="down arrow"
-                      className={`w-5 h-5 object-contain transform transition-transform duration-300 ${
+                      className={`w-5 h-5 object-contain transform transition-transform duration-300 cursor-none ${
                         isOpen ? "rotate-180" : ""
                       }`}
                     />
                   </button>
                   <button
                     onClick={handleClick}
-                    className="bg-red-500 text-white px-5 py-3 rounded-full flex items-center text-sm whitespace-nowrap"
+                    className="bg-red-500 text-white px-5 py-3 rounded-full flex items-center text-sm whitespace-nowrap cursor-none"
                   >
                     {t("anket")}
                     <img

@@ -50,7 +50,7 @@ export default function RootLayout({
       >
         <NextIntlClientProvider locale={locale} messages={messages}>
           <NavbarTop />
-          <main className="flex-grow">
+          <main className="flex-grow cursor-none">
             <Providers>{children}</Providers>
           </main>
           <MilkDropCursor />

@@ -45,7 +45,7 @@ const ParentChildDropdowns = () => {
               value={selectedParents[parent.id] || ""}
               onChange={(e) => handleParentChange(parent.id, e.target.value)}
             >
-              <option value="">{parent.name} сонгох</option>
+              <option value="">{parent.name}</option>
               {childTags.map((child) => (
                 <option key={child.id} value={child.id}>
                   {child.name}

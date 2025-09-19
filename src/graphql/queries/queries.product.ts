@@ -30,7 +30,6 @@ const products = gql`
       unitPrice
       hasSimilarity
       tagIds
-      tagIds
       attachment {
         url
       }

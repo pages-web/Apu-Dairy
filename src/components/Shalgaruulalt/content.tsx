@@ -53,7 +53,7 @@ const Content = () => {
           <div
             key={index}
             onClick={() => setActiveStep(index)}
-            className="cursor-pointer"
+            className="cursor-none"
           >
             <span
               className={`text-2xl font-bold ${

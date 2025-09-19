@@ -4,9 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Other = ({ post }: { post: ICmsPost }) => {
-  const { _id } = post;
   return (
-    <div className="flex flex-col items-center px-3">
+    <div className="flex flex-col items-center px-1">
       {post.thumbnail?.url && (
         <div className="relative w-full aspect-square overflow-hidden rounded-3xl">
           <Link href={`/jor/${post._id}`}>
@@ -16,7 +15,7 @@ const Other = ({ post }: { post: ICmsPost }) => {
               fill
               sizes="(max-width: 768px) 100vw, 500px"
               quality={100}
-              className="rounded-3xl object-cover"
+              className="rounded-3xl object-cover cursor-none"
               loading="lazy"
             />
           </Link>

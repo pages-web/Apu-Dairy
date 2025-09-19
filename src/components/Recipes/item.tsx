@@ -31,17 +31,17 @@ const Item = ({
           className="object-cover"
         />
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
         <span className="absolute top-3 left-3 bg-white text-red-500 text-xs font-semibold px-2 py-0.5 rounded-full z-10">
           Веган
         </span>
 
         <div className="absolute bottom-10 left-3 flex gap-4 text-sm items-center z-10">
           <div className="flex items-center gap-1">
-            <FaClock className="text-white text-xs" />
-            <span>15 mins</span>
+            <FaClock className="text-white text-xs cursor-none" />
+            <span className="cursor-none">15 mins</span>
           </div>
-          <div className="flex items-center gap-1">
+          <div className="flex items-center gap-1 cursor-none">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -69,7 +69,7 @@ const Item = ({
             <span>850 cal</span>
           </div>
         </div>
-        <div className="absolute bottom-3 left-3 text-sm font-semibold z-10">
+        <div className="absolute bottom-3 left-3 text-sm font-semibold z-10 cursor-none">
           {post.title}
         </div>
       </Link>

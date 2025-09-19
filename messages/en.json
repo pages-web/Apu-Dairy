@@ -159,23 +159,7 @@
   ],
   "Recipe": {
     "Title": "Food Recipes",
-    "Dropdown1": [
-      "Type",
-      "Food",
-      "Vegan",
-      "Appetizer",
-      "Breakfast",
-      "Smoothie",
-      "Coffee"
-    ],
-    "Dropdown2": [
-      "Brand",
-      "Pro+",
-      "Sain",
-      "Sheep",
-      "Pure Milk",
-      "Bulgar Yogurt"
-    ]
+    "All": "All"
   },
   "stats": {
     "globalReach": "Global Reach of Users",

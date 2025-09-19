@@ -10,7 +10,7 @@ const Item = ({ post }: { post: ICmsPost }) => {
     <div className="flex pl-4">
       <Link href={`/newsa/${post._id}`} className="block w-full">
         {post.thumbnail?.url && (
-          <div className=" md:h-[480px] w-full h-[300px] sm:h-[400px]">
+          <div className=" md:h-[480px] w-full h-[300px] sm:h-[400px] cursor-none">
             <Image
               src={`https://apudairy.api.erxes.io/api/read-file?key=${post.thumbnail.url}`}
               alt={post.title}

@@ -30,7 +30,7 @@ export function NavbarTop() {
 
   return (
     <header className="absolute top-0 left-0 right-0 z-50 bg-white/50 backdrop-blur-md border-b border-gray-200 shadow-sm">
-      <div className="max-w-[1400px] mx-auto flex items-center justify-between py-4 px-6">
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between py-4 px-6 gap-6">
         <Link href="/">
           <img
             src={logo || "/images/footer.svg"}
