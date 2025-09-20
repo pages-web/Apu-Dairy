@@ -6,12 +6,21 @@ import Other from "./otherJor";
 import { useTranslations } from "next-intl";
 
 const PostFilterByTitle = ({ posts }: { posts: ICmsPost[] }) => {
-  const [selectedPostId, setSelectedPostId] = useState<string>("");
-  const filteredPosts = selectedPostId
-    ? posts.filter((post) => post._id === selectedPostId)
+  const [selectedTagId, setSelectedTagId] = useState<string>("");
+
+  const filteredPosts = selectedTagId
+    ? posts.filter((post) =>
+        post.tags?.some((tag) => tag._id === selectedTagId)
+      )
     : posts;
 
   const t = useTranslations("Recipe");
+
+  const uniqueTags = Array.from(
+    new Map(
+      posts.flatMap((post) => post.tags || []).map((tag) => [tag._id, tag])
+    ).values()
+  );
 
   return (
     <div className="max-w-[1400px] mx-auto">
@@ -22,14 +31,15 @@ const PostFilterByTitle = ({ posts }: { posts: ICmsPost[] }) => {
         <div className="flex gap-4 mt-2 sm:mt-0">
           <div className="relative w-64 h-10 border border-gray-300 rounded-2xl">
             <select
-              value={selectedPostId}
-              onChange={(e) => setSelectedPostId(e.target.value)}
-              className="w-full h-full px-3 text-sm rounded-2xl appearance-none focus:outline-none cursor-none"
+              value={selectedTagId}
+              onChange={(e) => setSelectedTagId(e.target.value)}
+              className="w-full h-full px-3 text-sm rounded-2xl appearance-none focus:outline-none cursor-pointer"
             >
               <option value="">{t("All")}</option>
-              {posts.map((post) => (
-                <option key={post._id} value={post._id}>
-                  {post.title}
+
+              {uniqueTags.map((tag) => (
+                <option key={tag._id} value={tag._id}>
+                  {tag.name.slice(2)}
                 </option>
               ))}
             </select>
