@@ -14,7 +14,7 @@ const Avatar = () => {
       position: "CEO",
       image: "/images/Г.Баярмагнай.jpg",
       border: "border-yellow-400",
-      shape: "rounded-lg",
+      shape: "rounded-br-full",
     },
     {
       name: "Б.Батмөнх",
@@ -35,7 +35,7 @@ const Avatar = () => {
       position: "CMO",
       image: "/images/П.Цэнд-Аюуш.png",
       border: "border-red-500",
-      shape: "rounded-tr-full",
+      shape: "rounded-bl-full",
     },
     {
       name: "Г.Баярмагнай",

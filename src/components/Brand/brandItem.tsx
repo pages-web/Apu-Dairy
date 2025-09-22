@@ -21,7 +21,7 @@ const BrandItem = ({ cmsPosts }: ItemProps) => {
             alt="hover image"
             fill
             style={{ objectFit: "cover" }}
-            className="transition-opacity duration-500 ease-in-out"
+            className="transition-all duration-500 ease-in-out brightness-75"
             priority
           />
         )}
