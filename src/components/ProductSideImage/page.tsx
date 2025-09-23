@@ -1,48 +1,50 @@
 "use client";
 
 import React, { useState } from "react";
+import { IAttachment } from "@/src/types";
 
-const images = [
-  "/images/zurag.png",
-  "/images/zurag1.png",
-  "/images/zurag2.png",
-  "/images/zurag3.png",
-  "/images/zurag4.png",
-  "/images/zurag5.png",
-  "/images/zurag6.png",
-];
+interface SideImageProps {
+  attachments: IAttachment[];
+}
 
-const SideImage = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+const SideImage: React.FC<SideImageProps> = ({ attachments }) => {
+  const [activeIndex, setActiveIndex] = useState(0); // Эхэндээ 0-index-ийг идэвхтэй
 
-  const handleClick = (index: number) => {
-    // Хэрвээ яг одоогийн идэвхтэй зураг дээр дахин дарж байвал идэвхийг арилгана
-    setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
-  };
+  if (!attachments || attachments.length === 0) return null;
 
   return (
-    <div className="flex flex-wrap gap-4 p-4 h-[150px]">
-      {images.map((src, index) => {
-        const isActive = activeIndex === index;
-        return (
+    <div className="flex gap-6">
+      {/* Зүүн тал: жижиг зургууд */}
+      <div className="flex flex-col gap-4">
+        {attachments.map((attachment, index) => (
           <div
             key={index}
-            onClick={() => handleClick(index)}
-            className={`flex items-center justify-center rounded-full shadow-md cursor-none bg-blue-300 transition-transform duration-100 ${
-              isActive ? "w-28 h-28 scale-110" : "w-16 h-16 hover:scale-110"
+            onClick={() => setActiveIndex(index)}
+            className={`flex items-center justify-center rounded-md cursor-pointer transition-transform duration-150 ${
+              activeIndex === index
+                ? "w-24 h-24 scale-110 bg-blue-100"
+                : "w-16 h-16 hover:scale-110 bg-gray-100"
             }`}
           >
             <img
-              src={src}
-              alt={`image-${index}`}
-              className={`object-contain transition-all duration-200 ${
-                isActive ? "w-24 h-24" : "w-12 h-12"
-              }`}
+              src={attachment?.url}
+              alt=""
+              className="object-contain w-full h-full"
               draggable={false}
             />
           </div>
-        );
-      })}
+        ))}
+      </div>
+
+      {/* Баруун тал: идэвхтэй зураг */}
+      <div className="flex-1 flex items-center justify-center bg-gray-50 rounded-md shadow-md p-4">
+        <img
+          src={attachments[activeIndex]?.url}
+          alt=""
+          className="object-contain max-h-[400px] w-full"
+          draggable={false}
+        />
+      </div>
     </div>
   );
 };

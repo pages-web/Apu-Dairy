@@ -58,8 +58,14 @@ const Product = async ({ params }: { params: { slug: string } }) => {
     variables: { _id: slug },
   });
 
-  const { attachment, attachmentMore, description, barcodeDescription, name } =
-    product;
+  const {
+    attachment,
+    attachmentMore,
+    description,
+    barcodeDescription,
+    name,
+    unitPrice,
+  } = product;
   const attachments = (attachmentMore || []).concat([
     attachment as IAttachment,
   ]);
@@ -104,7 +110,7 @@ const Product = async ({ params }: { params: { slug: string } }) => {
               dangerouslySetInnerHTML={{ __html: description || "" }}
             ></p>
           </div>
-          <SideImage />
+          {/* <SideImage attachments={attachments} /> */}
           <div>
             <p className="font-semibold text-gray-800">Хэмжээ</p>
             <SizeSelector />
