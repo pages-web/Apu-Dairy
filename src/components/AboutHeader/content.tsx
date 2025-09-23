@@ -5,9 +5,9 @@ import { ICmsPost } from "@/src/graphql/types/cms.types";
 import Zamnal from "@/src/components/History/page";
 import Alham from "@/src/components/Security/alham";
 import Secure from "@/src/components/Security/page";
-import Avatar from "@/src/components/Zahiral Avatar/page";
 import Hogjil from "../Hogjil/page";
 import { useTranslations } from "next-intl";
+import Zahiral from "../Zahiral Avatar/page";
 
 const About = ({ post }: { post: ICmsPost }) => {
   const t = useTranslations("stats");
@@ -35,7 +35,7 @@ const About = ({ post }: { post: ICmsPost }) => {
       <div className="bg-[rgb(237,50,55)] rounded-3xl p-8 w-full max-w-[1400px] mx-auto">
         {post.videoUrl && (
           <div className="flex flex-col items-center w-full gap-8">
-            <div className="rounded-xl overflow-hidden w-full hidden md:block lg:block">
+            {/* <div className="rounded-xl overflow-hidden w-full hidden md:block lg:block">
               <video
                 src={post.videoUrl}
                 controls
@@ -44,7 +44,7 @@ const About = ({ post }: { post: ICmsPost }) => {
                 loop={true}
                 className="object-cover w-full h-auto rounded-xl"
               />
-            </div>
+            </div> */}
 
             <div className="text-white font-semibold max-w-full w-full text-center">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -110,7 +110,7 @@ const About = ({ post }: { post: ICmsPost }) => {
       </h2>
       <Secure />
       <Alham />
-      <Avatar />
+      <Zahiral />
     </div>
   );
 };

@@ -14,14 +14,11 @@ type Props = {
 };
 
 const BannerCarousel: React.FC<Props> = ({ post }) => {
-  // Slides array: video + олон зураг
   const slides: Slide[] = [];
 
   if (post.videoUrl) {
     slides.push({ type: "video", src: post.videoUrl });
   }
-
-  console.log("post", post);
 
   if (post.thumbnail?.url) {
     slides.push({
@@ -41,12 +38,11 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
 
   const [current, setCurrent] = useState(0);
 
-  // Auto slide
   useEffect(() => {
-    if (slides.length <= 1) return; // Нэгээс олон slide байвал авто slide
+    if (slides.length <= 1) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 5000); // 5 секунд тутам
+    }, 10000);
     return () => clearInterval(timer);
   }, [slides.length]);
 
@@ -58,7 +54,6 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
 
   return (
     <div className="relative w-full h-[60vh] sm:h-[60vh] md:h-[70vh] lg:h-[80vh] xl:h-screen overflow-hidden">
-      {/* Slides */}
       <div
         className="flex transition-transform duration-700 ease-in-out w-full h-full"
         style={{ transform: `translateX(-${current * 100}%)` }}
@@ -74,6 +69,15 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
                 quality={100}
                 loading="lazy"
               />
+            ) : slide.src.includes("youtube.com") ||
+              slide.src.includes("youtu.be") ? (
+              <iframe
+                src={slide.src.replace("watch?v=", "embed/")}
+                title={`video-${i}`}
+                className="w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
             ) : (
               <video
                 src={slide.src}
@@ -86,8 +90,6 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
           </div>
         ))}
       </div>
-
-      {/* Dot navigation */}
       <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
         {slides.map((_, dotIndex) => (
           <button
