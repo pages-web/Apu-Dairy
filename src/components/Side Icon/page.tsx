@@ -24,7 +24,7 @@ const Icon = ({ children }: { children: React.ReactNode }) => {
             <ContactForm brandId="vedQYV" formId="KzZ-Vx" />
           </div>
         )}
-        <Link href="https://hello.mn" target="_blank">
+        <Link href="https://www.crmapudairy.mn/" target="_blank">
           <div className="w-12 h-12 rounded-full bg-cyan-200 flex items-center justify-center shadow-lg cursor-none">
             🌐
           </div>
