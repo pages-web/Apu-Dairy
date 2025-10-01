@@ -11,7 +11,7 @@ const Itemcategory = ({ post }: { post: ICmsPost }) => {
   const features: string[] = t.raw("ProductFeatures");
   const extraFeatures: string[] = t.raw("ProductExtraFeatures");
   return (
-    <div className="bg-white text-gray-800 max-w-[1400px] mx-auto">
+    <div className="bg-white text-gray-800 max-w-[1400px] mx-auto md:pl-10">
       {post.thumbnail?.url && (
         <div className="relative w-full h-64 sm:h-[400px] overflow-hidden rounded-b-3xl">
           <Image

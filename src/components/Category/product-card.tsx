@@ -32,7 +32,6 @@ const ProductCard = ({
 
     return () => fac.destroy();
   }, [attachment]);
-
   return (
     <div
       className={cn(
@@ -43,7 +42,7 @@ const ProductCard = ({
       <Link href={`/product/${_id}`}>
         <div
           className={`flex h-[280px] p-12 relative w-52 overflow-hidden group justify-center items-center gap-1 shrink-0 self-stretch rounded-2xl transition-colors duration-300
-    ${hover ? "" : ""}`}
+          ${hover ? "" : ""}`}
           style={{ backgroundColor: hover ? bgColor : undefined }}
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
@@ -58,16 +57,8 @@ const ProductCard = ({
             loading="lazy"
           />
         </div>
+        <div className="mt-4">{name}</div>
       </Link>
-
-      <div className="mt-4">
-        <Link
-          href={`/product/${_id}`}
-          className="text-base font-medium hover:text-primary"
-        >
-          {name}
-        </Link>
-      </div>
     </div>
   );
 };

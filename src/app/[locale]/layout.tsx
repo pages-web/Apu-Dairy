@@ -15,8 +15,9 @@ import Icon from "@/src/components/Side Icon/page";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "APU",
-  description: "Company description",
+  title: "APU Dairy",
+  description:
+    "APU Dairy LLC is the first milk and dairy product manufacturer in Mongolia to jointly implement the ISO 9001 Quality Management System and the ISO 22000, FSSC 22000 Food Safety System certification standards",
   icons: {
     icon: "/apu-dairy-favicon.jpg",
   },

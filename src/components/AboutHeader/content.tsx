@@ -34,17 +34,19 @@ const About = ({ post }: { post: ICmsPost }) => {
       />
       <div className="bg-[rgb(237,50,55)] rounded-3xl p-8 w-full max-w-[1400px] mx-auto">
         {post.videoUrl && (
-          <div className="flex flex-col items-center w-full gap-8">
-            {/* <div className="rounded-xl overflow-hidden w-full hidden md:block lg:block">
-              <video
-                src={post.videoUrl}
-                controls
-                autoPlay={true}
-                muted={false}
-                loop={true}
-                className="object-cover w-full h-auto rounded-xl"
-              />
-            </div> */}
+          <div className="flex flex-col items-center w-full gap-8 h-full">
+            <div
+              className="rounded-xl overflow-hidden w-full hidden md:block lg:block relative"
+              style={{ paddingTop: "56.25%" }}
+            >
+              <iframe
+                src={post.videoUrl.replace("watch?v=", "embed/")}
+                title="Video"
+                className="absolute top-0 left-0 w-full h-full border-0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
 
             <div className="text-white font-semibold max-w-full w-full text-center">
               <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

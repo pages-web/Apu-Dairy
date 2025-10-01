@@ -99,10 +99,10 @@ const Product = async ({ params }: { params: { slug: string } }) => {
           </div>
           <div>
             <h1 className="text-3xl font-bold text-red-600">{name}</h1>
-            <div className="flex items-center gap-2 mt-2">
+            {/* <div className="flex items-center gap-2 mt-2">
               <div className="text-red-500 text-xl">★★★★★</div>
               <span className="text-sm text-red-500">458 {t("Comment")}</span>
-            </div>
+            </div> */}
           </div>
           <div>
             <p
