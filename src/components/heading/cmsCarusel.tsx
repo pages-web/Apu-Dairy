@@ -7,7 +7,7 @@ import BannerCard from "./cms-card";
 
 const MainBannerCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
-    <div className="relative w-full h-full bg-red-800">
+    <div className="relative w-full h-full">
       <Carousel>
         <CarouselContent>
           {posts.map((post, index) => (
