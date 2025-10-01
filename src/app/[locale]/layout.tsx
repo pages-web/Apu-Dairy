@@ -28,17 +28,19 @@ export default function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: { locale?: string };
 }) {
-  const { locale } = params;
+  const defaultLocale = "mn";
+  const localeParam = params.locale || defaultLocale;
+  const activeLocale = hasLocale(routing.locales, localeParam)
+    ? localeParam
+    : defaultLocale;
 
-  if (!hasLocale(routing.locales, locale)) notFound();
-
-  const messages = { en, mn }[locale];
+  const messages = { en, mn }[activeLocale];
   if (!messages) notFound();
 
   return (
-    <html lang={locale}>
+    <html lang={activeLocale}>
       <head>
         <link
           rel="icon"
@@ -49,7 +51,7 @@ export default function RootLayout({
       <body
         className={`${inter.className} min-h-screen flex flex-col cursor-none`}
       >
-        <NextIntlClientProvider locale={locale} messages={messages}>
+        <NextIntlClientProvider locale={activeLocale} messages={messages}>
           <NavbarTop />
           <main className="flex-grow cursor-none">
             <Providers>{children}</Providers>
