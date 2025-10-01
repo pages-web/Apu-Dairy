@@ -14,7 +14,7 @@ const Food = ({ post }: { post: ICmsPost }) => {
         {post.title}
       </h1>
 
-      <div className="max-w-4xl w-full text-center text-black font-serif font-normal text-base sm:text-lg md:text-2xl leading-relaxed">
+      <div className="max-w-2xl w-full text-center text-black font-serif font-normal text-base mt-5 leading-relaxed">
         <div dangerouslySetInnerHTML={{ __html: post.content }} />
       </div>
     </div>

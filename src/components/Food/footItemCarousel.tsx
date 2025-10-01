@@ -4,8 +4,8 @@ import Item from "./item";
 
 const FoodItemCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
-    <div className="md:px-8 mt-12 w-full max-w-[1400px] mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="mt-12 w-full max-w-[1400px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-2 sm:gap-6">
         {posts.map((post, index) => (
           <Item key={index} post={post} />
         ))}

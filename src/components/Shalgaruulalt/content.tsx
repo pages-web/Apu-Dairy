@@ -3,13 +3,6 @@ import { useCmsPosts } from "@/src/graphql/queries/kb";
 import { useLocale } from "next-intl";
 import React, { useState } from "react";
 
-const staticImages = [
-  "/images/01.jpg",
-  "/images/02.png",
-  "/images/03.png",
-  "/images/04.png",
-];
-
 const Content = () => {
   const tagIds = [
     "y5Uc4CMyfNj1IbsDRccCM", // 01
@@ -40,20 +33,24 @@ const Content = () => {
       id: index,
       title: post.title || `Алхам ${index + 1}`,
       description: post.content || "",
-      img: staticImages[index] || "/images/placeholder.png",
+      img: post.thumbnail?.url
+        ? `https://apudairy.api.erxes.io/api/read-file?key=${post.thumbnail.url}`
+        : post.images?.[0]?.url
+        ? `https://apudairy.api.erxes.io/api/read-file?key=${post.images[0].url}`
+        : "/images/placeholder.png",
       color: "text-gray-400",
     })) || [];
 
-  const currentStep = steps[activeStep] || steps[0];
+  const currentStep = steps[activeStep];
 
   return (
-    <div className="max-w-[1400px] w-full mx-auto ">
+    <div className="max-w-[1400px] w-full mx-auto">
       <div className="grid grid-cols-1 md:grid-cols-4 mb-8 gap-4">
         {steps.map(({ title, description, color }, index) => (
           <div
             key={index}
             onClick={() => setActiveStep(index)}
-            className="cursor-none"
+            className="cursor-pointer"
           >
             <span
               className={`text-2xl font-bold ${
@@ -79,13 +76,15 @@ const Content = () => {
           </div>
         ))}
       </div>
-      <div className="relative md:w-[1390px] md:h-[600px] lg:h-[600px] overflow-hidden group rounded-3xl">
-        <img
-          src={currentStep.img}
-          alt={currentStep.title}
-          className="w-full max-w-[1400px] h-auto rounded object-cover"
-        />
-      </div>
+      {currentStep && (
+        <div className="relative w-full md:h-[600px] overflow-hidden rounded-3xl">
+          <img
+            src={currentStep.img}
+            alt={currentStep.title}
+            className="w-full h-full object-cover"
+          />
+        </div>
+      )}
     </div>
   );
 };

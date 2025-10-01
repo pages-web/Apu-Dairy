@@ -7,7 +7,7 @@ import Link from "next/link";
 
 const Item = ({ post }: { post: ICmsPost }) => {
   return (
-    <div className="flex flex-col items-center gap-6 w-full max-w-full sm:max-w-[600px] mx-auto px-2 sm:px-4 lg:px-0">
+    <div className="flex flex-col items-center w-full mx-auto p-2">
       <Link href={`/jor/${post._id}`} className="block w-full">
         {post.thumbnail?.url && (
           <div className="relative w-full rounded-3xl overflow-hidden aspect-[16/9] sm:aspect-[16/9]">

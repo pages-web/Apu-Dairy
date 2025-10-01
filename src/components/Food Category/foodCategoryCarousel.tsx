@@ -9,8 +9,8 @@ import Link from "next/link";
 const FoodCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   const t = useTranslations("NewsMain");
   return (
-    <div className="md:px-8 mt-12 w-full max-w-[1346px] mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <div className="mt-10 w-full max-w-[1400px] mx-auto">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
         {posts.map((post, index) => (
           <Item key={index} post={post} />
         ))}
