@@ -38,7 +38,7 @@ export function NavbarTop() {
             className="w-24 h-auto cursor-pointer"
           />
         </Link>
-        <nav className="hidden md:flex items-center bg-gray-100 px-4 py-2 rounded-full text-sm font-semibold text-[#232323] gap-2">
+        <nav className="sm:hidden max-sm:hidden md:flex items-center bg-gray-100 px-4 py-2 rounded-full text-sm font-semibold text-[#232323] gap-2">
           {navItems.map((item) => (
             <Link
               key={item.href}
@@ -49,7 +49,7 @@ export function NavbarTop() {
             </Link>
           ))}
         </nav>
-        <div className="hidden md:flex items-center">
+        <div className="sm:hidden max-sm:hidden md:flex items-center">
           <LanguageSwitcher />
         </div>
         <div className="flex md:hidden items-center gap-2">
