@@ -3,7 +3,7 @@ import React from "react";
 
 const JorDetailPage = async ({ params }: { params: { slug: string } }) => {
   return (
-    <div className="w-full py-10">
+    <div className="w-full">
       <Detail postId={params.slug} />
     </div>
   );

@@ -37,7 +37,7 @@ const Detail = (props: Props) => {
   };
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto px-4 py-12 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+    <div className="w-full max-w-[1400px] mx-auto mt-2 grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
       <div>
         <div className="flex flex-wrap gap-3 mb-4">
           <span className="bg-gray-200 text-gray-700 px-3 py-1 rounded-full text-xs sm:text-sm">
