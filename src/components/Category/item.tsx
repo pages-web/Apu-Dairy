@@ -4,14 +4,33 @@ import { ICmsPost } from "@/src/graphql/types/cms.types";
 import Image from "next/image";
 import { FaFacebookF, FaYoutube, FaInstagram } from "react-icons/fa";
 import AllProductsPage from "./product";
-import { useTranslations } from "next-intl";
+import { useParams } from "next/navigation";
+import { useCmsPostsByCategory } from "@/src/graphql/queries/kb";
+import { useEffect } from "react";
+import ProductIcons from "../Product Icon/productIcon";
 
 const Itemcategory = ({ post }: { post: ICmsPost }) => {
-  const t = useTranslations("ProductCategory");
-  const features: string[] = t.raw("ProductFeatures");
-  const extraFeatures: string[] = t.raw("ProductExtraFeatures");
+  const params = useParams();
+  const currentLocale = params.locale as string;
+
+  const { posts: productPosts, refetch: refetchProduct } =
+    useCmsPostsByCategory("productinfo", { language: currentLocale });
+  const { posts: listPosts, refetch: refetchList } = useCmsPostsByCategory(
+    "list",
+    { language: currentLocale }
+  );
+  const { posts: Extra, refetch: refetchExtra } = useCmsPostsByCategory(
+    "extra",
+    { language: currentLocale }
+  );
+
+  useEffect(() => {
+    refetchProduct();
+    refetchList();
+    refetchExtra();
+  }, [currentLocale, refetchProduct, refetchList, refetchExtra]);
   return (
-    <div className="bg-white text-gray-800 max-w-[1400px] mx-auto md:pl-10">
+    <div className="bg-white text-gray-800 max-w-[1400px] mx-auto mt-2">
       {post.thumbnail?.url && (
         <div className="relative w-full h-64 sm:h-[400px] overflow-hidden rounded-b-3xl">
           <Image
@@ -43,37 +62,47 @@ const Itemcategory = ({ post }: { post: ICmsPost }) => {
 
       <div className="max-w-screen-xl py-5 mx-4 sm:mx-32 grid grid-cols-12 gap-6">
         <div className="col-span-12 md:col-span-4 justify-start">
-          <h2 className="text-xl font-semibold mb-3">APU Dairy</h2>
-          <p className="text-sm mb-4">{t("GrowthTimeMessage")}</p>
-          <ul className="text-sm list-disc list-inside space-y-1 mb-4">
-            {features.map((feature, idx) => (
-              <li key={idx}>{feature}</li>
+          <div className="flex flex-col gap-2">
+            {productPosts?.map((post) => (
+              <div key={post._id}>
+                <h3 className="mb-2 font-semibold text-xl">{post.title}</h3>
+                <p
+                  className="mb-2"
+                  dangerouslySetInnerHTML={{ __html: post.content }}
+                ></p>
+              </div>
             ))}
-          </ul>
-          <div className="flex space-x-3">
-            <button className="w-10 h-10 cursor-none flex justify-center items-center border border-red-500 rounded-full text-red-500 hover:bg-red-100">
-              <FaFacebookF />
-            </button>
-            <button className="w-10 h-10 cursor-none flex justify-center items-center border border-red-500 rounded-full text-red-500 hover:bg-red-100">
-              <FaYoutube />
-            </button>
-            <button className="w-10 h-10 cursor-none flex justify-center items-center border border-red-500 rounded-full text-red-500 hover:bg-red-100">
-              <FaInstagram />
-            </button>
+          </div>
+
+          <div>
+            {listPosts.map((list) => (
+              <div key={post._id}>
+                <p
+                  dangerouslySetInnerHTML={{ __html: list.content }}
+                  className="mb-2"
+                ></p>
+              </div>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3">
+            <ProductIcons />
           </div>
         </div>
         <div className="hidden md:flex justify-start col-span-1">
           <div className="w-px h-full bg-gray-300" />
         </div>
         <div className="col-span-12 md:col-span-7 justify-start">
-          <p className="text-sm mb-3 font-normal font-sf-pro-rounded">
-            {t("Extra")}
-          </p>
-          <ul className="text-sm list-disc list-inside space-y-1 mb-4">
-            {extraFeatures.map((feature, idx) => (
-              <li key={idx}>{feature}</li>
+          <div>
+            {Extra.map((extra) => (
+              <div key={extra._id}>
+                <p className="mb-2">{extra.title}</p>
+                <p
+                  className="p-3"
+                  dangerouslySetInnerHTML={{ __html: extra.content }}
+                ></p>
+              </div>
             ))}
-          </ul>
+          </div>
 
           <div className="flex flex-wrap gap-3 justify-between">
             <span className="flex items-center gap-2 px-3 py-1 border rounded-full text-sm">

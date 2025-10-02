@@ -94,20 +94,6 @@
     "Тараг": "Yogurt",
     "Бусад": "Other"
   },
-  "ProductCategory": {
-    "GrowthTimeMessage": "Turn free time into growth time with engaging activities that spark curiosity and confidence.",
-    "ProductFeatures": [
-      "Made from 100% Mongolian milk",
-      "HACCP, ISO 22000:2018",
-      "Eco-friendly packaging"
-    ],
-    "ProductExtraMessage": "Turn free time into growth time with engaging activities that spark curiosity and confidence. Turn free time into growth time with engaging activities that spark curiosity and confidence.",
-    "ProductExtraFeatures": [
-      "Turn free time into growth time with engaging activities that spark curiosity and confidence.",
-      "Turn free time into growth time with engaging activities that spark curiosity and confidence."
-    ]
-  },
-
   "Sustainable": {
     "title": "Sustainable Development",
     "description": "APU Dairy strives to operate in an environmentally friendly, socially responsible, and economically efficient manner. We support the livelihoods of herders, protect natural resources, and work to pass on a sustainable future to coming generations.",

@@ -10,7 +10,7 @@ import About from "./content";
 
 const HeaderCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
-    <div className="w-full flex flex-col items-center mt-28">
+    <div className="w-full flex flex-col items-center">
       <div className="w-full max-w-full pb-10" data-aos="fade-up">
         <div>
           {posts.map((post, index) => (

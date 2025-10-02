@@ -14,9 +14,8 @@ const Item = ({ post }: { post: ICmsPost }) => {
             <Image
               src={`https://apudairy.api.erxes.io/api/read-file?key=${post.thumbnail.url}`}
               alt={post.title}
-              fill
               quality={100}
-              className="object-cover"
+              className="object-center"
               loading="lazy"
             />
             <div className="absolute inset-0 flex flex-col justify-end px-20 bg-gradient-to-t from-black/60 to-transparent text-white">

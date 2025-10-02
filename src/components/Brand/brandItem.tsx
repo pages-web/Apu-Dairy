@@ -35,7 +35,7 @@ const BrandItem = ({ cmsPosts }: ItemProps) => {
           return (
             <span
               key={post._id}
-              className={`font-mogul cursor-pointer md:text-[160px] text-[50px] font-black leading-none text-center transition-colors duration-300 whitespace-nowrap ${colorClass}`}
+              className={`font-mogul cursor-pointer text-[50px] sm:text-[80px] md:text-[180px] font-black leading-none text-center transition-colors duration-300 whitespace-nowrap ${colorClass}`}
               onMouseEnter={() => {
                 setHoverImage(post.thumbnail?.url || null);
                 setHoverIndex(index);

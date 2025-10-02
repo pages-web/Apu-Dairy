@@ -8,8 +8,8 @@ import {
 import Item from "./itemMain";
 const NewsCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
-    <div className="w-full flex justify-center mt-[100px]">
-      <div className="w-full max-w-[1400px] mb-10">
+    <div className="w-full flex justify-center mt-2 mb-2">
+      <div className="w-full max-w-[1400px]">
         <Carousel>
           <CarouselContent>
             {posts.map((post, index) => (
