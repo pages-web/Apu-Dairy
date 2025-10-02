@@ -14,7 +14,7 @@ const BrandItem = ({ cmsPosts }: ItemProps) => {
 
   return (
     <div className="relative w-full h-full flex flex-col items-center justify-center overflow-visible min-h-[30rem] mt-5">
-      <div className="fixed inset-0 -z-10">
+      <div className="fixed inset-0 -z-10 transition-opacity">
         {hoverImage && (
           <Image
             src={`https://apudairy.api.erxes.io/api/read-file?key=${hoverImage}`}
