@@ -22,7 +22,9 @@ const BrandItem = ({ cmsPosts }: ItemProps) => {
             fill
             style={{ objectFit: "cover" }}
             className="transition-all duration-500 ease-in-out brightness-75"
-            priority
+            loading="lazy"
+            placeholder="blur"
+            blurDataURL="/images/placeholder.jpg"
           />
         )}
       </div>
