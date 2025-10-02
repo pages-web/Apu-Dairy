@@ -7,6 +7,7 @@ import { ICmsPost } from "@/src/graphql/types/cms.types";
 type Slide = {
   src: string;
   type: "image" | "video";
+  thumbnail?: string;
 };
 
 type Props = {
@@ -16,10 +17,12 @@ type Props = {
 const BannerCarousel: React.FC<Props> = ({ post }) => {
   const slides: Slide[] = [];
 
-  // Video slide
-  slides.push({ src: "/images/deejvideo.mp4", type: "video" });
+  slides.push({
+    src: "/images/deejvideo.mp4",
+    type: "video",
+    thumbnail: "/images/video-thumb.jpg",
+  });
 
-  // Thumbnail
   if (post.thumbnail?.url) {
     slides.push({
       src: `https://apudairy.api.erxes.io/api/read-file?key=${post.thumbnail.url}`,
@@ -40,7 +43,6 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
   const [current, setCurrent] = useState(0);
   const [dragStart, setDragStart] = useState<number | null>(null);
 
-  // Auto slide every 10 sec
   useEffect(() => {
     if (slides.length <= 1) return;
     const timer = setInterval(() => {
@@ -74,19 +76,29 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
             {slides.map((slide, i) => (
               <div key={i} className="w-full flex-shrink-0 h-full relative">
                 {slide.type === "video" ? (
-                  <video
-                    src={slide.src}
-                    autoPlay={true}
-                    loop={true}
-                    muted
-                    className="w-full h-full object-cover"
-                  />
+                  current === i ? (
+                    <video
+                      src={slide.src}
+                      autoPlay
+                      loop
+                      muted
+                      preload="metadata"
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <Image
+                      src={slide.thumbnail!}
+                      alt="video thumbnail"
+                      fill
+                      className="object-cover"
+                    />
+                  )
                 ) : (
                   <Image
                     src={slide.src}
                     alt={`slide-${i}`}
                     fill
-                    className="bg-cover"
+                    className="object-cover"
                     quality={100}
                     loading="lazy"
                   />
@@ -94,17 +106,6 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
               </div>
             ))}
           </div>
-          {/* <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
-            {slides.map((_, dotIndex) => (
-              <button
-                key={dotIndex}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  current === dotIndex ? "bg-white scale-125" : "bg-gray-400"
-                }`}
-                onClick={() => setCurrent(dotIndex)}
-              />
-            ))}
-          </div> */}
         </div>
       )}
     </div>

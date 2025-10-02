@@ -2,7 +2,6 @@
 
 import { ICmsPost } from "@/src/graphql/types/cms.types";
 import Image from "next/image";
-import { FaFacebookF, FaYoutube, FaInstagram } from "react-icons/fa";
 import AllProductsPage from "./product";
 import { useParams } from "next/navigation";
 import { useCmsPostsByCategory } from "@/src/graphql/queries/kb";

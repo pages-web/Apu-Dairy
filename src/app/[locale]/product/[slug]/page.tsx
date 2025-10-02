@@ -8,7 +8,6 @@ import BarcodeDescriptionToggle from "@/src/components/productDetail/barCodedesc
 import Nairlaga from "@/src/components/Nairlaga/page";
 import LongLine from "@/src/components/Nairlaga/longline";
 import RecommendedProducts from "@/src/components/recommended-products/recommended-products";
-import SideImage from "@/src/components/ProductSideImage/page";
 import { getTranslations } from "next-intl/server";
 
 export const revalidate = 300;
@@ -80,7 +79,7 @@ const Product = async ({ params }: { params: { slug: string } }) => {
   return (
     <>
       <div className="flex flex-col lg:flex-row gap-10 px-6 lg:px-20 py-10 max-w-[1500px] mx-auto">
-        <div className="w-full lg:w-1/2 flex flex-col gap-6 md:mt-28 lg:mt-28 mt-10">
+        <div className="w-full lg:w-1/2 flex flex-col gap-6 mt-5">
           <div className="flex gap-2 flex-wrap">
             {[
               t("immunity"),
@@ -129,7 +128,7 @@ const Product = async ({ params }: { params: { slug: string } }) => {
         </div>
       </div>
       <LongLine />
-      <div className="relative bottom-4 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-[1380px] px-4 md:mt-10">
+      <div className="relative bottom-4 left-1/2 transform -translate-x-1/2 w-full max-w-[1380px] px-4 md:mt-10">
         <div className="w-full">
           <Nairlaga />
         </div>
