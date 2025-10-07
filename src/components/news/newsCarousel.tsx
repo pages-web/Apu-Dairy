@@ -18,7 +18,7 @@ const NewsCarousel = ({ posts }: { posts: ICmsPost[] }) => {
       </div>
 
       <div className="flex justify-between items-center mt-4 w-full">
-        <h1 className="text-[#353535] font-sf-pro-rounded text-[24px] md:text-[32px] font-medium leading-normal not-italic">
+        <h1 className="text-[#444546] text-center font-sf-pro-rounded text-[42px] font-semibold capitalize">
           {t("title")}
         </h1>
         <Link href="/news">

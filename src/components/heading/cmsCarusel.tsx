@@ -3,7 +3,7 @@
 import React from "react";
 import { Carousel, CarouselContent, CarouselItem } from "./carousel";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
-import BannerCard from "./cms-card";
+import BannerCarousel from "./cms-card";
 
 const MainBannerCarousel = ({ posts }: { posts: ICmsPost[] }) => {
   return (
@@ -12,7 +12,7 @@ const MainBannerCarousel = ({ posts }: { posts: ICmsPost[] }) => {
         <CarouselContent>
           {posts.map((post, index) => (
             <CarouselItem key={index}>
-              <BannerCard post={post} />
+              <BannerCarousel post={post} />
             </CarouselItem>
           ))}
         </CarouselContent>

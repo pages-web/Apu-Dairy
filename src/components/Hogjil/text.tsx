@@ -14,7 +14,7 @@ const Text = ({ post }: { post: ICmsPost }) => {
           {t("sustainableDevelopment")}
         </h2>
       </div>
-      <h1 className="w-full text-[#353535] text-center font-sf-pro-rounded text-[32px] font-medium leading-normal mb-6">
+      <h1 className="text-[#444546] text-center font-sf-pro-rounded text-[42px] font-semibold capitalize mb-6">
         {post.title}
       </h1>
       <div className="w-full flex justify-between items-start flex-wrap md:mb-5">

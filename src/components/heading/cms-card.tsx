@@ -20,7 +20,6 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
   slides.push({
     src: "/images/deejvideo.mp4",
     type: "video",
-    thumbnail: "/images/video-thumb.jpg",
   });
 
   if (post.thumbnail?.url) {
@@ -30,7 +29,6 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
     });
   }
 
-  // Other images
   if (post.images && post.images.length > 0) {
     post.images.forEach((item) =>
       slides.push({
@@ -43,11 +41,12 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
   const [current, setCurrent] = useState(0);
   const [dragStart, setDragStart] = useState<number | null>(null);
 
+  // Auto slide
   useEffect(() => {
     if (slides.length <= 1) return;
     const timer = setInterval(() => {
       setCurrent((prev) => (prev + 1) % slides.length);
-    }, 10000);
+    }, 8000);
     return () => clearInterval(timer);
   }, [slides.length]);
 
@@ -60,12 +59,16 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
     setDragStart(null);
   };
 
+  const prevSlide = () =>
+    setCurrent((prev) => (prev - 1 + slides.length) % slides.length);
+  const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
+
   return (
-    <div className="relative w-full h-[60vh] md:h-[80vh] lg:h-[93.2vh] overflow-hidden">
+    <div className="relative w-full h-[75vh] md:h-[85vh] lg:h-[90vh] overflow-hidden">
       {slides.length > 0 && (
         <div className="absolute inset-0">
           <div
-            className="flex transition-transform duration-700 ease-in-out w-full h-full cursor-none"
+            className="flex transition-transform duration-700 ease-in-out w-full h-full cursor-grab"
             style={{ transform: `translateX(-${current * 100}%)` }}
             onMouseDown={(e) => setDragStart(e.clientX)}
             onMouseUp={(e) => handleDragEnd(e.clientX)}
@@ -74,7 +77,7 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
             onTouchEnd={(e) => handleDragEnd(e.changedTouches[0].clientX)}
           >
             {slides.map((slide, i) => (
-              <div key={i} className="w-full flex-shrink-0 h-full relative">
+              <div key={i} className="w-full flex-shrink-0 relative h-screen">
                 {slide.type === "video" ? (
                   current === i ? (
                     <video
@@ -82,7 +85,7 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
                       autoPlay
                       loop
                       muted
-                      preload="metadata"
+                      playsInline
                       className="w-full h-full object-cover"
                     />
                   ) : (
@@ -90,7 +93,8 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
                       src={slide.thumbnail!}
                       alt="video thumbnail"
                       fill
-                      className="object-cover"
+                      className="object-cover object-center"
+                      priority={i === 0}
                     />
                   )
                 ) : (
@@ -98,7 +102,7 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
                     src={slide.src}
                     alt={`slide-${i}`}
                     fill
-                    className="object-cover"
+                    className="object-cover object-center"
                     quality={100}
                     loading="lazy"
                   />
@@ -106,6 +110,18 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
               </div>
             ))}
           </div>
+          <button
+            className="absolute left-7 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full z-10"
+            onClick={prevSlide}
+          >
+            &#10094;
+          </button>
+          <button
+            className="absolute right-3 top-1/2 transform -translate-y-1/2 bg-black/50 text-white p-2 rounded-full z-10"
+            onClick={nextSlide}
+          >
+            &#10095;
+          </button>
         </div>
       )}
     </div>

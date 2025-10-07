@@ -50,7 +50,7 @@ const AjliinBair = () => {
         <span className="inline-block bg-red-100 text-red-500 text-sm px-4 py-1 rounded-full mb-4">
           {t("openLabel")}
         </span>
-        <h1 className="text-2xl sm:text-3xl font-normal text-[#232323] font-sf-pro-rounded leading-normal">
+        <h1 className="text-[#444546] text-center font-sf-pro-rounded text-[42px] font-semibold capitalize">
           {t("title")}
         </h1>
       </div>

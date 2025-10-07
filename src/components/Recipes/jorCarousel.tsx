@@ -25,7 +25,7 @@ const PostFilterByTitle = ({ posts }: { posts: ICmsPost[] }) => {
   return (
     <div className="max-w-[1400px] mx-auto">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-2 sm:mb-8">
-        <h2 className="text-[#232323] font-sf-pro-rounded text-[24px] sm:text-[28px] md:text-[32px] font-medium text-center sm:text-start">
+        <h2 className="text-[#444546] text-center font-sf-pro-rounded text-[42px] font-semibold capitalize">
           {t("Title")}
         </h2>
         <div className="flex gap-4 mt-2 sm:mt-0">

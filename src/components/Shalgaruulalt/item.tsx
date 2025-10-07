@@ -12,7 +12,7 @@ const Item = ({ post }: { post: ICmsPost }) => {
         {t("title")}
       </h1>
 
-      <h1 className="text-2xl sm:text-3xl font-medium text-[#414545] text-left mt-4 sm:mt-5 sm:mb-12 font-sf-pro-rounde cursor-none">
+      <h1 className="text-[#444546] text-center font-sf-pro-rounded text-[42px] font-semibold capitalize">
         {post.title}
       </h1>
       <Content />

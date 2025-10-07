@@ -7,7 +7,6 @@ import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 const MainBanner = () => {
   const { cmsTags } = useCmsTags({});
 
-  // Tag ID-г cache хийж хадгалах
   const bannerTagId = useMemo(
     () => cmsTags.find((tag: { name: string }) => tag.name === "Bannet")?._id,
     [cmsTags]
@@ -19,7 +18,7 @@ const MainBanner = () => {
   });
 
   return (
-    <div>
+    <div className="w-full">
       <MainBannerCarousel posts={cmsPosts} />
     </div>
   );

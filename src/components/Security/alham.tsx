@@ -3,7 +3,6 @@
 import React, { Suspense } from "react";
 import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
 import AlhamCarousel from "./alhamCarousel";
-import ALhamItem from "./alhamItem";
 import { useLocale } from "next-intl";
 
 export default function Alham() {
@@ -19,16 +18,10 @@ export default function Alham() {
   });
 
   return (
-    <div className="w-full max-w-[1400px] mx-auto flex flex-col lg:flex-row">
+    <div className="w-full max-w-[1400px] mx-auto">
       <Suspense>
-        {/* Зүүн талд carousel */}
-        <div className="w-full lg:w-1/2">
+        <div className="w-full">
           <AlhamCarousel posts={cmsPosts} />
-        </div>
-
-        {/* Баруун талд item */}
-        <div className="w-full lg:w-1/2 flex items-center">
-          <ALhamItem />
         </div>
       </Suspense>
     </div>

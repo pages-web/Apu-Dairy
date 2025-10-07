@@ -39,7 +39,7 @@ const Content = ({ posts, activeIndex, onSelect }: Props) => {
         <h2 className="text-sm font-medium leading-normal text-[#ED3237] bg-[rgb(250,203,205)] rounded-full w-32 h-7 flex items-center justify-center mb-10">
           {t("historicalJourney")}
         </h2>
-        <h2 className="text-[#353535] text-center text-2xl font-medium mt-2">
+        <h2 className="text-[#444546] text-center font-sf-pro-rounded text-[42px] font-semibold capitalize mt-2">
           {t("historyTrace")}
         </h2>
       </div>

@@ -102,21 +102,6 @@ const Itemcategory = ({ post }: { post: ICmsPost }) => {
               </div>
             ))}
           </div>
-
-          <div className="flex flex-wrap gap-3 justify-between">
-            <span className="flex items-center gap-2 px-3 py-1 border rounded-full text-sm">
-              <img src="/images/solid.svg" alt="solid" className="w-4 h-4" />
-              12 Prep time
-            </span>
-            <span className="flex items-center gap-2 px-3 py-1 border rounded-full text-sm">
-              <img src="/images/mini.svg" alt="mini" className="w-4 h-4" />
-              Prep Time
-            </span>
-            <span className="flex items-center gap-2 px-3 py-1 border rounded-full text-sm">
-              <img src="/images/tropy.svg" alt="trophy" className="w-4 h-4" />
-              Prep Time
-            </span>
-          </div>
         </div>
       </div>
       <AllProductsPage />
