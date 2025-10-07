@@ -36,8 +36,8 @@ const ParentChildDropdowns = () => {
   const parentTags = allTags.filter((tag) => !tag.parentId);
 
   return (
-    <div>
-      <div className="flex space-x-3 mb-6">
+    <div className="ml-5">
+      <div className="flex flex-wrap gap-3 mb-6 w-full max-w-[1300px]">
         {parentTags.map((parent) => {
           const childTags = allTags.filter(
             (child) => child.parentId === parent.id
