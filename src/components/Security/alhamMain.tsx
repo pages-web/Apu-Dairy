@@ -25,7 +25,7 @@ const AlhamMain = ({ posts }: { posts: ICmsPost[] }) => {
               {post.title}
             </p>
             <div
-              className="text-[#353535] text-[14px] sm:text-[16px] leading-[140%] font-medium"
+              className="text-[#353535] text-[14px] sm:text-[16px] leading-[140%] font-medium h-16"
               dangerouslySetInnerHTML={{ __html: post.content }}
             />
           </div>
