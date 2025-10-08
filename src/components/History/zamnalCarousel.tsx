@@ -1,26 +1,16 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
-import Content from "./content";
+import HorizontalTwoRowTimeline from "./content";
 
 interface Props {
   posts: ICmsPost[];
 }
 
 const ZamnalCarousel = ({ posts }: Props) => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
   return (
-    <div className="w-full flex overflow-x-auto gap-4 p-2">
-      {posts.map((post, index) => (
-        <div key={post._id} className="flex-shrink-0 w-full sm:w-2/3 md:w-1/3">
-          <Content
-            posts={posts}
-            activeIndex={activeIndex}
-            onSelect={setActiveIndex}
-          />
-        </div>
-      ))}
+    <div className="w-full px-2 sm:px-4 md:px-8 lg:px-16">
+      <HorizontalTwoRowTimeline posts={posts} />
     </div>
   );
 };
