@@ -41,7 +41,6 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
   const [current, setCurrent] = useState(0);
   const [dragStart, setDragStart] = useState<number | null>(null);
 
-  // Auto slide
   useEffect(() => {
     if (slides.length <= 1) return;
     const timer = setInterval(() => {
@@ -68,7 +67,7 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
       {slides.length > 0 && (
         <div className="absolute inset-0">
           <div
-            className="flex transition-transform duration-700 ease-in-out w-full h-full cursor-grab"
+            className="flex transition-transform duration-700 ease-in-out w-full h-full"
             style={{ transform: `translateX(-${current * 100}%)` }}
             onMouseDown={(e) => setDragStart(e.clientX)}
             onMouseUp={(e) => handleDragEnd(e.clientX)}
@@ -81,16 +80,17 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
                 {slide.type === "video" ? (
                   current === i ? (
                     <video
-                      src={slide.src}
                       autoPlay
                       loop
                       muted
                       playsInline
                       className="w-full h-full object-cover"
-                    />
+                    >
+                      <source src={slide.src} type="video/mp4" />
+                    </video>
                   ) : (
                     <Image
-                      src={slide.thumbnail!}
+                      src={slide.thumbnail || "/default-thumbnail.jpg"}
                       alt="video thumbnail"
                       fill
                       className="object-cover object-center"

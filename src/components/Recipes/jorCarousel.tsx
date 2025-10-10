@@ -61,6 +61,16 @@ const PostFilterByTitle = ({ posts }: { posts: ICmsPost[] }) => {
           </div>
         </div>
       </div>
+      <div className="relative w-full flex flex-col items-center justify-start mb-2 sm:mb-8">
+        <h1 className="text-2xl sm:text-3xl font-medium text-[#414545] text-center mt-4 sm:mt-5 font-sf-pro-rounded">
+          Бидний амтат хоолны жорууд
+        </h1>
+        <h4 className="max-w-2xl w-full text-center text-black font-serif font-normal text-base mt-5 leading-relaxed">
+          Сүү, сүүн бүтээгдэхүүнээр баяжуулсан эрүүл, амттай хоолны жоруудыг
+          эндээс харна уу. Манай бүтээгдэхүүнээр бэлтгэх хялбар жорууд таны гал
+          тогоонд шинэ өнгө төрхийг хуваалцах болно.
+        </h4>
+      </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
         {filteredPosts.map((post) => (
           <Other key={post._id} post={post} />

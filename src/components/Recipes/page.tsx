@@ -1,29 +1,14 @@
 "use client";
 
 import React from "react";
-import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
-import Carousels from "./carousel";
 import Joruud from "./jor";
-import { useLocale } from "next-intl";
+import ThirdItem from "./thirdItem";
 
 export default function JorPage() {
-  const locale = useLocale();
-
-  const { cmsTags } = useCmsTags({});
-
-  const jorTagId = cmsTags.find(
-    (tag: { name: string }) => tag.name === "Jor"
-  )?._id;
-
-  const { cmsPosts } = useCmsPosts({
-    tagIds: [jorTagId],
-    language: locale,
-  });
-
   return (
-    <div className="px-3">
-      <Carousels posts={cmsPosts} />
+    <div className="px-3 mt-8 grid md:grid-cols-2 grid-cols-1 gap-6">
       <Joruud />
+      <ThirdItem />
     </div>
   );
 }

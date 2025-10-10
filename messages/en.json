@@ -145,7 +145,7 @@
   ],
   "Recipe": {
     "Title": "Food Recipes",
-    "All": "Type"
+    "All": "All"
   },
   "stats": {
     "globalReach": "Global Reach of Users",
@@ -228,5 +228,8 @@
       "driver": "Driver",
       "other": "Other"
     }
+  },
+  "Food": {
+    "food": "Product"
   }
 }

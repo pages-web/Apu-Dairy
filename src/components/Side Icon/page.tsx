@@ -27,7 +27,7 @@ const Icon = ({ children }: { children: React.ReactNode }) => {
         )}
         <Link href="https://www.crmapudairy.mn/" target="_blank">
           <div className="w-12 h-12 rounded-full ml-0 flex items-center justify-center shadow-lg cursor-none bg-transparent">
-            <img src={"images/callPro.png"} className="rounded-full" />
+            <img src={"/images/callPro.png"} className="rounded-full" />
           </div>
         </Link>
       </div>
