@@ -18,7 +18,7 @@ const Detail = (props: Props) => {
     return <div>Wait a minute</div>;
   }
 
-  const thirdCustomFieldValue = post?.customFieldsData?.[2]?.value ?? null;
+  const thirdCustomFieldValue = post?.customFieldsData?.[9]?.value ?? "empty";
   const images = post.images || [];
 
   const pdfAttachment = post?.pdfAttachment?.pages || [];

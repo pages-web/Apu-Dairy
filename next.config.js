@@ -1,9 +1,9 @@
+/** @type {import('next').NextConfig} */
 const createNextIntlPlugin = require("next-intl/plugin");
-
 const withNextIntl = createNextIntlPlugin();
 
-/** @type {import('next').NextConfig} */
 const nextConfig = {
+  reactStrictMode: true,
   images: {
     remotePatterns: [
       {
@@ -31,7 +31,6 @@ const nextConfig = {
     NEXT_PUBLIC_ERXES_APP_TOKEN:
       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcHAiOnsibmFtZSI6InByb2R1Y3QiLCJjcmVhdGVkQXQiOiIyMDI1LTA5LTE2VDA2OjE2OjExLjU1OVoiLCJ1c2VyR3JvdXBJZCI6IjRFSHlkVERBaXMyTGRRblpuIiwiZXhwaXJlRGF0ZSI6IjIwMjUtMTAtMTZUMDk6Mzk6NTYuMDA3WiIsIm5vRXhwaXJlIjp0cnVlLCJhbGxvd0FsbFBlcm1pc3Npb24iOnRydWUsIl9pZCI6IjFiamgtS1RXYmNnOGhvMEllUlJsSyIsIl9fdiI6MH0sImlhdCI6MTc1ODAxNTYxMX0.UDbmoU7PaBsR7XcZaAz8WekYgi-W69Mj_jwNsqU5f-o",
   },
-  reactStrictMode: true,
 };
 
 module.exports = withNextIntl(nextConfig);

@@ -1,11 +1,6 @@
 "use client";
 import React from "react";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
-import {
-  CarouselContent,
-  Carousel,
-  CarouselItem,
-} from "@/src/components/heading/carousel";
 import About from "./content";
 
 const HeaderCarousel = ({ posts }: { posts: ICmsPost[] }) => {

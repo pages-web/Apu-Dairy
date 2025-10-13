@@ -30,7 +30,7 @@ const Content = ({ posts, activeIndex, onSelect }: Props) => {
       behavior: "smooth",
     });
   }, [activeIndex]);
-
+  console.log("POST", posts);
   return (
     <div className="w-full max-w-[1400px] mx-auto px-4 relative">
       <div className="absolute top-[150px] left-0 right-0 h-1 bg-gray-200 z-0 hidden md:block rounded-full">
