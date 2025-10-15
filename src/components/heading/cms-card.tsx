@@ -63,7 +63,7 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
   const nextSlide = () => setCurrent((prev) => (prev + 1) % slides.length);
 
   return (
-    <div className="relative w-full h-[75vh] md:h-[85vh] lg:h-[90vh] overflow-hidden">
+    <div className="relative w-full h-[75vh] md:h-[95vh] lg:h-[95vh] overflow-hidden">
       {slides.length > 0 && (
         <div className="absolute inset-0">
           <div
@@ -80,11 +80,15 @@ const BannerCarousel: React.FC<Props> = ({ post }) => {
                 {slide.type === "video" ? (
                   current === i ? (
                     <video
+                      className={`absolute w-full h-full object-cover transition-opacity duration-700 ${
+                        current === i ? "opacity-100" : "opacity-0"
+                      }`}
                       autoPlay
                       loop
                       muted
                       playsInline
-                      className="w-full h-full object-cover"
+                      preload="auto"
+                      poster="/images/video-thumbnail.jpg"
                     >
                       <source src={slide.src} type="video/mp4" />
                     </video>

@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 const BarcodeDescriptionToggle = ({
@@ -9,6 +10,8 @@ const BarcodeDescriptionToggle = ({
 }) => {
   const [open, setOpen] = useState(false);
 
+  const t = useTranslations("Ingrediens");
+
   return (
     <div className="mt-5 mb-5">
       <button
@@ -17,7 +20,7 @@ const BarcodeDescriptionToggle = ({
         aria-expanded={open}
         aria-controls="barcode-description"
       >
-        <span>Ingrediens</span>
+        <span>{t("Ingrediens")}</span>
         {open ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"

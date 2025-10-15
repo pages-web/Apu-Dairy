@@ -41,15 +41,18 @@ const About = ({ post }: { post: ICmsPost }) => {
             </div>
           </div>
           <div className="rounded-xl overflow-hidden hidden md:block max-w-xl w-full">
-            <Image
-              src={`https://apudairy.api.erxes.io/api/read-file?key=${post.thumbnail.url}`}
-              alt={post.title}
-              width={800}
-              height={600}
-              quality={100}
-              className="object-cover w-full h-auto rounded-xl"
-              loading="lazy"
-            />
+            {post?.thumbnail?.url && (
+              <Image
+                src={`https://apudairy.api.erxes.io/api/read-file?key=${post.thumbnail.url}`}
+                alt={post.title}
+                width={800}
+                height={600}
+                quality={100}
+                unoptimized
+                loading="lazy"
+                className="object-cover w-full h-auto rounded-xl"
+              />
+            )}
           </div>
           <div className="flex flex-col gap-8 items-center">
             <div className="flex flex-col items-center w-32">

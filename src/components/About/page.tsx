@@ -9,14 +9,17 @@ export default function About() {
   const locale = useLocale();
 
   const { cmsTags } = useCmsTags({});
-  const aboutTagId =
-    cmsTags?.find((tag: { name: string }) => tag.name === "About us")?._id ||
-    "";
+  const aboutTag = cmsTags?.find((tag) => tag.name === "About us");
+  const aboutTagId = aboutTag?._id;
 
-  const { cmsPosts } = useCmsPosts({
-    tagIds: aboutTagId ? [aboutTagId] : [],
-    language: locale,
-  });
+  const { cmsPosts } = useCmsPosts(
+    aboutTagId
+      ? {
+          tagIds: [aboutTagId],
+          language: locale,
+        }
+      : { skip: true }
+  );
 
   return (
     <div className="px-3">

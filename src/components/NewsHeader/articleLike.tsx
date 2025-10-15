@@ -14,7 +14,6 @@ export default function ArticleLike() {
   if (!cmsPosts || cmsPosts.length === 0) {
     return <div>No posts found</div>;
   }
-  console.log("ARticle", cmsPosts);
   return (
     <div>
       {cmsPosts.map((post) => (

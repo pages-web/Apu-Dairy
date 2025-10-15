@@ -122,6 +122,7 @@ const productDetail = gql`
       remainder
       hasSimilarity
       barcodeDescription
+      tagIds
       category {
         order
         name

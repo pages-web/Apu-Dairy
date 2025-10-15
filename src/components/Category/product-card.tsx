@@ -12,7 +12,7 @@ const ProductCard = ({
   ...product
 }: IProduct & { className?: string }) => {
   const { name, attachment, unitPrice, _id } = product;
-  const [bgColor, setBgColor] = useState("white");
+  const [bgColor, setBgColor] = useState<string | undefined>("white");
   const [hover, setHover] = useState(false);
   const imgRef = useRef<HTMLImageElement>(null);
 
@@ -21,17 +21,23 @@ const ProductCard = ({
 
     const fac = new FastAverageColor();
 
+    let isMounted = true;
+
     fac
       .getColorAsync(imgRef.current)
       .then((color) => {
-        setBgColor(color.hex);
+        if (isMounted) setBgColor(color.hex);
       })
       .catch(() => {
-        setBgColor("white");
+        if (isMounted) setBgColor("white");
       });
 
-    return () => fac.destroy();
+    return () => {
+      isMounted = false;
+      fac.destroy();
+    };
   }, [attachment]);
+
   return (
     <div
       className={cn(
@@ -39,11 +45,13 @@ const ProductCard = ({
         className
       )}
     >
-      <Link href={`/product/${_id}`}>
+      <Link
+        href={`/product/${_id}`}
+        className="w-full flex flex-col items-center"
+      >
         <div
-          className={`flex h-[280px] p-12 relative w-52 overflow-hidden group justify-center items-center gap-1 shrink-0 self-stretch rounded-2xl transition-colors duration-300
-          ${hover ? "" : ""}`}
-          style={{ backgroundColor: hover ? bgColor : undefined }}
+          className="flex h-[280px] w-52 p-12 relative overflow-hidden group justify-center items-center gap-1 shrink-0 self-stretch rounded-2xl transition-colors duration-300"
+          style={{ backgroundColor: hover ? bgColor : "white" }}
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
         >
@@ -57,7 +65,8 @@ const ProductCard = ({
             loading="lazy"
           />
         </div>
-        <div className="mt-4">{name}</div>
+        <div className="mt-4 text-center font-medium">{name}</div>
+        {unitPrice && <p className="mt-1 text-gray-700">{unitPrice}₮</p>}
       </Link>
     </div>
   );

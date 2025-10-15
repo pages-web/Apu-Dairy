@@ -14,7 +14,6 @@ const SideImage: React.FC<SideImageProps> = ({ attachments }) => {
 
   return (
     <div className="flex gap-6">
-      {/* Зүүн тал: жижиг зургууд */}
       <div className="flex flex-col gap-4">
         {attachments.map((attachment, index) => (
           <div
@@ -35,8 +34,6 @@ const SideImage: React.FC<SideImageProps> = ({ attachments }) => {
           </div>
         ))}
       </div>
-
-      {/* Баруун тал: идэвхтэй зураг */}
       <div className="flex-1 flex items-center justify-center bg-gray-50 rounded-md shadow-md p-4">
         <img
           src={attachments[activeIndex]?.url}

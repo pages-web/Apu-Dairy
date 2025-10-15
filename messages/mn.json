@@ -32,7 +32,8 @@
   "News": {
     "News": "Мэдээ мэдээлэл",
     "LatestNews": "Сүүлийн үеийн мэдээ",
-    "MinsRead": "минут унших"
+    "MinsRead": "минут унших",
+    "Research": "Судалгаа"
   },
   "AboutMain": {
     "ReducedCO2": "CO2 ялгаруулалтыг бууруулсан",
@@ -233,5 +234,9 @@
   },
   "Food": {
     "food": "Бүтээгдэхүүн"
+  },
+  "Ingrediens": {
+    "Ingrediens": "Найрлага",
+    "NutritionalHighlights": " Хоол тэжээлийн онцлох зүйлс"
   }
 }

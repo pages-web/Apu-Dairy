@@ -1,5 +1,6 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 const NutritionalHighlights = ({
@@ -9,6 +10,8 @@ const NutritionalHighlights = ({
 }) => {
   const [open, setOpen] = useState(false);
 
+  const t = useTranslations("Ingrediens");
+
   return (
     <div className="mb-5">
       <button
@@ -17,7 +20,9 @@ const NutritionalHighlights = ({
         aria-expanded={open}
         aria-controls="nutritional-items"
       >
-        <span className="font-semibold text-lg">Nutritional Highlights</span>
+        <span className="font-semibold text-lg">
+          {t("NutritionalHighlights")}
+        </span>
         {open ? (
           <svg
             xmlns="http://www.w3.org/2000/svg"

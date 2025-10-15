@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import FAQ from "./faq";
 import { useTranslations } from "next-intl";
 import FAQProduct from "./faqPage";
 
@@ -42,7 +41,6 @@ const Nairlaga = () => {
           </div>
         ))}
       </div>
-      {/* <FAQ cmsPosts={cmsPosts}/> */}
       <FAQProduct />
     </div>
   );

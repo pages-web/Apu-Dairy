@@ -32,7 +32,8 @@
   "News": {
     "News": "News",
     "LatestNews": "Latest News",
-    "MinsRead": "mins read"
+    "MinsRead": "mins read",
+    "Research": "Research"
   },
   "AboutMain": {
     "ReducedCO2": "Reduced CO2 emissions",
@@ -231,5 +232,9 @@
   },
   "Food": {
     "food": "Product"
+  },
+  "Ingrediens": {
+    "Ingrediens": "Ingrediens",
+    "NutritionalHighlights": " Nutritional Highlights"
   }
 }

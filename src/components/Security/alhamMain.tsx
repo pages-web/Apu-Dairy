@@ -34,16 +34,21 @@ const AlhamMain = ({ posts }: { posts: ICmsPost[] }) => {
       <div className="w-full md:w-1/2 relative h-64 sm:h-80 md:h-[500px] lg:h-[600px] flex-shrink-0">
         {selectedPost?.thumbnail?.url && (
           <>
-            <Image
-              src={`https://apudairy.api.erxes.io/api/read-file?key=${selectedPost.thumbnail.url}`}
-              alt={selectedPost.title}
-              fill
-              className="object-cover rounded-lg"
-              quality={100}
-              sizes="(max-width: 768px) 100vw, 50vw"
-              loading="lazy"
-            />
-            <div className="absolute bottom-5 left-5 bg-white/30 p-4 rounded-lg max-w-[90%]">
+            {selectedPost?.thumbnail?.url ? (
+              <Image
+                src={`https://apudairy.api.erxes.io/api/read-file?key=${selectedPost.thumbnail.url}`}
+                alt={selectedPost.title}
+                fill
+                className="object-cover rounded-lg"
+                quality={100}
+                sizes="(max-width: 768px) 100vw, 50vw"
+                loading="lazy"
+                unoptimized
+              />
+            ) : (
+              <div className="w-full h-full bg-gray-200 animate-pulse rounded-lg" />
+            )}
+            <div className="absolute bottom-5 left-10 bg-white/30 p-4 rounded-lg max-w-[90%]">
               <p className="text-sm mb-2 font-semibold opacity-90">
                 {selectedPost.title}
               </p>

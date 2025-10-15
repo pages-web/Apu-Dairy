@@ -9,15 +9,11 @@ import { useLocale } from "next-intl";
 import CardPage from "@/src/app/[locale]/cart/page";
 
 export default function Human() {
+  const tagIds = ["38L6gL8uBNBr8RSQim8dd"];
   const locale = useLocale();
 
-  const { cmsTags } = useCmsTags({});
-  const tagId =
-    cmsTags?.find((tag: { name: string }) => tag.name === "Hunii noots")?._id ||
-    "";
-
   const { cmsPosts } = useCmsPosts({
-    tagIds: [tagId],
+    tagIds,
     language: locale,
   });
 

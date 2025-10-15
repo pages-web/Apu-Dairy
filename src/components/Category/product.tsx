@@ -33,7 +33,9 @@ const ParentChildDropdowns = () => {
   }, [data]);
 
   if (tagsLoading || productsLoading) return <p>Loading...</p>;
-  const parentTags = allTags.filter((tag) => !tag.parentId);
+  const parentTags = allTags.filter(
+    (tag: any) => tag.parentId === "G0FjO5JlxRwJMBhsmOYUC"
+  );
 
   return (
     <div className="ml-5">

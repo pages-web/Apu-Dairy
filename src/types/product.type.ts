@@ -44,6 +44,11 @@ export interface IProductDetail extends IProduct {
   attachmentMore?: IAttachment[];
   category?: ICategory;
   barcodeDescription?: string;
+  tagIds: string[];
+}
+export interface ITag {
+  _id: string;
+  name: string;
 }
 
 export interface IUseProducts {

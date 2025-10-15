@@ -1,20 +1,40 @@
+// Carousels.tsx
+"use client";
+
 import React from "react";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
 import {
-  CarouselContent,
   Carousel,
+  CarouselContent,
   CarouselItem,
 } from "@/src/components/heading/carousel";
 import Itemcategory from "./item";
 
-const Carousels = ({ posts }: { posts: ICmsPost[] }) => {
+type Props = {
+  posts: ICmsPost[];
+  productInfoPosts: ICmsPost[];
+  listPosts: ICmsPost[];
+  extraPosts: ICmsPost[];
+};
+
+const Carousels = ({
+  posts,
+  productInfoPosts,
+  listPosts,
+  extraPosts,
+}: Props) => {
   return (
-    <div className=" lg:block">
+    <div className="lg:block">
       <Carousel>
         <CarouselContent className="flex">
-          {posts.map((post, index) => (
-            <CarouselItem key={index} className="basis-[100%] shrink-0">
-              <Itemcategory post={post} />
+          {posts.map((post) => (
+            <CarouselItem key={post._id} className="basis-[100%] shrink-0">
+              <Itemcategory
+                post={post}
+                productPosts={productInfoPosts}
+                listPosts={listPosts}
+                extraPosts={extraPosts}
+              />
             </CarouselItem>
           ))}
         </CarouselContent>

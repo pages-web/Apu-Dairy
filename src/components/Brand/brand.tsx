@@ -8,7 +8,7 @@ import { useLocale } from "next-intl";
 export default function Brand() {
   const locale = useLocale();
 
-  const { cmsTags, loading: tagsLoading } = useCmsTags({});
+  const { cmsTags } = useCmsTags({});
   const brandTagId =
     cmsTags?.find((tag: { name: string }) => tag.name === "Brand")?._id || "";
   const { cmsPosts } = useCmsPosts({

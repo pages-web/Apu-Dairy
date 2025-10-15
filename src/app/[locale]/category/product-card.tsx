@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useMemo } from "react";
 import Link from "next/link";
 import Image from "@/src/components/ui/image";
 import { cn } from "@/src/lib/utils/utils";
@@ -9,28 +9,27 @@ import { FastAverageColor } from "fast-average-color";
 
 const ProductCard = ({
   className,
-  ...product
+  attachment,
+  name,
+  _id,
 }: IProduct & { className?: string }) => {
-  const { name, attachment, _id } = product;
   const [bgColor, setBgColor] = useState("white");
   const imgRef = useRef<HTMLImageElement>(null);
 
+  const attachmentUrl = useMemo(() => attachment?.url || "", [attachment?.url]);
+
   useEffect(() => {
-    if (!imgRef.current) return;
+    if (!imgRef.current || !attachmentUrl) return;
 
     const fac = new FastAverageColor();
 
     fac
       .getColorAsync(imgRef.current)
-      .then((color) => {
-        setBgColor(color.hex);
-      })
-      .catch(() => {
-        setBgColor("white");
-      });
+      .then((color) => setBgColor(color.hex))
+      .catch(() => setBgColor("white"));
 
     return () => fac.destroy();
-  }, [attachment]);
+  }, [attachmentUrl]);
 
   return (
     <div
@@ -52,10 +51,10 @@ const ProductCard = ({
         >
           <Image
             ref={imgRef}
-            src={attachment?.url || ""}
+            src={attachmentUrl}
             alt={name}
             fill
-            className="object-contain p-4 transition-transform duration-300 scale-100 group-hover:scale-110"
+            className="object-contain p-4 transition-transform duration-300 scale-100 group-hover:scale-110 cursor-none"
             sizes="(max-width: 768px) 100vw, 220px"
             loading="lazy"
           />

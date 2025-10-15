@@ -13,14 +13,13 @@ export const useCmsPosts = (variables?: any) => {
   const { data, loading, error } = useQuery(queries.cmsPosts, {
     variables: {
       clientPortalId: process.env.NEXT_PUBLIC_CP_ID,
-      perPage: 200,
+      perPage: 15,
       sortField: "created-desc",
       ...variables,
     },
     fetchPolicy: "no-cache",
   });
 
-  // Data structure-д тохируулж авах
   const cmsPostsList: ICmsPost[] = data?.cmsPostList?.posts || [];
 
   return { cmsPosts: cmsPostsList, loading, error };
@@ -30,6 +29,7 @@ export const useCmsCategories = (variables?: OperationVariables) => {
   const { data: cmsCategoriesData, loading } = useQuery(queries.cmsCategories, {
     variables: {
       clientPortalId: process.env.NEXT_PUBLIC_CP_ID,
+      perPage: 15,
       sortField: "created-desc",
       ...variables,
     },
@@ -44,6 +44,7 @@ export const useCmsTags = (variables?: OperationVariables) => {
   const { data: cmsTagsData, loading } = useQuery(queries.cmsTags, {
     variables: {
       clientPortalId: process.env.NEXT_PUBLIC_CP_ID,
+      perPage: 15,
       sortField: "created-desc",
       ...variables,
     },
@@ -70,9 +71,10 @@ export const useCmsPostDetail = (variables?: OperationVariables) => {
 export const useProductTag = (variables?: OperationVariables) => {
   const { data, loading } = useQuery(productQuery.productTag, {
     variables: {
+      parentId: "G0FjO5JlxRwJMBhsmOYUC",
       type: "core:product",
       page: 1,
-      perPage: 20,
+      perPage: 15,
     },
     notifyOnNetworkStatusChange: true,
     fetchPolicy: "no-cache",
@@ -83,7 +85,6 @@ export const useProductTag = (variables?: OperationVariables) => {
     },
   });
 
-  // зөвхөн tags буцаана
   const cmsPosts: IProductFilter[] =
     data?.tags?.map((tag: any) => ({
       id: tag._id,
@@ -107,7 +108,7 @@ export const useCmsPostsByCategory = (
     variables: {
       clientPortalId: process.env.NEXT_PUBLIC_CP_ID,
       ...variables,
-      perPage: 20,
+      perPage: 15,
       categoryIds: categoryId ? [categoryId] : [""],
     },
     notifyOnNetworkStatusChange: true,

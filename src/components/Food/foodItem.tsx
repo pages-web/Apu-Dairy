@@ -1,23 +1,21 @@
 "use client";
 
-import React from "react";
-import { useCmsPosts, useCmsTags } from "@/src/graphql/queries/kb";
+import React, { useEffect } from "react";
+import { useCmsPostsByCategory } from "@/src/graphql/queries/kb";
 import FoodItemCarousel from "./footItemCarousel";
-import { useLocale } from "next-intl";
+import { useParams } from "next/navigation";
 
 export default function FoodItem() {
-  const { cmsTags } = useCmsTags({});
+  const params = useParams();
+  const currentLocale = params.locale as string;
 
-  const foodTagId =
-    cmsTags?.find((tag: { name: string }) => tag.name === "FoogImage")?._id ||
-    "";
-
-  const locale = useLocale();
-
-  const { cmsPosts } = useCmsPosts({
-    tagIds: [foodTagId],
-    language: locale,
+  const { posts: cmsPosts, refetch } = useCmsPostsByCategory("highlight", {
+    language: currentLocale,
   });
+
+  useEffect(() => {
+    refetch();
+  }, [currentLocale]);
 
   return (
     <div className="px-3">

@@ -7,6 +7,7 @@ import { TimerIcon } from "lucide-react";
 import Images from "./image";
 import { useCmsPosts } from "@/src/graphql/queries/kb";
 import ArticleLike from "./articleLike";
+import { useTranslations } from "next-intl";
 
 type Props = {
   postId: string;
@@ -20,16 +21,17 @@ const Detail = (props: Props) => {
     language: "mn",
     perPage: 3,
   });
+  const t = useTranslations("News");
 
   if (loading) {
     return <div>loading</div>;
   }
 
   return (
-    <div className="w-full max-w-screen-xl px-4 md:py-24 py-24 mx-auto">
+    <div className="w-full max-w-screen-xl px-4 mt-5 mx-auto">
       <div className="flex flex-wrap gap-4 items-center mb-4 text-sm">
         <div className="bg-gray-300 w-fit px-3 py-1 text-center rounded-full text-gray-600 text-[13px]">
-          Research
+          {t("Research")}
         </div>
         <span className="text-gray-500 flex items-center gap-1">
           <TimerIcon className="w-4 h-4" /> 3 mins
@@ -47,7 +49,8 @@ const Detail = (props: Props) => {
             quality={100}
             sizes="(max-width: 768px) 100vw, 800px"
             className="object-cover"
-            loading="lazy"
+            unoptimized
+            priority
           />
         </div>
       )}

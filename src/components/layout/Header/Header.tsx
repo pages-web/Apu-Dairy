@@ -13,11 +13,20 @@ export function NavbarTop() {
   const t = useTranslations("navbar");
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchConfig = async () => {
-      const { config } = await getConfig();
-      setLogo(config?.uiOptions?.logo || "");
+      try {
+        const { config } = await getConfig();
+        if (isMounted) setLogo(config?.uiOptions?.logo || "");
+      } catch (error) {
+        console.error("Failed to fetch config:", error);
+      }
     };
     fetchConfig();
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   const navItems = [
@@ -35,7 +44,7 @@ export function NavbarTop() {
           <img
             src={logo || "/images/footer.svg"}
             alt="Logo"
-            className="w-24 h-auto cursor-pointer"
+            className="w-24 h-auto cursor-none"
           />
         </Link>
         <nav className="sm:hidden max-sm:hidden md:flex items-center bg-gray-100 px-4 py-2 rounded-full text-sm font-semibold text-[#232323] gap-2">
@@ -43,7 +52,7 @@ export function NavbarTop() {
             <Link
               key={item.href}
               href={item.href}
-              className="cursor-pointer px-3 py-1 rounded-full hover:bg-white hover:text-[#D64545] transition duration-300"
+              className="cursor-none px-3 py-1 rounded-full hover:bg-white hover:text-[#D64545] transition duration-300"
             >
               {item.label}
             </Link>
@@ -69,7 +78,7 @@ export function NavbarTop() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="cursor-pointer px-3 py-2 rounded-full hover:bg-gray-100 hover:text-[#D64545] transition"
+                className="cursor-none px-3 py-2 rounded-full hover:bg-gray-100 hover:text-[#D64545] transition"
                 onClick={() => setMobileOpen(false)}
               >
                 {item.label}

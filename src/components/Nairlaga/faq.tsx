@@ -32,7 +32,7 @@ const FAQ = ({ cmsPosts }: ItemProps) => {
         {cmsPosts.map((post, index) => (
           <div
             key={post._id}
-            className="border-b border-gray-200 py-3 cursor-pointer"
+            className="border-b border-gray-200 py-3 cursor-none"
           >
             <div
               onClick={() => toggle(index)}

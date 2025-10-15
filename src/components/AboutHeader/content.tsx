@@ -8,9 +8,19 @@ import Secure from "@/src/components/Security/page";
 import Hogjil from "../Hogjil/page";
 import { useTranslations } from "next-intl";
 import Zahiral from "../Zahiral Avatar/page";
+import React, { useMemo } from "react";
+
+const ZamnalMemo = React.memo(Zamnal);
+const AlhamMemo = React.memo(Alham);
+const SecureMemo = React.memo(Secure);
+const HogjilMemo = React.memo(Hogjil);
+const ZahiralMemo = React.memo(Zahiral);
 
 const About = ({ post }: { post: ICmsPost }) => {
   const t = useTranslations("stats");
+
+  const memoContent = useMemo(() => post.content, [post.content]);
+
   return (
     <div className="flex flex-col items-center gap-8">
       <div>
@@ -29,16 +39,16 @@ const About = ({ post }: { post: ICmsPost }) => {
       <div
         className="max-w-5xl text-[#000000] text-center text-base leading-[160%] font-sf-pro-rounded font-normal"
         data-aos="fade-up"
-        dangerouslySetInnerHTML={{ __html: post.content }}
+        dangerouslySetInnerHTML={{ __html: memoContent }}
       />
-      <Zamnal />
-      <Zahiral />
-      <Hogjil />
+      <ZamnalMemo />
+      <ZahiralMemo />
+      <HogjilMemo />
       <h2 className="text-sm mt-10 font-medium leading-normal text-[#ED3237] bg-[rgb(250,203,205)] rounded-full font-sf-pro-rounded w-32 h-7 flex items-center justify-center">
         {t("safety")}
       </h2>
-      <Secure />
-      <Alham />
+      <SecureMemo />
+      <AlhamMemo />
     </div>
   );
 };
