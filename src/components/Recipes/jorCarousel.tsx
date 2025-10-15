@@ -21,7 +21,6 @@ const PostFilterByTitle = ({ posts }: { posts: ICmsPost[] }) => {
       posts.flatMap((post) => post.tags || []).map((tag) => [tag._id, tag])
     ).values()
   );
-
   return (
     <div className="max-w-[1400px] mx-auto h-full min-h-screen">
       <div className="flex flex-col sm:flex-row justify-between items-center mb-2 sm:mb-8">

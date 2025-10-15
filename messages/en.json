@@ -236,5 +236,13 @@
   "Ingrediens": {
     "Ingrediens": "Ingrediens",
     "NutritionalHighlights": " Nutritional Highlights"
+  },
+  "Instructions": {
+    "Title": "Instructions",
+    "Entrance": "Entrance",
+    "Instructions": "Instructions",
+    "timetospend": "Time to spend",
+    "minute": "minute",
+    "Calories": "Calories"
   }
 }

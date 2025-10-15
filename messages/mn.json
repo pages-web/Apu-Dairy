@@ -238,5 +238,13 @@
   "Ingrediens": {
     "Ingrediens": "Найрлага",
     "NutritionalHighlights": " Хоол тэжээлийн онцлох зүйлс"
+  },
+  "Instructions": {
+    "Title": "Заавар",
+    "Entrance": "Орц",
+    "Instructions": "Хийх заавар",
+    "timetospend": "Зарцуулагдах хугацаа",
+    "minute": "минут",
+    "Calories": "Калор"
   }
 }
