@@ -24,8 +24,12 @@ const About = ({ post }: { post: ICmsPost }) => {
                 alt="Cloud image"
                 className="w-32 h-32 object-contain"
               />
-              <p className="mt-2 text-center text-gray-700">
-                CO2 ялгаруулалтыг бууруулсан
+              <h1 className=" font-semibold whitespace-nowrap leading-relaxed">
+                Хүлэмжийн хийн ялгаралын тооллого
+              </h1>
+              <p className="mt-2 text-gray-700 text-sm leading-relaxed">
+                ISO 14064 стандартын дагуу Хүлэмжийн хийн тооллого хийлгэж,
+                баталгаажуулсан ба бууруулах зорилт тавьж ажиллаж байна.
               </p>
             </div>
             <div className="flex flex-col items-center w-32">
@@ -35,8 +39,12 @@ const About = ({ post }: { post: ICmsPost }) => {
                 className="w-32 h-32 object-contain rounded-full"
                 style={{ backgroundColor: "rgba(136, 189, 74, 1)" }}
               />
-              <p className="mt-2 text-center text-gray-700">
-                Усны хэрэглээ бага
+              <h1 className=" font-semibold whitespace-nowrap">
+                Усны зөв зохистой хэрэглээ
+              </h1>
+              <p className="mt-2 text-gray-700 text-sm leading-relaxed">
+                Ногоон ба цэвэр тунгалаг зорилтын хүрээнд усыг хэмнэх, зөв
+                зохистой хэрэглэх, дахин ашиглах хувь хэмжээг нэмэгдүүлж байна.
               </p>
             </div>
           </div>
@@ -54,7 +62,7 @@ const About = ({ post }: { post: ICmsPost }) => {
               />
             )}
           </div>
-          <div className="flex flex-col gap-8 items-center">
+          <div className="flex flex-col gap-8 items-center h-52">
             <div className="flex flex-col items-center w-32">
               <img
                 src="/images/Group 81887.svg"
@@ -62,7 +70,12 @@ const About = ({ post }: { post: ICmsPost }) => {
                 className="w-32 h-32 object-contain rounded-full"
                 style={{ backgroundColor: "rgba(136, 189, 74, 1)" }}
               />
-              <p className="mt-2 text-center text-gray-700">Амьтанд ээлтэй</p>
+              <h1 className=" font-semibold whitespace-nowrap">
+                Мал амьтны тавлаг байдал
+              </h1>
+              <p className="mt-2 text-center text-gray-700">
+                Мал амьтны тавлаг байдлыг хангах
+              </p>
             </div>
             <div className="flex flex-col items-center w-32">
               <img
@@ -71,6 +84,9 @@ const About = ({ post }: { post: ICmsPost }) => {
                 className="w-32 h-32 object-contain rounded-full"
                 style={{ backgroundColor: "rgba(136, 189, 74, 1)" }}
               />
+              <h1 className=" font-semibold whitespace-nowrap">
+                Хүлэмжийн хийн ялгаралын тооллого
+              </h1>
               <p className="mt-2 text-center text-gray-700">
                 Дахин боловсруулсан сав боодол
               </p>
