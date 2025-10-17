@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { ICmsPost } from "@/src/graphql/types/cms.types";
 import Zamnal from "@/src/components/History/page";
 import Alham from "@/src/components/Security/alham";
@@ -9,12 +8,7 @@ import Hogjil from "../Hogjil/page";
 import { useTranslations } from "next-intl";
 import Zahiral from "../Zahiral Avatar/page";
 import React, { useMemo } from "react";
-
-const ZamnalMemo = React.memo(Zamnal);
-const AlhamMemo = React.memo(Alham);
-const SecureMemo = React.memo(Secure);
-const HogjilMemo = React.memo(Hogjil);
-const ZahiralMemo = React.memo(Zahiral);
+import StrategySlider from "../Hogjil/content";
 
 const About = ({ post }: { post: ICmsPost }) => {
   const t = useTranslations("stats");
@@ -41,14 +35,14 @@ const About = ({ post }: { post: ICmsPost }) => {
         data-aos="fade-up"
         dangerouslySetInnerHTML={{ __html: memoContent }}
       />
-      <ZamnalMemo />
-      <ZahiralMemo />
-      <HogjilMemo />
+      <Zamnal />
+      <Zahiral />
+      <Hogjil />
       <h2 className="text-sm mt-10 font-medium leading-normal text-[#ED3237] bg-[rgb(250,203,205)] rounded-full font-sf-pro-rounded w-32 h-7 flex items-center justify-center">
         {t("safety")}
       </h2>
-      <SecureMemo />
-      <AlhamMemo />
+      <Secure />
+      <Alham />
     </div>
   );
 };

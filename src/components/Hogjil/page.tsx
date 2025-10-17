@@ -7,13 +7,13 @@ import HogjilCarousel from "./hogjilCarousel";
 export default function Hogjil() {
   const { cmsTags } = useCmsTags();
 
-  const tagId = cmsTags.find((tag) => tag.name === "Togtwor")?._id;
+  const tagId = "Yf0NhKIt3cFiSO0Tq8Plu";
 
   const { cmsPosts } = useCmsPosts({
     tagIds: [tagId],
     language: "mn",
   });
-
+  console.log("P{OSPKC", cmsPosts);
   return (
     <div>
       <HogjilCarousel posts={cmsPosts} />

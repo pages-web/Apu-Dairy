@@ -22,7 +22,7 @@ const Text = ({ post }: { post: ICmsPost }) => {
         </h1>
         <div className="w-full flex justify-between items-start flex-wrap md:mb-5">
           <div
-            className="w-full text-[#ffffff] font-sf-pro-rounded text-[16px] font-normal leading-[1.4] max-w-2xl md:ml-5"
+            className="w-full text-white font-sf-pro-rounded text-[16px] font-normal leading-[1.4] max-w-2xl md:ml-5"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
           <div className="shrink-0">
