@@ -27,14 +27,14 @@ const BrandItem = ({ cmsPosts }: ItemProps) => {
   }, [cmsPosts, preloadedImages]);
 
   return (
-    <div className="relative w-full min-h-[30rem] mt-5 flex flex-col items-center justify-center overflow-visible">
+    <div className="relative w-full  mt-5 flex flex-col items-center justify-center overflow-visible">
       {hoverImage && (
         <div className="fixed inset-0 -z-10 w-full h-full">
           <Image
             src={`https://apudairy.api.erxes.io/api/read-file?key=${hoverImage}`}
             alt="hover image"
             fill
-            style={{ objectFit: "cover" }}
+            style={{ objectFit: "fill" }}
             className="transition-opacity duration-150 ease-in-out brightness-75"
           />
         </div>
