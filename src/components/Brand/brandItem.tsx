@@ -34,7 +34,7 @@ const BrandItem = ({ cmsPosts }: ItemProps) => {
             src={`https://apudairy.api.erxes.io/api/read-file?key=${hoverImage}`}
             alt="hover image"
             fill
-            style={{ objectFit: "fill" }}
+            style={{ objectFit: "cover" }}
             className="transition-opacity duration-150 ease-in-out brightness-75"
           />
         </div>
